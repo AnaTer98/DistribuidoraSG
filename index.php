@@ -1,1 +1,3 @@
-php ¿> :v
+<?php
+echo 'Vamo a trabajar';
+?>
