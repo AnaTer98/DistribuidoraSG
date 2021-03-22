@@ -1,0 +1,11 @@
+------------ Modelo
+
+Se encarga de los datos, son las clases donde se realizan consultas (BD)
+
+----------- Controlador
+
+Recibe las órdenes del usuario y se encarga de solicitar los datos al modelo y de comunicárselos a la vista.
+
+------------ Vistas
+
+Son la representación visual de los datos. 
