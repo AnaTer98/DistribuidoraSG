@@ -9,6 +9,11 @@ include("./Vistas/components/header.php");
 include("./Vistas/components/navegador.html");
 ?>
 
+<!--Carrusel-->
+<div class=" bg-primary  mx-auto" style="width:95%;margin-top: -2em;background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
+    <img src="./Vistas/images/01.png" class="img-fluid mx-auto d-block" alt="...">
+</div>
+<!--Contenido-->
 <div class="container">
     <div class="row row-cols-3">
         <div class="col-3 border border-info"> 
