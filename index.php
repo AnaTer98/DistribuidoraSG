@@ -1,4 +1,4 @@
 <?php
-include './Vistas/index.html';
+include './Vistas/index.php';
 
 ?>
