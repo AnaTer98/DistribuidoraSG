@@ -10,7 +10,7 @@ include("./Vistas/components/navegador.html");
 ?>
 
 <!--Carrusel-->
-<div class=" bg-primary  mx-auto" style="width:80%;padding-bottom: 1em;padding-top: 1em;   margin-top: -2em;background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
+<div class=" bg-primary  mx-auto rounded shadow p-3" style="width:90%;padding-bottom: 1em;padding-top: 1em;   margin-top: -2em;background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
     <img src="./Vistas/images/01.png" class="img-fluid mx-auto d-block" alt="Prueba jajaj!">
 </div>
 <!--Contenido-->
