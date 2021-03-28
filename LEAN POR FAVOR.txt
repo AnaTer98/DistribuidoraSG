@@ -9,3 +9,10 @@ Recibe las órdenes del usuario y se encarga de solicitar los datos al modelo y 
 ------------ Vistas
 
 Son la representación visual de los datos. 
+
+
+------------Dependencias de las herramientas 
+https://datatables.net/
+https://mycolor.space/
+https://colorhunt.co/
+https://codeseven.github.io/toastr/
