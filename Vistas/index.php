@@ -3,8 +3,6 @@ include("./Vistas/components/header.php");
 
 ?>
 
-
-
 <?php
 include("./Vistas/components/navegador.html");
 ?>
@@ -26,7 +24,24 @@ include("./Vistas/components/navegador.html");
     </div>
 
 </div>
+<h1>Prueba de conexion a la base de datos ::</h1>
+<?php
+    include('./database.php');
+        $objeto = new Database();
+        $enlace = $objeto->conexion();
 
+        $consulta = "SELECT * FROM task";
+        $resultado = $enlace->prepare($consulta);
+        $resultado->execute();
+        $datos = $resultado->fetchAll();
+
+        var_dump($datos);
+        foreach($datos as $dat){
+            echo $dat['title']."<br>";
+        }
+
+        
+?>
 
 
 <?php
