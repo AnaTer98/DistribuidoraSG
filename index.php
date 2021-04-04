@@ -1,6 +1,6 @@
 <?php
 
 
-include('./Vistas/index.php');
+include('views/index.php');
 
 ?>
