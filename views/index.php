@@ -3,6 +3,7 @@ include("./views/components/header.html");
 
 ?>
 
+<!--Carrusel-->
 <?php
 include("./views/components/navegador.html");
 
@@ -10,12 +11,9 @@ include("./views/components/navegador.html");
 include('./views/components/carrusel.html');
 ?>
 
-<!--Carrusel-->
 
 
-<div class=" bg-primary  mx-auto rounded shadow p-3" style="width:90%;padding-bottom: 1em;padding-top: 1em;   margin-top: -2em;background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);">
-    <img src="./views/images/3.jpg" class="img-fluid mx-auto d-block" alt="Prueba jajaj!">
-</div>
+
 <!--Contenido-->
 <div class="container">
     <div class="row row-cols-3">
