@@ -1,7 +1,7 @@
 body {
-  background-image: linear-gradient(to bottom, #3b5f96, #2b60ad, #1561c4, #0060da, #005dee);
+  background-image: linear-gradient(to bottom, #963b7e, #8e2488, #7e0797, #6200a8, #1900bc);
 }
-
+/*
 *{
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@ body{
   justify-content: center;
   align-items: center;
   background: #1D212B;
-}
+}*/
 
 .img-slider{
   position: relative;
