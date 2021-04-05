@@ -15,9 +15,9 @@ include('./views/components/carrusel.html');
 
 
 <!--Contenido-->
-<div class="container">
-    <div class="row row-cols-3">
-        <div class="col-3 border border-info"> 
+<div class="container bg-light">
+    <div class="row row-cols-3 bg-light text-warning">
+        <div class="col-3 border"> 
             <h3>Information</h3>
         </div>
         <div class="col-6"><
