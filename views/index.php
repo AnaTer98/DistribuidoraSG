@@ -1,20 +1,21 @@
 <?php
 include("./views/components/header.html");
 
-?>
 
-<!--Carrusel-->
-<?php
+
+//<!--Carrusel-->
+
 include("./views/components/navegador.html");
 
 
 include('./views/components/carrusel.html');
+
+
+
+
 ?>
 
-
-
-
-<!--Contenido-->
+//<!--Contenido-->
 <div class="container bg-light">
     <div class="row row-cols-3 bg-light text-warning">
         <div class="col-3 border"> 
@@ -29,6 +30,9 @@ include('./views/components/carrusel.html');
 </div>
 <h1>Prueba de conexion a la base de datos ::</h1>
 <?php
+  include("./views/components/footer.html");
+
+  
     include('./database.php');
         $objeto = new Database();
         $enlace = $objeto->conexion();
@@ -44,9 +48,7 @@ include('./views/components/carrusel.html');
         }
 
         
-?>
 
-
-<?php
-    include("./views/components/footer.php");
+  
+   
 ?>
