@@ -15,20 +15,27 @@ include('./views/components/carrusel.html');
 
 ?>
 
-//<!--Contenido-->
-<div class="container bg-light">
-    <div class="row row-cols-3 bg-light text-warning">
-        <div class="col-3 border"> 
-            <h3>Information</h3>
-        </div>
-        <div class="col-6"><
-                 
-        </div>
-        <div class="col-3"><h1>Derecha</h1></div>
+<!--Contenido-->
+<div class=" container bg-light" id="contenido-bajo">
+    <div class="row " >
+    <div class="col-12">
+        <h1>Contenido::</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+    </div>
     </div>
 
 </div>
-<h1>Prueba de conexion a la base de datos ::</h1>
+
 <?php
   include("./views/components/footer.html");
 
