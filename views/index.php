@@ -10,7 +10,11 @@ include('./views/components/carrusel.html');
 
 
 ?>
-
+<?php
+if(isset( $_SESSION['Usuario'])){
+?>
+<h1> <?=  $_SESSION['Usuario'];?> </h1>
+<?php } ?>
 <div class="d-flex" id="wrapper">
 
 <!-- Sidebar -->
