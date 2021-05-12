@@ -23,7 +23,7 @@ if(isset($_POST['registro'])){
 
    
     try{
-    $resultado =$funcionEnlace->prepare($consulta)->execute();
+    $resultado =$funcionEnlace->prepare($consulta)->execute();//Aqui tenia el error
   
   
     $_SESSION['Usuario']='$nombre';
