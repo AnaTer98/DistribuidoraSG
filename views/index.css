@@ -1,6 +1,9 @@
 body {
   background-image: linear-gradient(to bottom, #1877f2, #1b70e3, #1e6ad5, #2063c7, #215db9);
+  background-repeat: no-repeat;
 }
+
+
 #carrusel{
 margin-top: 1rem;
 margin-bottom: 1rem;
