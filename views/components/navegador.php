@@ -1,3 +1,4 @@
+<?php session_start();   ?>
 <nav class="navbar navbar-expand-lg navbar-light shadow p-3 mb-5 bg-white rounded">
     <a class="navbar-brand" href="#">
       <img src="views/images/logo.png" id="logo-nav" class="d-inline-block" width="110" height="35" alt="">
@@ -50,12 +51,30 @@
 
 
       </ul>
-
-        <a href="./views/logins/view-login.php">
+<!--Ingresar nuevo usuario-->
+        <a href="./views/logins/view-new-login.php">
           <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
             <i class="bi bi-person-badge"></i>
-            Registrate
+
+            <?php
+            
+            if(isset( $_SESSION['Usuario'])){
+            ?>
+            <?=  $_SESSION['Usuario'];?> 
+
+            <?php }else{echo 'Registrate';} ?>
+            
           </button>
         </a>
+
+<!--Ingresar usuario registrado-->
+<a href="./views/logins/ingresar-user.php">
+          <button class="btn btn-outline-secondary ml-1 my-2 my-sm-0" type="submit">
+          <i class="bi bi-arrow-bar-right"></i>
+
+          Ingresar
+          </button>
+        </a>
+
     </div>
   </nav>
