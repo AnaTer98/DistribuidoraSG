@@ -68,7 +68,7 @@
         </a>
 
 <!--Ingresar usuario registrado-->
-<a href="./views/logins/ingresar-user.php">
+<a href="./views/logins/view-ingresar-user.php">
           <button class="btn btn-outline-secondary ml-1 my-2 my-sm-0" type="submit">
           <i class="bi bi-arrow-bar-right"></i>
 
