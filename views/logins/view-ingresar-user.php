@@ -21,7 +21,7 @@ include('../components/header.html');
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
-      <a href="">¿No te has registrado?</a>
+      <a href="view-new-login.php">¿No te has registrado?</a>
       <br>
            <button type="submit" name="ingresar" class="btn btn-primary">Entrar</button>
     </form> 
