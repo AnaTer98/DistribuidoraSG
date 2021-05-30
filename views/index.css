@@ -2,7 +2,15 @@ body {
   background-image: linear-gradient(to bottom, #1877f2, #1b70e3, #1e6ad5, #2063c7, #215db9);
   background-repeat: no-repeat;
 }
+#form-ingresar {
+margin-top: 2rem;
 
+
+}
+#card-ingresar-user{
+padding-top: 100rem;
+margin-top: 100rem;
+}
 
 #carrusel{
 margin-top: 1rem;
