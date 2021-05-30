@@ -1,11 +1,11 @@
 <?php
 
+session_start();
 
 include_once '../Modelado/database.php';
 $baseConec = new Database();
 $funcionEnlace = $baseConec->conexion();
 
-session_start();
 
 if(isset($_POST['registro'])){
     $nombre = $_POST['nombreUser'];
@@ -26,7 +26,7 @@ if(isset($_POST['registro'])){
     $resultado =$funcionEnlace->prepare($consulta)->execute();//Aqui tenia el error
   
   
-    $_SESSION['Usuario']='$nombre';
+    $_SESSION['Usuario']=$nombre;
     header('Location: ../index.php');
 
 
