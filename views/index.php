@@ -1,4 +1,5 @@
 <?php
+
 include("./views/components/header.html");
 
 
@@ -10,11 +11,8 @@ include('./views/components/carrusel.html');
 
 
 ?>
-<?php
-if(isset( $_SESSION['Usuario'])){
-?>
-<h1> <?=  $_SESSION['Usuario'];?> </h1>
-<?php } ?>
+
+
 <div class="d-flex" id="wrapper">
 
 <!-- Sidebar -->
@@ -34,7 +32,7 @@ if(isset( $_SESSION['Usuario'])){
 <!-- Page Content -->
 <div id="page-content-wrapper"class="bg-light">
 <!--Aqui importar el navegador -->
-  <?php include('views/components/navegador.html');?>
+  <?php include('views/components/navegador.php');?>
   <!--El botton para mostrar el menu lateral-->
 
   <button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>
