@@ -4,7 +4,7 @@
    
   ?>
 
-<div class="container row-col-12 bg-light" style="height: 50rem;" id="form-registro">
+<div class="container row-col-12 bg-light" style="height: 55rem;" id="form-registro">
   <div class="pt-4">
 <div class="card text-white border border-success mx-auto " id="card-inresar-user" style="max-width: 30rem;">
   <div class="card-header bg-success">Registro</div>
@@ -51,6 +51,12 @@
     </form> 
   </div>
 </div>
+<br>
+<a href="index.php">
+          <button class="glyphicon glyphicon-chevron-left ml-1 my-2 my-sm-0" type="submit">
+            Inicio
+          </button>
+        </a>
 </div>
 </div>
 
