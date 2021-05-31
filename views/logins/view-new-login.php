@@ -45,18 +45,29 @@
         <label for="exampleInputEmail1">Ingresa nuevamente contraseña</label>
         <input type="password" class="form-control" id="exampleInputPassword2">
       </div>
-      
-      <br>
-           <button type="submit" name="registro" class="btn btn-primary">Envíar</button>
+      <!--Ir hacia atras al inicio-->
+      <a href="index.php">
+          <button class="btn btn-outline-danger ml-1 my-2 my-sm-0" type="submit">
+          <i class="bi bi-chevron-left"></i>
+
+         Inicio
+          </button>
+        </a>
+
+
+
+      <a href="./views/logins/view-ingresar-user.php">
+          <button class="btn btn-outline-primary ml-1 my-2 my-sm-0 float-right" type="submit">
+          <i class="bi bi-arrow-up-square"></i>
+
+          Enviar
+          </button>
+        </a>
     </form> 
   </div>
 </div>
 <br>
-<a href="index.php">
-          <button class="glyphicon glyphicon-chevron-left ml-1 my-2 my-sm-0" type="submit">
-            Inicio
-          </button>
-        </a>
+
 </div>
 </div>
 
