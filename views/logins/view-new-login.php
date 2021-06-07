@@ -9,60 +9,59 @@
 <div class="card text-white border border-success mx-auto " id="card-inresar-user" style="max-width: 30rem;">
   <div class="card-header bg-success">Registro</div>
   <div class="card-body text-dark">
-    <form id="form-registro-user" class="login-form validate-form">
+
+    <form method="POST" action="../../libs/registrar-user.php" name="registro"class="login-form validate-form">
     
     <div class="form-group">
         <label for="exampleInputEmail1">Nombre</label>
-        <input type="nombre" class="form-control" id="exampleInputNombre1">
+        <input type="text" class="form-control" name="nombreUser" id="exampleInputNombre1" required>
       </div>
 
-      <div class="form-group">
-        <label for="exampleInputEmail1">Empresa</label>
-        <input type="empresa" class="form-control" id="exampleInputEmpresa1">
-      </div>
+      
 
       <div class="form-group">
         <label for="exampleInputEmail1">Número Teléfonico</label>
-        <input type="tel" class="form-control" id="exampleInputPhone1">
+        <input type="number" name="numeroTel" class="form-control" id="exampleInputPhone1" required>
       </div>
 
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="exampleInputEmail1">Correo</label>
+        <input type="email" name="correoUser" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
       </div>
       
       <div class="form-group">
-        <label for="exampleInputEmail1">Ususario</label>
-        <input type="usuario" class="form-control" id="exampleInputUsuario1">
+        <label for="exampleInputEmail1">Confirma correo</label>
+        <input type="email" class="form-control" name="correoUserConfirm" id="exampleInputUsuario1" required>
       </div>
 
       <div class="form-group">
         <label for="exampleInputPassword1">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" name="passUser" class="form-control" id="exampleInputPassword1" required>
       </div>
       
       <div class="form-group">
-        <label for="exampleInputEmail1">Ingresa nuevamente contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword2">
+        <label for="exampleInputEmail1">Confirma Contraseña</label>
+        <input type="password" name="passUserConfirm" class="form-control" id="exampleInputPassword2" required>
       </div>
       <!--Ir hacia atras al inicio-->
-      <a href="index.php">
-          <button class="btn btn-outline-danger ml-1 my-2 my-sm-0" type="submit">
+    
+          <button class="btn btn-outline-danger ml-1 my-2 my-sm-0" type="submit" name="registro">
           <i class="bi bi-chevron-left"></i>
 
          Inicio
+         <?php header('Location: ../index.php');?>
           </button>
-        </a>
+        
 
 
-
-      <a href="./views/logins/view-ingresar-user.php">
-          <button class="btn btn-outline-primary ml-1 my-2 my-sm-0 float-right" type="submit">
+   
+          <button name="registro"  class="btn btn-outline-primary ml-1 my-2 my-sm-0 float-right" type="submit">
           <i class="bi bi-arrow-up-square"></i>
-
-          Enviar
+          Registrarme
           </button>
-        </a>
+    
+
+        
     </form> 
   </div>
 </div>
