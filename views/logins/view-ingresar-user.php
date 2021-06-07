@@ -13,15 +13,15 @@ include('../components/header.html');
   <div class="card-body text-dark">
     <form id="form-ingresar-user" class="login-form validate-form">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1">Correo Electronico</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         <small id="emailHelp" class="form-text text-muted">Ingresa un correo ya registrado(somos una empresa seria no compartiremos tu información) </small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1">Contraseña</label>
         <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
-      <a href="view-new-login.php">¿No te has registrado?</a>
+      <a href="./view-new-login.php">¿No te has registrado?</a>
       <br>
            <button type="submit" name="ingresar" class="btn btn-primary">Entrar</button>
     </form> 
