@@ -60,12 +60,19 @@
             
             if(isset( $_SESSION['Usuario'])){
             ?>
-            <?=  $_SESSION['Usuario'];?> 
+            <?=   $_SESSION['Usuario'];?> 
 
             <?php }else{echo 'Registrate';} ?>
             
           </button>
         </a>
+        <?php
+          if(isset($_SESSION['Usuario'])){
+          
+
+          }
+        ?>
+        
 
 <!--Ingresar usuario registrado-->
 <a href="./views/logins/view-ingresar-user.php">
