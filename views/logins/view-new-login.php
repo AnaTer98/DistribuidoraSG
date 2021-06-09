@@ -49,7 +49,7 @@
           <i class="bi bi-chevron-left"></i>
 
          Inicio
-         <?php header('Location: ../index.php');?>
+       
           </button>
         
 
