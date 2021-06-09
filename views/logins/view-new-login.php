@@ -1,7 +1,8 @@
-<?php
-  include('../components/header.html');
-      
-?>
+
+  <?php
+    include('../components/header.html');
+   
+  ?>
 
 <div class="container row-col-12 bg-light" style="height: 55rem;" id="form-registro">
   <div class="pt-4">
