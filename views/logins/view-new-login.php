@@ -35,7 +35,7 @@
       </div>
 
       <div class="form-group">
-        <label for="exampleInputPassword1">Contraseña</label>
+         <label for="exampleInputPassword1">Contraseña</label>
         <input type="password" name="passUser" class="form-control" id="exampleInputPassword1" required>
       </div>
       
@@ -80,12 +80,7 @@
 
  
 </script>
-<script>
-const nombre = document.getElementById('inputNombre');
-const correo = document.getElementById('inputCorreo');
-const pass = document.getElementById('inputContrasena');
 
-</script>
 
 
 <?php
