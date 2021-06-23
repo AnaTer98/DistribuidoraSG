@@ -8,12 +8,30 @@ $funcionEnlace = $baseConec->conexion();
 
 if(isset($_POST['registro'])){
     $nombre = $_POST['nombreUser'];
-    $correo = $_POST['correoUser'];
-    $contrasena = $_POST['passUser'];
     $numero = $_POST['numeroTel'];
+
+    $correo = $_POST['correoUser'];
+    $confCorreo = $_POST['correoUserConfirm'];
+
+    $contrasena = $_POST['passUser'];
+    $confirmPass = $_POST['passUserConfirm'];
+
+    
+if($correo != $confCorreo){
+    echo "Los corre no coincide ";
+}else{
+$queryConsulta = "SELECT correo FROM usuarios where correo='$correo'";
+$res = $funcionEnlace->prepare($queryConsulta);
+$res->execute();
+
+//header('Location: ../views/logins/view-ingresar-user.php');
+
+}
     $pass = md5($contrasena);
     $tipo = "normal";
    
+
+
    // echo 'Aqui estoy'.$nombre.$correo.$contrasena.$numero.$tipo;
    
     $consulta = "INSERT INTO usuarios(nombre,correo,password,tipoUser)VALUES('$nombre','$correo','$pass','$tipo');";
@@ -26,7 +44,7 @@ if(isset($_POST['registro'])){
     $resultado = $funcionEnlace->prepare($consulta)->execute();//Aqui tenia el error
   
   
-    $_SESSION['Usuario']=$nombre;
+    //$_SESSION['Usuario']=$nombre;
     header('Location: ../index.php');
 
 
