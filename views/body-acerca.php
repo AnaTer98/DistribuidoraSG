@@ -4,42 +4,77 @@
     include('./components/navegador.php'); 
   ?>
 
+<div class="container">
+ 
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">¿Quienes somos?</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Vision</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://dummyimage.com/600x400/000/fff" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Mision</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+  
+  
+</div>
+<!--Esto es para modificar -->
+<div class="container">
+  <div class="row">
+    <div class="col-4"><br></div>
+    <div class="col-4"><br></div>
+    <div class="col-4"><br></div>
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+  <?php
+    include('./components/footer.html');
+  ?>
   <script>
         const logo=document.getElementById('logo-nav');
         logo.setAttribute('src','./images/logo.png');
         const stylesCss = document.getElementById('stylesCSS');
         stylesCss.setAttribute('href','./index.css');
+
+        $(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+console.log("document is ready");
+  
+
+  $( ".card" ).hover(
+  function() {
+    $(this).addClass('shadow-lg p-1').css('cursor', 'pointer'); 
+  }, function() {
+    $(this).removeClass('shadow-lg p-1');
+  }
+);
+  
+// document ready  
+});
   </script>
-
-
-
-<div class="panel-primary hover-shadow" style:"border: 20px">
-  <div
-    class="mask"
-    style="
-      background-image: linear-gradient(110deg, #c6ebff 0, #72afdd 50%, #0076b3 100%);"
-  >
-  <div class="content-box">
-         ¿QUIENES SOMOS?<br><br>
-        </div>
-        <div class="content-box">
-
-          Somos una distribuidora que trabaja bajo un sistema de gestión de compras y ventas para clientes mayoristas 
-          de la zona Metropolitana, que mediante la difusión en redes sociales y nuestra página de oficial de internet 
-          damos a conocer productos y servicios en el ramo de las comunicaciones y tecnología. Fijando su flujo de trabajo 
-          y distribución en el ámbito virtual y digital.<br><br>
-
-          Nos encontramos ubicados en C. Xicoténcatl #6 A Col. Reynosa Tamaulipas, Azcapotzalco, Ciudad de México.
-          *HIDALGO (Tulancingo) – 3ª cerrada del tezontle casa 12 fraccionamiento Vista Real 
-          Donde realizamos la gestión de pedidos, almacenamiento, logística y cuestiones administrativas de recursos materiales 
-          y humanos, esto con el fin de brindar seguridad y confianza ante los clientes, socios y la gente que se encuentre 
-          trabajando con nosotros, garantizando así la calidad que caracteriza de manera significativa a distribuidora SG ante 
-          un número importante de proveedores de la zona Metropolitana y sus alrededores.
-
-        </div>
-  </div>
-  </div>
-  <br><br>
-  <?php
-    include('./components/footer.html');
-  ?>
+  
