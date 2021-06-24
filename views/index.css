@@ -1,7 +1,6 @@
 body {
-  /*background-image: linear-gradient(to bottom, #1877f2, #1b70e3, #1e6ad5, #2063c7, #215db9);*/
-  background: #ffff;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, #1877f2, #1b70e3, #1e6ad5, #2063c7, #215db9);
+    background-repeat: no-repeat;
 }
 #form-ingresar {
 margin-top: 2rem;
