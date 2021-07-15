@@ -18,16 +18,12 @@ class RegistrarUser{
 
 
 
-
+/*
     function __construct(string $nombre){
-       $this.nombre = $_POST['nombreUser'];
-       $this.numero = $_POST['numeroTel'];
-       $this.correo = $_POST['correcorreoUser'];
-       $this.confCorreo= $_POST['correoUserConfirm'];
-       $this.constrasena= $_POST['passUser'];
-       $this.confirmPass= $_POST['passUserConfirm'];
+  
+   
     }
-    
+    */
     function registrar(){
 
 
