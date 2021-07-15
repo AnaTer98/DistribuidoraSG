@@ -3,6 +3,7 @@ include("../components/header.html");
 include("../components/navegador.php")
 ?>
 
+<<<<<<< HEAD
 
 <div class="card mx-auto "style="max-width: 20rem;">
 <form>
@@ -22,6 +23,29 @@ include("../components/navegador.php")
 
 </div>
 
+=======
+<div class="mx-auto" style="height: 55rem;" id="form-registro">
+    <div class="card text-black border border-success mx-auto " id="card-inresar-user" style="max-width: 80rem;">
+     
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre de la vacante</label>
+                <input type="" class="form-control" id="nombrevacante">
+            </div>
+            <div class="form-group">
+                <label for="descrip">Description</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="requeri">Requeriments</label>
+                <textarea class="form-control" id="requeriments" rows="3"></textarea>
+            </div>
+        </form>
+
+
+     </div>
+</div>
+>>>>>>> 92aa389cac1261f200ea5f27209c9854206049f5
 
 <!--Otro-->
 <div class="row col-10 mx-auto bg-light">
