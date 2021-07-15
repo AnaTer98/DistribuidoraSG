@@ -6,15 +6,49 @@ include_once '../Modelado/database.php';
 $baseConec = new Database();
 $funcionEnlace = $baseConec->conexion();
 
+class RegistrarUser{
+    public $nombre ;
+    public $numero ;
+
+    public $correo ;
+    public $confCorreo ;
+
+    public $contrasena ;
+    public $confirmPass ;
+
+
+
+
+    function __construct(string $nombre){
+       $this.nombre = $_POST['nombreUser'];
+       $this.numero = $_POST['numeroTel'];
+       $this.correo = $_POST['correcorreoUser'];
+       $this.confCorreo= $_POST['correoUserConfirm'];
+       $this.constrasena= $_POST['passUser'];
+       $this.confirmPass= $_POST['passUserConfirm'];
+    }
+    
+    function registrar(){
+
+
+
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 if(isset($_POST['registro'])){
-    $nombre = $_POST['nombreUser'];
-    $numero = $_POST['numeroTel'];
-
-    $correo = $_POST['correoUser'];
-    $confCorreo = $_POST['correoUserConfirm'];
-
-    $contrasena = $_POST['passUser'];
-    $confirmPass = $_POST['passUserConfirm'];
 
     
 if($correo != $confCorreo){
@@ -44,7 +78,7 @@ $res->execute();
     $resultado = $funcionEnlace->prepare($consulta)->execute();//Aqui tenia el error
   
   
-    //$_SESSION['Usuario']=$nombre;
+    $_SESSION['Usuario']=$nombre;
     header('Location: ../index.php');
 
 
