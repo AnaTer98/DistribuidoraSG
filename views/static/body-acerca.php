@@ -29,8 +29,9 @@ include('../components/navegador.php');
       <div class="card p-1">
         <img class="card-img-top" src="../images/vision.jpeg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Vision</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">VISIÓN</h5>
+          <p class="card-text">VISIÓN
+SER UNA EMPRESA LÍDER EN LA COMERCIALIZACIÓN Y DISTRIBUCIÓN DE NUESTROS PRODUCTOS Y SERVICIOS EN TELEFONÍA MÓVIL, DESTACANDO POR NUESTRO SERVICIO ANTE LAS NECESIDADES DE NUESTROS CLIENTES, SOCIOS Y CAPITAL HUMANO, BUSCANDO LA OBTENCIÓN DE UNA EXPANSIÓN EN MERCADO NACIONAL EN SENTIDO TECNOLÓGICO Y DE INNOVACIÓN.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
@@ -40,8 +41,10 @@ include('../components/navegador.php');
       <div class="card p-1">
         <img class="card-img-top" src="../images/mision.jpg "alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Mision</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <h5 class="card-title">MISION</h5>
+          <p class="card-text">
+SOMOS UNA EMPRESA COMERCIALIZADORA Y DISTRIBUIDORA DE PRODUCTOS Y SERVICIOS EN EL ÁREA DE TELEFONÍA MÓVIL. 
+CONFIABLE, EFICIENTE Y ORIENTADA A SATISFACER LAS NECESIDADES Y ASPIRACIONES DE NUESTROS CLIENTES Y SOCIOS.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
@@ -92,7 +95,7 @@ include('../components/footer.html');
   /*  const logo=document.getElementById('logo-nav');
         logo.setAttribute('src','./images/logo.png');*/
   const stylesCss = document.getElementById('stylesCSS');
-  stylesCss.setAttribute('href', '../index.css');
+ stylesCss.setAttribute('href', '../index.css');
 
   $("#logo-nav").attr("src", "../images/logo.png");
 
