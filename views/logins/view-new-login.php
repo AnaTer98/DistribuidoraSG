@@ -43,15 +43,15 @@ include('../components/header.html');
             <input type="password" name="passUserConfirm" class="form-control" id="exampleInputPassword2" required>
           </div>
           <!--Ir hacia atras al inicio-->
-
-          <button class="btn btn-outline-danger ml-1 my-2 my-sm-0" type="submit" name="registro">
+            <a href="../../index.php">
+          <button class="btn btn-outline-danger ml-1 my-2 my-sm-0" type="button" name="registro">
             <i class="bi bi-chevron-left"></i>
             Inicio
           </button>
+            </a>
 
 
-
-
+          <a href="../../libs/registrar-user.php">
           <button name="registro" class="btn btn-outline-primary ml-1 my-2 my-sm-0 float-right" type="submit">
             <i class="bi bi-arrow-up-square"></i>
             Registrarme

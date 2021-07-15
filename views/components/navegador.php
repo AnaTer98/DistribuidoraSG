@@ -41,7 +41,7 @@
               Empleados
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">¿Quienes somos?</a>
+              <a class="dropdown-item" href="views/static/body-acerca.php">¿Quienes somos?</a>
               <a class="dropdown-item" href="#">Vacantes</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Ingresa tu C.V. </a>
