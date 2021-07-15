@@ -36,10 +36,15 @@ include('./views/components/carrusel.html');
   <!--El botton para mostrar el menu lateral-->
   <button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>
 
-  <div class="card mb-3" style="max-width: 540px;">
+
+
+  <div class="container-fluid ">
+    <h1 class="mt-4">Publicaciones</h1>
+    
+    <div class="card mb-3" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="..." alt="...">
+      <img class="img-fluid" src="views/images/logos.jpg" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -51,9 +56,6 @@ include('./views/components/carrusel.html');
   </div>
 </div>     
 
-
-  <div class="container-fluid ">
-    <h1 class="mt-4">Publicaciones</h1>
   
   </div>
 </div>
