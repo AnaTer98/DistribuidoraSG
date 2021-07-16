@@ -3,8 +3,8 @@ include("../components/header.html");
 include("../components/navegador.php")
 ?>
 
-<div class="row col-10 mx-auto bg-light">
-<form class="mx-auto p-4 col-11">
+<div class="row col-10 mx-auto rounded bg-light">
+<form class="mx-auto p-4 col-11 ">
   <div class="form-group">
     <label for="exampleFormControlInput1">Nombre de la vacante</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Vendedor">
