@@ -1,18 +1,7 @@
 <?php
-
-class enlaces{
-
-
-function loginNewUser():string{return "localHost";}
-
-
-
-
-
-
-
-
-}
+    define("METODO_PRINCIPAL","index");
+    define("CONTROLADOR_PRINCIPAL","User");
+?>
 
 
 
