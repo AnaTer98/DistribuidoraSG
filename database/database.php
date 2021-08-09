@@ -7,17 +7,14 @@ class Database{
  private $user;
  private $password;
  private $dbName;
-
+ private $value;
      public function __construct(){
-        $this->host = 'localhost';
-        $this->user = 'root';
-        $this->password ='';
-        $this->dbName = 'Distribuidora';
+        $this->value = $this->datos();
+        $this->hostName = $this->value->{'host'};                  
+        $this->dbname = $this->value->{'dbname'};        
+        $this->user = $this->value->{'user'};        
+        $this->pass = $this->value->{'password'};      
 
-
-    }
-
-    function conexion(){
         try {
             $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false];
             $conn = new PDO("mysql:host=" . $this->host. ";dbname=" . $this->dbName,$this->user, $this->password,$options);
@@ -27,7 +24,18 @@ class Database{
         
         } catch (PDOException $error) {
             die("El error es :" . $error->getMessage());
-        }
+        }          
+       
+    }
+
+  
+    function datos(){
+        $ruta = dirname(__FILE__).'../config/configDb.json';
+        $conf = file_get_contents($ruta);
+
+        return json_decode($conf,false);
+
+        
     }
 }
 ?>

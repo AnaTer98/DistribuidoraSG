@@ -1,3 +1,10 @@
 {
-    
+    "host":"localhost",
+    "dbname":"distribuidora",
+    "user":"root",
+    "password":""
+
+
+
+
 }
