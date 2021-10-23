@@ -25,7 +25,7 @@ class Database{
         } catch (PDOException $error) {
             die("El error es :" . $error->getMessage());
         }          
-       
+        
     }
 
   
@@ -33,7 +33,7 @@ class Database{
         $ruta = dirname(__FILE__).'../config/configDb.json';
         $conf = file_get_contents($ruta);
 
-        return json_decode($conf,false);
+        return json_decode($conf);
 
         
     }

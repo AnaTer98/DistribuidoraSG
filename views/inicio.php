@@ -1,17 +1,21 @@
 <?php
 
-include("./views/components/header.html");
+include_once("./views/components/header.html");
 
 
 
 //<!--Carrusel-->
-include('./views/components/carrusel.html');
+include_once('./views/components/carrusel.html');
 
 
 
 
 ?>
-
+<div class="card mb-4 py-3 border-bottom-success">
+                                <div class="card-body">
+                                    .border-bottom-success
+                                </div>
+                            </div>
 
 <div class="d-flex" id="wrapper">
 
@@ -32,7 +36,7 @@ include('./views/components/carrusel.html');
   <!-- Page Content -->
   <div id="page-content-wrapper" class="bg-light">
     <!--Aqui importar el navegador -->
-    <?php include('views/components/navegador.php'); ?>
+    <?php include_once('views/components/navegador.php'); ?>
     <!--El botton para mostrar el menu lateral-->
     <!--<button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>-->
 
@@ -43,7 +47,7 @@ include('./views/components/carrusel.html');
     <div class="mx-auto">
 
       <div class="col-12">
-        <div class="card  mb-3" style="">
+        <div class="card  mb-3" >
 
           <div class="row no-gutters">
             <div class="col-md-4">
@@ -69,7 +73,7 @@ include('./views/components/carrusel.html');
 
 </div>
 <?php
-include('./views/components/footer.html');
+include_once('./views/components/footer.html');
 ?>
 <script>
   $("#menu-toggle").click(function(e) {
