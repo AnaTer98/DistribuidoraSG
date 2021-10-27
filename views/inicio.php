@@ -11,11 +11,7 @@ include_once('./views/components/carrusel.html');
 
 
 ?>
-<div class="card mb-4 py-3 border-bottom-success">
-                                <div class="card-body">
-                                    .border-bottom-success
-                                </div>
-                            </div>
+
 
 <div class="d-flex" id="wrapper">
 
