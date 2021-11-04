@@ -1,6 +1,6 @@
 <?php
 
-include('../components/header.html');
+include('../components/header.php');
 
 //include('../components/navegador.html');
 
@@ -34,7 +34,7 @@ include('../components/header.html');
 
 
 <?php
-//include('../components/footer.html');
+//include('../components/footer.php');
 ?>
 
 <script>

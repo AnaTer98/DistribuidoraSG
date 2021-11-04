@@ -1,11 +1,11 @@
 <?php
 
-include_once("./views/components/header.html");
+include_once("./views/components/header.php");
 
 
 
 //<!--Carrusel-->
-include_once('./views/components/carrusel.html');
+include_once('./views/components/carrusel.php');
 
 
 
@@ -69,7 +69,7 @@ include_once('./views/components/carrusel.html');
 
 </div>
 <?php
-include_once('./views/components/footer.html');
+include_once('./views/components/footer.php');
 ?>
 <script>
   $("#menu-toggle").click(function(e) {

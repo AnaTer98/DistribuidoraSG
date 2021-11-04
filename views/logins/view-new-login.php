@@ -1,5 +1,5 @@
 <?php
-include_once('../components/header.html');
+include_once('../components/header.php');
 
 ?>
 
@@ -78,7 +78,7 @@ include_once('../components/header.html');
 
 
 <?php
-include('../components/footer.html');
+include('../components/footer.php');
 ?>
 
 
