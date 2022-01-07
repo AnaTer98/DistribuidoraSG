@@ -1,6 +1,6 @@
 <?php
-include('../components/header.html');
-include('../components/navegador.php');
+include('views/components/header.php');
+include('views/components/navegador.php');
 ?>
 
 <div class="container">
@@ -9,7 +9,7 @@ include('../components/navegador.php');
 
     <div class="col-8 mb-2 mx-auto">
       <div class="card p-1">
-        <img class="card-img-top" src="../images/somos.jpg" alt="Card image cap">
+        <img class="card-img-top" src="views/images/somos.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">¿QUIENES SOMOS?</h5>
           <p class="">
@@ -39,7 +39,7 @@ SER UNA EMPRESA LÍDER EN LA COMERCIALIZACIÓN Y DISTRIBUCIÓN DE NUESTROS PRODU
 
     <div class="col-6 mb-2">
       <div class="card p-1">
-        <img class="card-img-top" src="../images/mision.jpg "alt="Card image cap">
+        <img class="card-img-top" src="viewsimages/mision.jpg "alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">MISION</h5>
           <p class="card-text">
@@ -52,7 +52,7 @@ CONFIABLE, EFICIENTE Y ORIENTADA A SATISFACER LAS NECESIDADES Y ASPIRACIONES DE 
 
     <div class="col-6 mb-2 mx-auto">
       <div class="card p-1">
-        <img class="card-img-top" src="../images/valores.jpg" alt="Card image cap">
+        <img class="card-img-top" src="views/images/valores.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">NUESTROS VALORES</h5>
           <p class="card-text">
@@ -89,13 +89,13 @@ CONFIABLE, EFICIENTE Y ORIENTADA A SATISFACER LAS NECESIDADES Y ASPIRACIONES DE 
 
 
 <?php
-include('../components/footer.html');
+include('views/components/footer.php');
 ?>
 <script>
   /*  const logo=document.getElementById('logo-nav');
         logo.setAttribute('src','./images/logo.png');*/
   const stylesCss = document.getElementById('stylesCSS');
- stylesCss.setAttribute('href', '../index.css');
+ stylesCss.setAttribute('href', '../styles/style.css');
 
   $("#logo-nav").attr("src", "../images/logo.png");
 
