@@ -6,7 +6,7 @@ class Database{
  private $host;
  private $user;
  private $password;
-
+public $conn;
  private $value;
      public function __construct(){
         $this->value = $this->datos();
@@ -17,7 +17,7 @@ class Database{
 
         try {
             $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false];
-            $conn = new PDO("mysql:host=" . $this->host. ";dbname=" . $this->dbname,$this->user, $this->password,$options);    
+            $this->conn = new PDO("mysql:host=" . $this->host. ";dbname=" . $this->dbname,$this->user, $this->password,$options);    
         } catch (PDOException $error) {
             die("El error es :" . $error->getMessage());
         }          
