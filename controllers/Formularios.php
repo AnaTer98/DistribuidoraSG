@@ -6,7 +6,7 @@ class ControllerFormularios
     function __construct()
     {
 
-        $this->model = new ModeloInicio();
+        #$this->model = new ModeloInicio();
     }
     public function get_Carrusel()
     {
