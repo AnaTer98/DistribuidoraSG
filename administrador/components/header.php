@@ -1,5 +1,5 @@
     <!doctype html>
-    <html lang="en">
+    <html lang="es">
 
     <head>
       <title>Admin</title>
@@ -69,7 +69,7 @@
           <li class="nav-item">
             <a href="vacantes.php" class="nav-link">
               <i class="bi bi-person-badge"></i>
-              Empleados
+              Colaboradores
             </a>
 
           </li>

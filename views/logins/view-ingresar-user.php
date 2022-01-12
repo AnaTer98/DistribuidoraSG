@@ -1,18 +1,17 @@
 <?php
 
-include('../components/header.php');
+include('views/components/header.php');
 
-//include('../components/navegador.html');
+include('views/components/navegador.php');
 
 ?>
 
 <!---->
-<div class="container row-col-12 bg-light" style="height: 35rem;" id="form-ingresar">
+<div class="container row-col-12 " style="height: 35rem;" id="form-ingresar">
   <div class="pt-4">
 <div class="card text-white border border-success mx-auto " id="card-inresar-user" style="max-width: 20rem;">
   <div class="card-header bg-success">Ingresa</div>
   <div class="card-body text-dark">
-                                        <!--../../index.php?c=user&a=registrar"-->
   <form id="form-ingresar-user" method="POST" action="../../index.php?c=user&a=registrar" class="login-form validate-form">
       <div class="form-group">
         <label for="exampleInputEmail1">Correo Electronico</label>
@@ -32,9 +31,9 @@ include('../components/header.php');
 </div>
 </div>
 
-
+<br><br><br><br><br><br><br><br>
 <?php
-//include('../components/footer.php');
+include('views/components/footer.php');
 ?>
 
 <script>

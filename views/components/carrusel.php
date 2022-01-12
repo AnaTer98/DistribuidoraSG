@@ -7,19 +7,19 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active"style="height: 30rem; width: 100%;">
-            <img src="views/images/logos.jpg" class="d-block w-100 h-100" alt="...">
+            <img src="views/images/portada.jpg" class="d-block w-100 h-100" alt="...">
           </div>
             <div class="carousel-item"style="height: 30rem; width: 100%;" >
-              <img src="views/images/2.jpg" class="d-block w-100 h-100"alt="...">
+              <img src="views/images/portada.jpg" class="d-block w-100 h-100"alt="...">
             </div>
             <div class="carousel-item"style="height: 30rem; width: 100%;">
-              <img src="views/images/3.jpg" class="d-block w-100 h-100" alt="...">
+              <img src="views/images/logos.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item"style="height: 30rem; width: 100%;">
-              <img src="views/images/4.jpg" class="d-block w-100 h-100" alt="...">
+              <img src="views/images/portada.jpg" class="d-block w-100 h-100" alt="...">
             </div>
             <div class="carousel-item"style="height: 30rem; width: 100%;">
-              <img src="views/images/5.jpg" class="d-block w-100 h-100" id="img-5" alt="...">
+              <img src="views/images/portada.jpg" class="d-block w-100 h-100" id="img-5" alt="...">
             </div>
           </div>
         <a class="carousel-control-prev bg-dark" href="#carouselExampleControls" role="button" data-slide="prev">

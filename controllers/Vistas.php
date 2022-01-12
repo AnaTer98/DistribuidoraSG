@@ -36,8 +36,8 @@
 
       
         public function ingresar(){
-            echo 'que pedo !!';
-            require_once 'views/logins/view-new-login.php'; 
+       
+            require_once 'views/logins/view-ingresar-user.php'; 
         }
 
 

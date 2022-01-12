@@ -20,18 +20,10 @@ class ControllerFormularios
             $telefono = $_POST["numeroTel"];
 
             $correo = $_POST["correoUser"];
-            $correoCon = $_POST["correoUserConfirm"];
-
+          
             $contrasena = $_POST["passUser"];
-            $contrasenaCon = $_POST["passUserConfirm"];   
-            if(!($correo==$correoCon)){
-                array_push($mensajes,"Los correos no coinciden ");
-            header('location:index.php?c=vistas&a=registrar');
-            }
-            if(!($contrasena==$contrasenaCon)){
-                array_push($mensajes,"Las contraseñas no coinsiden.");
-                header('location:./index.php?c=vistas&a=registrar');
-            }
+         
+         
            
        
         }else{

@@ -5,15 +5,53 @@ include 'components/header.php';
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <div class="card mb-4 py-1 border-bottom-success">
+  <div class="card mb-4 py-1 border-bottom-success shadow-lg">
     <div class="card-body">
       <div class="d-sm-flex align-items-center ">
         <h1 class="h3 mb-0 text-gray-800">Carrusel</h1>
+            
+        <a href="#" class="btn btn-info btn-icon-split float-right ">
+          <span class="icon text-white-50">
+            <i class="bi bi-file-diff"></i>
+          </span>
+          <span class="text">Nuevo</span>
+        </a>
       </div>
+  
     </div>
   </div>
 
+  <form>
+    <div class="form-row ">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Descripción</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="Pequeña descripcion sobre la imagen. ">
+      </div>
 
+      <div class="form-group col-md-4 ">
+        <label for="inputZip">Imagen</label>
+        <input type="file" class="form-control" id="inputZip">
+
+        <!---->
+    
+         <!---->
+      </div>
+   
+    </div>
+  
+    <div class="form-row justify-content-center">
+     
+   
+      <div class="col-md-4">
+      <img src="../views/images/1.jpg" class="img-fluid rounded m-1" style="max-height:20rem;" alt="...">
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary m-2">Guardar</button>
+  </form>
+
+
+<hr>
   <!--Contenido aqui-->
   <div class="row">
     <!--La tabla de edicion de Empleados-->
