@@ -7,6 +7,15 @@ include('views/components/navegador.php');
 ?>
 
 <!---->
+
+<div class="col-11 bg-success  mb-3 rounded container">
+  <p class="font-weight-normal p-4 text-white h3">
+    
+  Hemos enviado un correo de verificación ha tu cuenta de correo ingresa al link que te enviamos para activar tu cuenta. :)
+</p>
+</div>
+
+<!--un mensaje cuando se active el correo-->
 <div class="container row-col-12 " style="height: 35rem;" id="form-ingresar">
   <div class="pt-4">
 <div class="card text-white border border-success mx-auto " id="card-inresar-user" style="max-width: 20rem;">

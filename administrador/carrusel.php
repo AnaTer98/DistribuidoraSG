@@ -1,5 +1,5 @@
 <?php
-include 'components/header.php';
+include './components/header.php';
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -21,7 +21,7 @@ include 'components/header.php';
     </div>
   </div>
 
-  <form>
+  <form action="index.php?c=formularios&a=postCarrusel">
     <div class="form-row ">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Descripción</label>
@@ -30,7 +30,7 @@ include 'components/header.php';
 
       <div class="form-group col-md-4 ">
         <label for="inputZip">Imagen</label>
-        <input type="file" class="form-control" id="inputZip">
+        <input type="file" class="form-control" id="inputImg">
 
         <!---->
     
@@ -43,7 +43,7 @@ include 'components/header.php';
      
    
       <div class="col-md-4">
-      <img src="../views/images/1.jpg" class="img-fluid rounded m-1" style="max-height:20rem;" alt="...">
+      <img id="caja" src="../images/logos.jpg" class="img-fluid rounded m-1" style="max-height:20rem;" alt="...">
       </div>
     </div>
   
@@ -110,5 +110,5 @@ include 'components/header.php';
 <!-- /.container-fluid -->
 
 <?php
-include 'components/footer.php';
+include './components/footer.php';
 ?>

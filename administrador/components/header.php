@@ -57,7 +57,7 @@
 
           <!-- Heading -->
           <li class="nav-item">
-            <a href="carrusel.php" class="nav-link">
+            <a href="administrador/carrusel.php" class="nav-link">
               <i class="bi bi-collection"></i>
               Carrusel
             </a>
@@ -67,7 +67,7 @@
           <!-- Empleados-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="vacantes.php" class="nav-link">
+            <a href="administrador/vacantes.php" class="nav-link">
               <i class="bi bi-person-badge"></i>
               Colaboradores
             </a>
@@ -76,7 +76,7 @@
           <!-- Publicaciones-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="publicaciones.php" class="nav-link">
+            <a href="administrador/publicaciones.php" class="nav-link">
               <i class="bi bi-arrow-up-square"></i>
               Publicaciones
             </a>
@@ -85,7 +85,7 @@
           <!-- Productos-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="productos.php" class="nav-link">
+            <a href="administrador/productos.php" class="nav-link">
               <i class="bi bi-bag-plus"></i>
               Productos
             </a>

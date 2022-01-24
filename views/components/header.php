@@ -20,7 +20,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="views/sb-admin-2.css">
 <link rel="stylesheet" href="views/style.css" >
-
+<!--toolpit-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>

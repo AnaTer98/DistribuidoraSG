@@ -1,12 +1,13 @@
 <?php
 include_once "models/modeloInicio.php";
-class ControllerFormularios
+include_once "controllers/Acciones.php";
+class ControllerFormularios extends ControllerAcciones
 {
     private $model;
+    private $acciones;
     function __construct()
     {
-
-        #$this->model = new ModeloInicio();
+      $this->model = new ModeloInicio();
     }
     public function get_Carrusel()
     {
@@ -14,17 +15,28 @@ class ControllerFormularios
     }
 
     public function registrarUsuario(){
-        $mensajes = array();
+       
         if(isset($_POST["registro"])){
-            $nombreUser = $_POST["nombreUser"];
-            $telefono = $_POST["numeroTel"];
 
-            $correo = $_POST["correoUser"];
-          
-            $contrasena = $_POST["passUser"];
+        $nombre = $_POST["nombreUser"];    
+        $numero = $_POST["numeroTel"];
+        $correo = $_POST["correoUser"];
+        $pass   = $_POST["passUser"];
+        //Verificamos si existe el correo
+         $existe = $this->model->verificarCorreo($correo);
+            if (isset($existe)&& !empty($existe)) {
+                $_SESSION['mensaje']='ya existe el correo';
+                header('location:index.php?c=vistas&a=registrar');
+            }
+            try{
+                $guardado = $this->model->registrarUsuario($nombre,$correo,$pass,$numero);
+                if($guardado){
+
          
-         
-           
+                }
+        }catch(PDOException $e){
+                echo "algo salio mal".$e; 
+            }
        
         }else{
             echo "Error al enviar datos intetelo de nuevo ";
@@ -61,7 +73,8 @@ class ControllerFormularios
                         try {
                             #Recargamos la pagina  
                             move_uploaded_file($temp, './images/' . $nuevoName);
-                            header('location:administrador/'); #Por lo mientras
+                            echo "Se supone que se movio";
+                           // header('location:administrador/'); #Por lo mientras
                         } catch (Exception $th) {
                             echo $th;
                         }

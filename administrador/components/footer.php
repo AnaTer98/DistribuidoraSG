@@ -16,10 +16,10 @@
         <!-- End of Content Wrapper -->
 
       </div>
-    <script type="text/javascript"src="js/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-    <script src="js/sb-admin-2.min.js"></script>
-
+    <script type="text/javascript"src="./js/jquery.min.js"></script>
+   <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/sb-admin-2.min.js"></script>
+<script src="./js/main.js"></script>
        </body>
 
     </html>
