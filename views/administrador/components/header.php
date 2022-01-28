@@ -12,7 +12,7 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-      <link rel="stylesheet" href="sb-admin-2.css">
+      <link rel="stylesheet" href="views/administrador/sb-admin-2.css">
     </head>
 
 
@@ -57,7 +57,7 @@
 
           <!-- Heading -->
           <li class="nav-item">
-            <a href="administrador/carrusel.php" class="nav-link">
+            <a href="index.php?c=vistas&a=adminCarrusel" class="nav-link">
               <i class="bi bi-collection"></i>
               Carrusel
             </a>
@@ -67,7 +67,7 @@
           <!-- Empleados-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="administrador/vacantes.php" class="nav-link">
+            <a href="views/administrador/vacantes.php" class="nav-link">
               <i class="bi bi-person-badge"></i>
               Colaboradores
             </a>
@@ -76,7 +76,7 @@
           <!-- Publicaciones-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="administrador/publicaciones.php" class="nav-link">
+            <a href="views/administrador/publicaciones.php" class="nav-link">
               <i class="bi bi-arrow-up-square"></i>
               Publicaciones
             </a>
@@ -85,7 +85,7 @@
           <!-- Productos-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="administrador/productos.php" class="nav-link">
+            <a href="views/administrador/productos.php" class="nav-link">
               <i class="bi bi-bag-plus"></i>
               Productos
             </a>

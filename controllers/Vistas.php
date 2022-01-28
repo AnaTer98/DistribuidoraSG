@@ -8,14 +8,18 @@
             $this->model = new ModeloInicio();
         }
         public function index(){
-         $data['imagenesC']=$this->model->getCarrusel();   
-            
+         #$data['imagenes']=$this->model->getCarrusel();   
+          
+         #echo $data['imagenes'];
         require_once "views/inicio.php";
-      
-
         }
         
-        public function promociones(){}
+        
+        public function adminCarrusel(){
+            $data["Imagenes"]=$this->model->getCarrusel();
+         
+            include_once"views/administrador/carrusel.php";
+        }
         public function fabricantes(){}
         public function ingresarOrdenes(){}
         public function catalogo(){}
@@ -33,7 +37,7 @@
              require_once 'views/logins/view-ingresar-user.php'; }
 
              public function administrador(){
-                require_once'./administrador/index.php';
+                require_once'views/administrador/index.php';
             }
     }
   

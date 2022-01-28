@@ -22,5 +22,7 @@ class ControllerAcciones
         $header = "From:administracion@distribuidorasg.com.mx" . "\r\n";
         header("Location:index.php?c=vistas&a=ingresar");
         mail($email, $titulo, $mensaje, $header);
+      
     }
+   
 }

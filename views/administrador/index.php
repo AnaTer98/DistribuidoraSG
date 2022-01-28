@@ -1,5 +1,5 @@
 <?php
-include 'components/header.php';
+include 'views/administrador/components/header.php';
 
 ?>
 <!-- Begin Page Content -->

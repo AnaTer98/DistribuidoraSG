@@ -3,6 +3,7 @@ require_once("database/database.php");
 class modeloInicio{
 public $based;
 public $getResultado;
+public $carrusel;
     function __construct(){
         $this->based = new Database();
         $this->based = $this->based->conn;
@@ -10,13 +11,26 @@ public $getResultado;
 
     public function getCarrusel(){ 
         $stringSql= "SELECT * FROM carrusel";
-        $this->getResultado = $this->based->prepare($stringSql,array(PDO::ATTR_CURSOR=>PDO::CURSOR_FWDONLY));
-        
-        $this->getResultado->fetchAll();
-        return $this->getResultado;
+       # $this->getResultado = $this->based->query($stringSql,array(PDO::ATTR_CURSOR=>PDO::CURSOR_FWDONLY));
+       # $this->getResultado = $this->getResultado->execute();
+    $resul = $this->based->prepare($stringSql);
+     $resul->execute();
+    $resultado= $resul->fetchAll();
+        return $resultado;
     }
-    public function setCarrusel(){ 
+    public function eliminarCarrusel($id){
+        echo "si pasa por aqui";
+        $sql="DELETE FROM carrusel WHERE carrusel . id='$id'";
+        $re = $this->based->prepare($sql);
+        $re->execute();
+        return $re;
+    }
 
+    public function setCarrusel($ruta,$descripcion){ 
+       $sql="INSERT INTO carrusel (id, rutaImg, descripcion) VALUES (NULL, '$ruta', '$descripcion');";    
+       $resul = $this->based->prepare($sql);
+        $resul->execute();
+        return $resul;
     }
     public function verificarCorreo($correo){ 
         $strinsql="SELECT correo FROM usuarios WHERE correo='$correo';";
