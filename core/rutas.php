@@ -1,5 +1,5 @@
 <?php
-
+$id;
    function CargarControlador($controlador){
        $nombreClase = "Controller".ucwords($controlador);
        $archivoControlador = "controllers/".ucwords($controlador).".php";
@@ -12,13 +12,13 @@
        //Se regrasara el archivo de la clase como tal en caso de que exista
        return $control;
    }
-   function cargarMetodo($controller,$method,$id=null)
-   {    
-       if (isset($method)&&method_exists($controller,$method)) {
-           if ($id=null) {
-               $controller();
+   function cargarMetodo($controller,$method,$id=null||0){
+    $ids=(int)$id;
+       if (isset($method) && method_exists($controller,$method)) {
+           if ($id=null||0) {
+               $controller->$method();
            }else{
-               $controller->$method($id);
+               $controller->$method($ids);
            }
        }else{
            $controller->METODO_PRINCIPAL();

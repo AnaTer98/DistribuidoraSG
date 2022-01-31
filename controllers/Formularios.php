@@ -47,7 +47,7 @@ class ControllerFormularios extends ControllerAcciones
     }
 
     public function postCarrusel() {  
-        echo"Llegamos al controlador ";
+       
         if(isset($_POST["guardar"])){
             $descripcion = $_POST["descripcion"];
             $imagen = $_FILES["imagen"]["name"];
@@ -58,14 +58,15 @@ class ControllerFormularios extends ControllerAcciones
                #en caso de que sea falso y no acepte este tipo de extension
                 }
                 $nuevoName = date("m-d-y-H-i-s.").explode("/",$extension)[1];
-                echo $nuevoName;
+              
                 $ruta = "images/".$nuevoName;
-                echo $ruta;
+        
                 $guardadoDB = $this->model->setCarrusel($ruta,$descripcion);
                 if($guardadoDB){
                     try{
                         move_uploaded_file($temp,$ruta);
-                        echo "Todo salio bien";
+                        header("Location:index.php?c=vistas&a=adminCarrusel");
+                  #hAY QUE PONER UN MENSAJE
                     }catch(Exception $e){
                         echo "Algo va mal al mover ",$e;
                     }
@@ -77,14 +78,22 @@ class ControllerFormularios extends ControllerAcciones
         }
     }    
     public function removeCarrusel($id){
-        $eliminado = $this->model->eliminarCarrusel($id);
+        #$ids = intval($id);
+        $eliminado = $this->model->eliminarCarrusel((int)$id);
+        $ruta = $this->model->eliminarCarruselImg((int)$id);
+var_dump($ruta);
+        $imagen = unlink($ruta);
+        if($imagen){
+            echo "se eliminado la imagen";
+        }
         if($eliminado){
-            #todosalio bien jejej
-            echo "segun se elimino ";
+            $_SESSION['mensaje']="Registro borrado.";
+            $mensaje="Se borro";
            # header("Location:index.php?c=vistas&a=adminCarrusel");
         }else{
             #lo mismo pero con mensaje de que algo salio mal 
-            $mensaje="Algo salio mal";
+           # $mensaje="Algo salio mal";
+           $_SESSION['mensaje']="No se ha borrado intentelo de nuevo";
             header("Location:index.php?c=vistas&a=adminCarrusel");
         }
     }

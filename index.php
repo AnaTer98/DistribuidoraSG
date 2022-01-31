@@ -8,10 +8,10 @@ if (isset($_GET['c'])) {
 
     $controlador = CargarControlador($_GET['c']);
     if (isset($_GET['a'])) {
-       if(isset($_GET['id'])){
-        cargarMetodo($controlador,$_GET['a'],$_GET['id']);
+       if(isset($_GET['id'])){           
+        cargarMetodo($controlador, $_GET['a'], $_GET['id']);
        }else{
-           cargarMetodo($controlador,$_GET['a']);
+           cargarMetodo($controlador, $_GET['a']);
        }
     }
     

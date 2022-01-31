@@ -21,7 +21,10 @@ include 'components/header.php';
   
     </div>
   </div>
-            
+         <?php if(isset($_SESSION['mensaje'])){
+           echo $_SESSION['mensaje'];
+           $_SESSION['mensaje'] ="";
+         }?>   
   <form action="index.php?c=formularios&a=postCarrusel" class="" method="post" id="formulario" enctype="multipart/form-data">
     <div class="form-row ">
       <div class="form-group col-md-6">
@@ -72,7 +75,7 @@ include 'components/header.php';
       <td><p><?= $key["descripcion"]?></p></td>
       <td style="width:20rem;"><img src="<?=  $key["rutaImg"] ?>" style="width:15rem;height:8rem" class="img-thumbnail " alt="..."></td>
       <td>
-            <a href="index.php?c=formularios&a=removeCarrusel&id=<?= $key["id"] ?>" class="btn btn-danger btn-icon-split">
+            <a href="index.php?c=formularios&a=removeCarrusel&id=<?= $key["id"]?>" class="btn btn-danger btn-icon-split">
               <span class="icon text-white-50">
                 <i class="bi bi-trash"></i>
               </span>

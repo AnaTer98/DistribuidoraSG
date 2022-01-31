@@ -19,11 +19,28 @@ public $carrusel;
         return $resultado;
     }
     public function eliminarCarrusel($id){
-        echo "si pasa por aqui";
-        $sql="DELETE FROM carrusel WHERE carrusel . id='$id'";
+        $sql="DELETE FROM carrusel WHERE id='$id';";
+        try{
         $re = $this->based->prepare($sql);
         $re->execute();
-        return $re;
+        return true;
+        }catch(PDOException $e){
+            echo "error==>",$e;
+            return false;
+        }
+      
+    }
+    public function eliminarCarruselImg($id){
+        $sql ="SELECT rutaImg FROM carrusel WHERE id='$id'";
+        try{
+            $this->getResultado = $this->based->prepare($sql);
+           $this->getResultado->execute();
+            $re = $this->getResultado->fetchAll(PDO::FETCH_ASSOC);
+var_dump($re);
+            return $re;
+        }catch(Exception $e){
+            echo "algo salio mal al buscar la ruta".$e;
+        }
     }
 
     public function setCarrusel($ruta,$descripcion){ 
