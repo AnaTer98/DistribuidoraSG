@@ -76,25 +76,38 @@ class ControllerFormularios extends ControllerAcciones
         }else{
             echo "Algo salio mal al enviar el registro intentelo de nuevo |";
         }
-    }    
+    }   
+    public  function removeCarrusel($id,$ruta){
+      
+     $DbEliminado = $this->model->eliminarCarrusel((int)$id);
+            $imgEliminado =$this->borrarImg((string)$ruta);
+              if($imgEliminado||$DbEliminado){
+                  $_SESSION['mensaje']="Registro borrado.";
+                  $mensaje="Se borro";
+                  header("Location:index.php?c=vistas&a=adminCarrusel");
+              }else{
+                  #lo mismo pero con mensaje de que algo salio mal 
+                 # $mensaje="Algo salio mal";
+                 echo "Formularios==>Nose borro";
+                 $_SESSION['mensaje']="No se ha borrado intentelo de nuevo";
+                 # header("Location:index.php?c=vistas&a=adminCarrusel");
+              }
+    }
+    /*
     public function removeCarrusel($id){
-        #$ids = intval($id);
-        $eliminado = $this->model->eliminarCarrusel((int)$id);
-        $ruta = $this->model->eliminarCarruselImg((int)$id);
-var_dump($ruta);
-        $imagen = unlink($ruta);
-        if($imagen){
-            echo "se eliminado la imagen";
-        }
-        if($eliminado){
+
+        $DbEliminado = $this->model->eliminarCarrusel((int)$id);
+  #    $imgEliminado =$this->borrarImg((string)$ruta);
+        if($DbEliminado ){
             $_SESSION['mensaje']="Registro borrado.";
             $mensaje="Se borro";
-           # header("Location:index.php?c=vistas&a=adminCarrusel");
+            #header("Location:index.php?c=vistas&a=adminCarrusel");
         }else{
             #lo mismo pero con mensaje de que algo salio mal 
            # $mensaje="Algo salio mal";
+           echo "Formularios==>Nose borro";
            $_SESSION['mensaje']="No se ha borrado intentelo de nuevo";
-            header("Location:index.php?c=vistas&a=adminCarrusel");
+           # header("Location:index.php?c=vistas&a=adminCarrusel");
         }
-    }
+    }*/
 }

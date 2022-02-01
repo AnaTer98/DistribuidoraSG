@@ -12,13 +12,18 @@ $id;
        //Se regrasara el archivo de la clase como tal en caso de que exista
        return $control;
    }
-   function cargarMetodo($controller,$method,$id=null||0){
-    $ids=(int)$id;
+   function cargarMetodo($controller,$method,$id=null||0,$otro=null){
+
+    $ids=(int)$id;#no le muevas
+ 
        if (isset($method) && method_exists($controller,$method)) {
            if ($id=null||0) {
                $controller->$method();
            }else{
-               $controller->$method($ids);
+               $controller->$method($ids,$otro);
+               if($otro=null||""){
+                   $controller->$method($ids,(string)$otro);
+               }
            }
        }else{
            $controller->METODO_PRINCIPAL();

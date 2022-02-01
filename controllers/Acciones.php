@@ -24,5 +24,11 @@ class ControllerAcciones
         mail($email, $titulo, $mensaje, $header);
       
     }
+    public function borrarImg($rutas) {
+        echo "imagen borrar==>".(string)$rutas;
+        $ruta = (string)$rutas;
+        $borrado = unlink($ruta);
+        return $borrado;
+    }
    
 }
