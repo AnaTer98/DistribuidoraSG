@@ -5,7 +5,7 @@ include 'components/header.php';
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <div class="card mb-4 py-1 border-bottom-success shadow-lg">
+  <div class="card mb-4 py-1 border-bottom-success ">
     <div class="card-body">
       <div class="d-sm-flex align-items-center ">
         <h1 class="h3 mb-0 text-gray-800">Carrusel</h1>
@@ -21,11 +21,16 @@ include 'components/header.php';
   
     </div>
   </div>
-         <?php if(isset($_SESSION['mensaje'])){
-           echo $_SESSION['mensaje'];
-           $_SESSION['mensaje'] ="";
-         }?>   
-  <form action="index.php?c=formularios&a=postCarrusel" class="" method="post" id="formulario" enctype="multipart/form-data">
+         <?php if(isset($_SESSION['mensaje'])&& !empty($_SESSION['mensaje'])){?>
+           <div class="alert bg-success alert-dismissible fade show " role="alert">
+          <p class="text-light h5"><?= $_SESSION['mensaje']?><strong>Eliminado</strong></p>  
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      
+     <?php  $_SESSION['mensaje'] ="";}?>
+  <form action="index.php?c=formularios&a=postCarrusel" class=""  method="post" id="formulario" enctype="multipart/form-data">
     <div class="form-row ">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Descripción</label>
@@ -34,7 +39,7 @@ include 'components/header.php';
 
       <div class="form-group col-md-4 ">
         <label for="inputZip">Imagen</label>
-        <input type="file" class="form-control" name="imagen"id="inputImg">
+        <input type="file" class="form-control" name="imagen"id="inputImg" required>
       </div>
    
     </div>
@@ -138,7 +143,7 @@ include 'components/header.php';
 
 </div>
 <!-- /.container-fluid -->
-
+<br><br><br>
 <?php
 include 'components/footer.php';
 ?>

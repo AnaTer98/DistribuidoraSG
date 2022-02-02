@@ -6,9 +6,22 @@
 
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active"style="height: 30rem; width: 100%;">
+     
+  <?php $con=0; foreach ($data["Imagenes"] as $key){  
+    $actives='';
+    if($con==0){ 
+      $actives = 'active';
+    } ?>
+    <div class="carousel-item <?= $actives;?>"style="height: 30rem; width: 100%;">
+              <img src="<?= $key['rutaImg']?>" class="d-block w-100 h-100" alt="...">
+            </div>
+     
+  <?php $con++;} ?>
+         <!-- 
+           <div class="carousel-item active"style="height: 30rem; width: 100%;">
             <img src="views/images/portada.jpg" class="d-block w-100 h-100" alt="...">
           </div>
+          
             <div class="carousel-item"style="height: 30rem; width: 100%;" >
               <img src="views/images/portada.jpg" class="d-block w-100 h-100"alt="...">
             </div>
@@ -20,7 +33,7 @@
             </div>
             <div class="carousel-item"style="height: 30rem; width: 100%;">
               <img src="views/images/portada.jpg" class="d-block w-100 h-100" id="img-5" alt="...">
-            </div>
+            </div>-->
           </div>
         <a class="carousel-control-prev bg-dark" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

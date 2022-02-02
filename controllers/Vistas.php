@@ -8,7 +8,7 @@
             $this->model = new ModeloInicio();
         }
         public function index(){
-         #$data['imagenes']=$this->model->getCarrusel();   
+         $data['Imagenes']=$this->model->getCarrusel();   
           
          #echo $data['imagenes'];
         require_once "views/inicio.php";

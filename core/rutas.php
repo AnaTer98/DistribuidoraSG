@@ -15,16 +15,20 @@ $id;
    function cargarMetodo($controller,$method,$id=null||0,$otro=null){
 
     $ids=(int)$id;#no le muevas
- 
+    $r = (string)$otro;
        if (isset($method) && method_exists($controller,$method)) {
            if ($id=null||0) {
                $controller->$method();
            }else{
+               if(!$r=null||!empty($r)){
                $controller->$method($ids,$otro);
-               if($otro=null||""){
-                   $controller->$method($ids,(string)$otro);
+               }
+               else{
+                   $controller->$method($ids);
                }
            }
+
+
        }else{
            $controller->METODO_PRINCIPAL();
        }

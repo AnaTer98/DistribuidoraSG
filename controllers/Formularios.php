@@ -78,12 +78,12 @@ class ControllerFormularios extends ControllerAcciones
         }
     }   
     public  function removeCarrusel($id,$ruta){
-      
-     $DbEliminado = $this->model->eliminarCarrusel((int)$id);
-            $imgEliminado =$this->borrarImg((string)$ruta);
+ 
+       $DbEliminado = $this->model->eliminarCarrusel((int)$id);
+       $imgEliminado =$this->borrarImg((string)$ruta);
               if($imgEliminado||$DbEliminado){
-                  $_SESSION['mensaje']="Registro borrado.";
-                  $mensaje="Se borro";
+                  $_SESSION['mensaje']=" Un elemento del Carrusel ha sido,";
+                 
                   header("Location:index.php?c=vistas&a=adminCarrusel");
               }else{
                   #lo mismo pero con mensaje de que algo salio mal 

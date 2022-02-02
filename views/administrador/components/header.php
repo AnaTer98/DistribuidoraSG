@@ -25,27 +25,14 @@
         <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
           <!-- Sidebar - Brand -->
-          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-          
-            <div class="sidebar-brand-text mx-3">Administrador</div>
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <div class="sidebar-brand-text mx-0 ">Administrador</div>
           </a>
+          <a class="sidebar-brand d-flex align-items-center justify-content-center pt-0" href="index.php">          
+          <div class="sidebar-brand-text pt-0 ">Inicio</div>
+        </a>
 
-          <!--Control-->
-          <li class="nav-item active mx-auto">
-            <a class="nav-link mx-auto" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="false" aria-controls="collapseUtilities">
-              <i class="bi bi-gear-fill"></i>
-              Ajustes
-            </a>
-            <div id="collapseUtilities" class="collapse " aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item active" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-              </div>
-            </div>
-          </li>
+    
 
 
           <!-- Divider -->
