@@ -20,7 +20,6 @@ public $carrusel;
     }
     public function eliminarCarrusel($id){
         $ids = (int)$id;
-   
         $sql="DELETE FROM carrusel WHERE id='$ids';";
         try{
         $re = $this->based->prepare($sql);
@@ -32,8 +31,6 @@ public $carrusel;
         }
       
     }
-   
-
     public function setCarrusel($ruta,$descripcion){ 
        $sql="INSERT INTO carrusel (id, rutaImg, descripcion) VALUES (NULL, '$ruta', '$descripcion');";    
        $resul = $this->based->prepare($sql);
@@ -54,16 +51,38 @@ public $carrusel;
         $hash=md5(rand(0,1000));
         $sql = "INSERT INTO usuarios(nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('$nombre','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
        // $sql = "INSERT INTO usuarios(id,nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('user-12-22-12','','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
-        
-        echo "Estoy en el modelo".$sql;
         $resultados = $this->based->query($sql);
         $resultados->execute();
         return $resultados;
 
     }
-    
+    public function postVacantes($nameVacante, $descripcion,$ruta){
+        $sql = "INSERT INTO vacantes(vacante,descripcion,rutaImg) VALUES('$nameVacante','$descripcion','$ruta');";
+        $resultado = $this->based->prepare($sql);
+        $resultado->execute();
+        return $resultado;
 
+    } 
+    public function getVacantes(){
+        $sql = "SELECT * FROM vacantes;";
+        $resultados = $this->based->prepare($sql);
+        $resultados->execute();
+        $res = $resultados->fetchAll();
+        return $res;
+    }
+    public function removeColaborador($id){
+        $ids = (int)$id;
+        $sql = "DELETE FROM vacantes WHERE id='$ids';";
+        try {
+            $re = $this->based->prepare($sql);
+            $re->execute();
+            return $re; 
+        } catch (PDOException $th) {
+            echo "algo salio mal al eliminar el registro";
+            //throw $th;
+        }
 
+    }
 }
 
 

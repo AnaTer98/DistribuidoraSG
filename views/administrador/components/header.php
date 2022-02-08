@@ -54,7 +54,7 @@
           <!-- Empleados-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="views/administrador/vacantes.php" class="nav-link">
+            <a href="index.php?c=vistas&a=adminColaboradores" class="nav-link">
               <i class="bi bi-person-badge"></i>
               Colaboradores
             </a>
@@ -63,7 +63,7 @@
           <!-- Publicaciones-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="views/administrador/publicaciones.php" class="nav-link">
+            <a href="index.php?c=vistas&a=adminPublicaciones" class="nav-link">
               <i class="bi bi-arrow-up-square"></i>
               Publicaciones
             </a>
@@ -75,6 +75,15 @@
             <a href="views/administrador/productos.php" class="nav-link">
               <i class="bi bi-bag-plus"></i>
               Productos
+            </a>
+
+          </li>
+            <!-- Usuario-->
+            <hr class="sidebar-divider my-0">
+          <li class="nav-item">
+            <a href="views/administrador/productos.php" class="nav-link">
+              <i class="bi bi-bag-plus"></i>
+              Usuarios
             </a>
 
           </li>
@@ -90,5 +99,4 @@
           <div id="content">
 
 
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
+          

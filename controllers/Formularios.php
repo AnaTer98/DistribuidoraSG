@@ -9,6 +9,7 @@ class ControllerFormularios extends ControllerAcciones
     function __construct()
     {
       $this->model = new ModeloInicio();
+      $this->acciones = new ControllerAcciones();
     }
    
 
@@ -31,7 +32,7 @@ class ControllerFormularios extends ControllerAcciones
                 $guardado = $this->model->registrarUsuario($nombre,$correo,$pass,$numero);
                 if($guardado){
                     #aqui se enviara el correo de verificacion para
-                    $this->enviarCorreo($nombre,$correo,$hash);
+                    $this->acciones->enviarCorreo($nombre,$correo,$hash);
          
                 }
         }catch(PDOException $e){
@@ -54,8 +55,9 @@ class ControllerFormularios extends ControllerAcciones
             if(isset($imagen)){
                 $extension = $_FILES["imagen"]["type"];
                 $temp = $_FILES["imagen"]["tmp_name"];
-                if(!(strpos($extension,'jpg'||strpos($extension,'png')))){#$extension verificar
+                if(!(strpos($extension,'jpg'||strpos($extension,'png'||strpos($extension,'gif'))))){#$extension verificar FALTA CHECAR BIEN QUE ONDA
                #en caso de que sea falso y no acepte este tipo de extension
+               header("Location:index.php?c=vistas&a=adminCarrusel");
                 }
                 $nuevoName = date("m-d-y-H-i-s.").explode("/",$extension)[1];
               
@@ -80,7 +82,7 @@ class ControllerFormularios extends ControllerAcciones
     public  function removeCarrusel($id,$ruta){
  
        $DbEliminado = $this->model->eliminarCarrusel((int)$id);
-       $imgEliminado =$this->borrarImg((string)$ruta);
+       $imgEliminado =$this->acciones->borrarImg((string)$ruta);
               if($imgEliminado||$DbEliminado){
                   $_SESSION['mensaje']=" Un elemento del Carrusel ha sido,";
                  
@@ -93,21 +95,5 @@ class ControllerFormularios extends ControllerAcciones
                  # header("Location:index.php?c=vistas&a=adminCarrusel");
               }
     }
-    /*
-    public function removeCarrusel($id){
-
-        $DbEliminado = $this->model->eliminarCarrusel((int)$id);
-  #    $imgEliminado =$this->borrarImg((string)$ruta);
-        if($DbEliminado ){
-            $_SESSION['mensaje']="Registro borrado.";
-            $mensaje="Se borro";
-            #header("Location:index.php?c=vistas&a=adminCarrusel");
-        }else{
-            #lo mismo pero con mensaje de que algo salio mal 
-           # $mensaje="Algo salio mal";
-           echo "Formularios==>Nose borro";
-           $_SESSION['mensaje']="No se ha borrado intentelo de nuevo";
-           # header("Location:index.php?c=vistas&a=adminCarrusel");
-        }
-    }*/
+  
 }

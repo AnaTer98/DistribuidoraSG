@@ -25,7 +25,6 @@ class ControllerAcciones
       
     }
     public function borrarImg($rutas) {
-        echo "imagen borrar==>".(string)$rutas;
         $ruta = (string)$rutas;
         $borrado = unlink($ruta);
         return $borrado;

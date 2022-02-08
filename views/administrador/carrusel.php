@@ -48,25 +48,22 @@ include 'components/header.php';
      
    
       <div class="col-md-4">
-      <img id="caja" src="images/logos.jpg" class="img-fluid rounded m-1" style="max-height:20rem;" alt="...">
+      <img id="caja" src="images/logos-assets/logos.png" class="img-fluid rounded m-1" style="max-height:20rem;" alt="...">
       </div>
     </div>
   
     <button type="submit"value="guardar" name="guardar" class="btn btn-primary m-2">Guardar</button>
   </form>
 
-
-<hr>
   <!--Contenido aqui-->
-  <div class="row">
+  <div class="row container mx-auto ">
     <!--La tabla de edicion de Empleados-->
-    <table class="table table-hover">
+    <table class="table table-hover mx-10">
       <thead>
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Descripción</th>
           <th scope="col">Ruta o Imagen</th>
-          <th scope="col">Editar</th>
           <th scope="col">Eliminar
 
           </th>
@@ -74,76 +71,24 @@ include 'components/header.php';
       </thead>
       <tbody>
 
-<?php    foreach ($data["Imagenes"] as $key ) {?>
+    <?php    foreach ($data["Imagenes"] as $key ) {?>
       <tr>
       <td><?= $key["id"]?></td>
-      <td><p><?= $key["descripcion"]?></p></td>
-      <td style="width:20rem;"><img src="<?=  $key["rutaImg"] ?>" style="width:15rem;height:8rem" class="img-thumbnail " alt="..."></td>
+      <td style="width:20rem;"><p class="font-weight-bold"><?= $key["descripcion"]?></p></td>
+      <td style="width:15rem;"><img src="<?=  $key["rutaImg"] ?>" style="width:15rem;height:8rem" class="img-thumbnail " alt="..."></td>
       <td>
-            <a href="index.php?c=formularios&a=removeCarrusel&id=<?= $key["id"]?> &r=<?= $key["rutaImg"]?>"class="btn btn-danger btn-icon-split">
+            <a href="index.php?c=formularios&a=removeCarrusel&id=<?= $key["id"]?> &r=<?= $key["rutaImg"]?>"class="btn btn-danger btn-icon-split mt-5">
               <span class="icon text-white-50">
                 <i class="bi bi-trash"></i>
               </span>
               <span class="text">Eliminar</span>
             </a>
       </td>
-      <td>
-            <a href="#" class="btn btn-success btn-icon-split">
-              <span class="icon text-white-50">
-                <i class="bi bi-pencil-square"></i>
-              </span>
-              <span class="text">Editar</span>
-            </a>
-          </td>
-
-
       </tr>
-    
-
 <?php }?>
-
-
-       <!-- <tr>
-          <th scope="row">1</th>
-          <td>Producto del mes</td>
-          <td>12/12/12/1sdssvs/dvsd</td>
-          <td>
-            <a href="#" class="btn btn-danger btn-icon-split">
-              <span class="icon text-white-50">
-                <i class="bi bi-trash"></i>
-              </span>
-              <span class="text">Eliminar</span>
-            </a>
-          </td>
-
-          <td>
-            <a href="#" class="btn btn-success btn-icon-split">
-              <span class="icon text-white-50">
-                <i class="bi bi-pencil-square"></i>
-              </span>
-              <span class="text">Editar</span>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>-->
       </tbody>
     </table>
 
-  </div>
-
-</div>
-<!-- /.container-fluid -->
-<br><br><br>
 <?php
 include 'components/footer.php';
 ?>

@@ -13,20 +13,20 @@
          #echo $data['imagenes'];
         require_once "views/inicio.php";
         }
-        
-        
         public function adminCarrusel(){
             $data["Imagenes"]=$this->model->getCarrusel();
          
             include_once"views/administrador/carrusel.php";
         }
-        public function fabricantes(){}
-        public function ingresarOrdenes(){}
-        public function catalogo(){}
-        public function cotizar(){}        
-
-        public function vacantes(){require_once "views/vacantes.php";}
-        public function ingresarCv(){}
+        public function adminColaboradores(){
+        $data['imagenes']= $this->model->getVacantes();
+            include_once"views/administrador/colaboradores.php";
+        }
+public function adminPublicaciones(){ require_once"views/administrador/publicaciones.php";}
+        public function vacantes(){
+            $data['vacantes']=$this->model->getVacantes();
+            require_once"views/vacantes.php";
+        }
 
         public function qsomos(){ require_once "views/static/body-acerca.php"; }
         public function registrar(){ require_once 'views/logins/view-new-login.php';  }

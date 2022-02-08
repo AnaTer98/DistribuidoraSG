@@ -1,9 +1,9 @@
  <!--para abajo -->
  </div>
-          <!-- End of Main Content -->
-
+     
           <!-- Footer -->
-          <footer class="sticky-footer bg-gradient-light fixed-bottom">
+     
+          <footer class="sticky-footer bg-gradient-light mt-15  fixed-bottom">
             <div class="container my-auto">
               <div class="copyright text-center my-auto">
                 <span>Distribuidora SG</span>
@@ -15,7 +15,7 @@
         </div>
         <!-- End of Content Wrapper -->
 
-      </div>
+  
     <script type="text/javascript"src="views/administrador/js/jquery.min.js"></script>
    <script src="views/administrador/js/bootstrap.min.js"></script>
     <script src="views/administrador/js/sb-admin-2.min.js"></script>
