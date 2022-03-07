@@ -10,11 +10,14 @@ include_once('views/components/navegador.php');
     <div class="card text-white border border-success mx-auto " id="card-inresar-user" style="max-width: 30rem;">
       <div class="card-header bg-success">Registro</div>
 
-      <?php if (isset($_SESSION['mensaje'])):?>
-        <div class="alert bg-danger m-1" role="alert">
- El correo ya existe prueba con otro
+      <?php if (isset($_SESSION['mensajeCorreo']) && !empty($_SESSION['mensajeCorreo'])){ ?>
+        <div class="alert alert-<?= $_SESSION['mensajeCorreo'][1]?> alert-dismissible fade show mb-0" role="alert">
+  <strong><?= $_SESSION['mensajeCorreo'][0] ?></strong> <?= $_SESSION['mensajeCorreo'][2]?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
-  <?php session_unset(); endif;?>
+  <?php }   $_SESSION['mensajeCorreo'] =""; ?>
 
       <div class="card-body text-dark">
 

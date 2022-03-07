@@ -27,17 +27,20 @@ include 'components/header.php';
 
   </div>
   <div class="form-row">
-  <div class="form-group mt-2 col-md-6">
+  <div class="form-group mt-2 col-md-4">
     <label for="exampleFormControlTextarea1">Descripción de la vacante </label>
-    <textarea type="text" class="form-control" style="height:15rem;" 
+    <textarea type="text" class="form-control mt-1" style="height:20rem;" 
 placeholder="Aqui sera un descripción, en lo que consiste la vacante y requisitos:
 -Ingresar C.V.
 -Correo activo
 -Nombre completo
 -Etc" name="descripcion" id="exampleFormControlTextarea1" rows="30"></textarea>
   </div>
-  <div class="col-md-3 mb-6">
-  <img src="images/logos-assets/logos.png" id="caja"style="width:35rem;height:18rem;" class="rounded mx-auto d-block" alt="...">
+  <div class="col-md-4 mb-6">
+  <img src="images/logos-assets/logos.png" id="caja"style="width:100%;height:20rem;" class="rounded mt-5 d-block" alt="">
+  </div>
+  <div class="col-md-3">
+   <h1>Pos va pos</h1>
   </div>
   </div>
   
@@ -59,7 +62,7 @@ placeholder="Aqui sera un descripción, en lo que consiste la vacante y requisit
         </tr>
       </thead>
       <tbody>
-      <?php  foreach($data['imagenes'] as $key){?>
+      <?php  foreach($data['imagenes'] as $key){ ?>
           <tr>
             <td > <?= $key['id']?></td>
             <td> <?= $key['vacante']?></td>

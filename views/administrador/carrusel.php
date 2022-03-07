@@ -22,8 +22,8 @@ include 'components/header.php';
     </div>
   </div>
          <?php if(isset($_SESSION['mensaje'])&& !empty($_SESSION['mensaje'])){?>
-           <div class="alert bg-success alert-dismissible fade show " role="alert">
-          <p class="text-light h5"><?= $_SESSION['mensaje']?><strong>Eliminado</strong></p>  
+           <div class="alert bg-<?= $_SESSION['mensaje'][1]?> alert-dismissible fade show " role="alert">
+          <p class="text-light h5"><?= $_SESSION['mensaje'][0]?><strong>Eliminado</strong></p>  
          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>

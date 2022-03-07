@@ -37,25 +37,6 @@ public $carrusel;
         $resul->execute();
         return $resul;
     }
-    public function verificarCorreo($correo){ 
-        $strinsql="SELECT correo FROM usuarios WHERE correo='$correo';";
-        $this->getResultado = $this->based->prepare($strinsql,array(PDO::ATTR_CURSOR=>PDO::CURSOR_FWDONLY));
-#        $this->getResultado->bindParam(':correo',$correo);
-        $this->getResultado->execute();
-        $result = $this->getResultado->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }//Rol son tres tipo de usuarios admin, menudeo y mayoreo
-
-    public function registrarUsuario($nombre,$correo,$contrasena,$telefono,$activo=0,$rol="menudeo"){
-       // $idUser=date("d-t-Y---G-i-s");
-        $hash=md5(rand(0,1000));
-        $sql = "INSERT INTO usuarios(nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('$nombre','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
-       // $sql = "INSERT INTO usuarios(id,nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('user-12-22-12','','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
-        $resultados = $this->based->query($sql);
-        $resultados->execute();
-        return $resultados;
-
-    }
     public function postVacantes($nameVacante, $descripcion,$ruta){
         $sql = "INSERT INTO vacantes(vacante,descripcion,rutaImg) VALUES('$nameVacante','$descripcion','$ruta');";
         $resultado = $this->based->prepare($sql);
@@ -82,6 +63,48 @@ public $carrusel;
             //throw $th;
         }
 
+    }
+    //Usuarios
+    public function getUsuarios(){
+        $stringSql = "SELECT * FROM usuarios";
+        $usuarios = $this->based->query($stringSql);
+        $usuarios->execute();
+        $usuarios->fetchAll();
+        return $usuarios;
+    }
+
+    public function verificarCorreo($correo){ 
+        $strinsql="SELECT correo FROM usuarios WHERE correo='$correo';";
+        $this->getResultado = $this->based->prepare($strinsql,array(PDO::ATTR_CURSOR=>PDO::CURSOR_FWDONLY));
+#        $this->getResultado->bindParam(':correo',$correo);
+        $this->getResultado->execute();
+        $result = $this->getResultado->rowCount();
+        return $result;
+    }//Rol son tres tipo de usuarios admin, menudeo y mayoreo
+
+    public function registrarUsuario($nombre,$correo,$contrasena,$telefono,$hash,$activo=0,$rol="menudeo"){
+       // $idUser=date("d-t-Y---G-i-s");
+
+        $sql = "INSERT INTO usuarios(nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('$nombre','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
+        $resultados = $this->based->prepare($sql);
+        $resultados->execute();
+        $resultados->rowCount();
+        return $resultados;
+
+    }
+    public function existeCorreo($nombre,$hash){
+        $sqlHash = "SELECT * FROM usuarios WHERE nombre='$nombre' AND hash='$hash' ";
+       $existe = $this->based->prepare($sqlHash);
+        $existe->execute();
+        return $existe->fetch(PDO::FETCH_NUM);
+    }
+
+    
+    public function activandoCorreo($hash,$nombre){
+        $sql = "UPDATE usuarios SET activo = 1 WHERE hash='$hash' AND nombre='$nombre'  ";
+        $actualizado = $this->based->prepare($sql);
+        $actualizado->execute();
+        return $actualizado->columnCount();
     }
 }
 

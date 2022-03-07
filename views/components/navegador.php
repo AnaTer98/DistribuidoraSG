@@ -68,19 +68,21 @@
       </div>
     </ul>
     <!--Ingresar nuevo usuario-->
-    <!--
+    
     <a href="index.php?c=vistas&a=registrar">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
         <i class="bi bi-person-badge"></i>
--->
+        Registrar  
+      </button> 
+      </a>
     <!--Ingresar usuario registrado-->
-    <!--
+    
     <a href="index.php?c=vistas&a=ingresar">
       <button class="btn btn-outline-secondary ml-1 my-2 my-sm-0" type="submit">
         <i class="bi bi-arrow-bar-right"></i>
         Ingresar
       </button>
     </a>
--->
+
   </div>
 </nav>

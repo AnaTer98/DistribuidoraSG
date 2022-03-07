@@ -6,12 +6,12 @@ include "views/components/navegador.php";
     <div class="row justify-content-md-center">
       
 <?php foreach($data['vacantes'] as $key){ ?>
-  <div class="col-lg-3 col-md-6 col-sm-12">
-    <div class="card m-3">
-      <img src="<?= $key['rutaImg']?>"style="height:20rem;" class="card-img-top mt-1 mr-r ml-1" alt="">
+  <div class="col-lg-4 col-md-6 col-sm-12 " style="" >
+    <div class="card m-3 " style="" >
+      <img src="<?= $key['rutaImg']?>"style="" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title"><?= $key['vacante']?></h5>
-        <p class="card-text text-justify"><?= $key['descripcion']?></p>
+        <pre class=""><p class="card-text"><?= $key['descripcion']?></p> </pre>
         <a href="#" class="btn btn-primary">Se llenara un formulario para enviar correo con los datos</a>
       </div>
     </div>
