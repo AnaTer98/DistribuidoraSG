@@ -1,11 +1,19 @@
 <?php
+ require_once('./models/modeloInicio.php');
 
     class ControllerVistas{
       
-        public  $model;
+        public $model;
+        public $user;
+        public $rol;
         function __construct(){
-            require_once('./models/modeloInicio.php');
+           
             $this->model = new ModeloInicio();
+            
+           
+        }
+        public function funcionario(){
+
         }
         public function index(){
          $data['Imagenes']=$this->model->getCarrusel();   
@@ -37,7 +45,8 @@ public function adminPublicaciones(){ require_once"views/administrador/publicaci
              require_once 'views/logins/view-ingresar-user.php'; }
 
              public function administrador(){
-                require_once'views/administrador/index.php';
+
+                require_once 'views/administrador/index.php';
             }
     }
   

@@ -32,11 +32,17 @@ class ControllerFormularios extends ControllerAcciones
             } else {
                 $hash = md5(rand(0,10000));
                 $guardado = $this->model->registrarUsuario($nombre, $correo, $pass, $numero,$hash);
-
+                $_SESSION['mensajeAvizo']= array();
                 if ($guardado == 1) {
                     $enviado = $this->acciones->enviarCorreo($nombre,$correo,$hash);
                    if($enviado){
-                    header('Location:index.php?c=vistas&a=ingresar');
+                       #SEssion de que se ha enviado un correo para que verifique su correo 
+                        $_SESSION['mensajeAvizo']=[" Hemos enviado un correo de verificación ha tu cuenta de correo ingresa al link que te enviamos para activar tu cuenta :)","success"];
+                       header('Location:index.php?c=vistas&a=ingresar');
+                   }else{
+                       #Poner en Variable sesssion deciendo que hubo un error al enviar el correo
+                       $_SESSION["mensajeCorreo"]=["Ups!","danger",", intenalo mas tarde."];
+                       header('Location:index.php?c=vistas&a=registrar');
                    }
                 }
             }
@@ -95,4 +101,26 @@ class ControllerFormularios extends ControllerAcciones
             header("Location:index.php?c=vistas&a=adminCarrusel");
         }
     }
+    public function ingresar()
+    {
+      
+        if (isset($_POST['ingresar'])) {
+            $correo = $_POST["correo"];
+            $contrasena = $_POST["pass"];
+
+            $usuario = $this->model->getUsuario($correo, $contrasena);
+            $_SESSION["usuario"]=array();
+            if (!empty($usuario) && $usuario["activo"]==1) {
+                $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
+                #$_SESSION["rol"] = $usuario["rol"];
+                header("Location:index.php");
+            }else{
+               $_SESSION['mensajeAvizo']= [ "No te has registrado o aun no has activado tu correo.","danger"];
+               header("Location:index.php?c=vistas&a=ingresar");
+            }
+        } else { #ingresarUSer
+            echo "Algo salio mal intentalo mas tarde";
+        }
+    }
+
 }

@@ -18,7 +18,7 @@ class ControllerAcciones{
     Corrreo:' . $email . '
     +----------------------------+
     Por favor has clic en este enlace para activar tu cuenta :
-    http://distribuidora.com/----aqui hace falta algunas cosas 
+    http://distribuidora.com/index.php?c=acciones&a=activar&id='.$user.'&r='.$hash.' 
     
     ';
         $header = "From:administracion@distribuidorasg.com.mx" . "\r\n";
@@ -48,9 +48,9 @@ class ControllerAcciones{
         #en caso de que sea verdadero el hash 
         
     }
-    public function prueba($name,$has){
-        echo "Nombre=>>".(string)$name;
-        echo "  Hash==>".(string)$has;
+    public function cerrar(){
+      session_unset();
+      header("Location:index.php?c=vistas&a=index");
     }
    
 }

@@ -48,27 +48,32 @@
       </li>
     </ul>
   <!--Aqui sera en caso de que ya esta registrado-->
+  <?php if(isset($_SESSION["usuario"]) && !empty($_SESSION["usuario"])){ ?>
+
     <ul class="nav-item dropdown ">
       <a class="nav-link dropdown-toggle py-0" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="mr-2 py-1 d-none d-lg-inline text-gray-800 ">Sebastian</span>
+        <span class="mr-2 py-1 d-none d-lg-inline text-gray-800 "><?= $_SESSION['usuario'][0]?></span>
         <img class="img-profile  rounded-circle" style="width: 3rem; height: 3rem;" src="images/userIcon.svg">
       </a>
       <!-- Dropdown - User Information -->
-      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 
-        <a class="dropdown-item" href="#">
+      <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+      <?php if("admin"== $_SESSION["usuario"][1]){?>
+      <a class="dropdown-item" href="index.php?c=vistas&a=administrador">
           <i class="bi bi-gear mr-2"></i>
-          Ajustes
+          Administrador
         </a>
+      
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+        <?php } ?>
+        <a class="dropdown-item" href="index.php?c=acciones&a=cerrar" >
           <i class="bi bi-box-arrow-left mr-2"></i>
           Salir
         </a>
       </div>
     </ul>
     <!--Ingresar nuevo usuario-->
-    
+    <?php } else{?>
     <a href="index.php?c=vistas&a=registrar">
       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
         <i class="bi bi-person-badge"></i>
@@ -83,6 +88,7 @@
         Ingresar
       </button>
     </a>
-
+    <?php }?>
+<!-- Casi acaba aqui el navegador -->
   </div>
 </nav>

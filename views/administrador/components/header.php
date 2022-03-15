@@ -31,10 +31,6 @@
           <a class="sidebar-brand d-flex align-items-center justify-content-center pt-0" href="index.php">          
           <div class="sidebar-brand-text pt-0 ">Inicio</div>
         </a>
-
-    
-
-
           <!-- Divider -->
           <hr class="sidebar-divider my-0">
 
