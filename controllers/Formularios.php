@@ -32,12 +32,13 @@ class ControllerFormularios extends ControllerAcciones
             } else {
                 $hash = md5(rand(0,10000));
                 $guardado = $this->model->registrarUsuario($nombre, $correo, $pass, $numero,$hash);
-                $_SESSION['mensajeAvizo']= array();
+               
                 if ($guardado == 1) {
                     $enviado = $this->acciones->enviarCorreo($nombre,$correo,$hash);
                    if($enviado){
+                    $_SESSION['mensajeAvizo']= array();
                        #SEssion de que se ha enviado un correo para que verifique su correo 
-                        $_SESSION['mensajeAvizo']=[" Hemos enviado un correo de verificación ha tu cuenta de correo ingresa al link que te enviamos para activar tu cuenta :)","success"];
+                        $_SESSION['mensajeActivado']=["success"," Hemos enviado un correo de verificación ha tu cuenta de correo ingresa al link que te enviamos para activar tu cuenta :)"];
                        header('Location:index.php?c=vistas&a=ingresar');
                    }else{
                        #Poner en Variable sesssion deciendo que hubo un error al enviar el correo
@@ -47,7 +48,8 @@ class ControllerFormularios extends ControllerAcciones
                 }
             }
         } else { #else de si existe el formulario
-            echo "Error al enviar datos intetelo de nuevo ";
+            $_SESSION['mensajeCorreo']= [null,"Paso algo malo intentalo mas tarde","danger"];
+                           echo "Error al enviar datos intetelo de nuevo ";
         }
     }
 
@@ -103,19 +105,24 @@ class ControllerFormularios extends ControllerAcciones
     }
     public function ingresar()
     {
-      
         if (isset($_POST['ingresar'])) {
             $correo = $_POST["correo"];
             $contrasena = $_POST["pass"];
-
+            $_SESSION['mensajeAvizo'] = array();
             $usuario = $this->model->getUsuario($correo, $contrasena);
             $_SESSION["usuario"]=array();
-            if (!empty($usuario) && $usuario["activo"]==1) {
+            if (!empty($usuario) ) {
+                if( $usuario["activo"]==1){
                 $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
-                #$_SESSION["rol"] = $usuario["rol"];
                 header("Location:index.php");
-            }else{
-               $_SESSION['mensajeAvizo']= [ "No te has registrado o aun no has activado tu correo.","danger"];
+                }else{
+
+                    $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
+                    header("Location:index.php?c=vistas&a=ingresar");
+                }
+
+            }else{#En caso que no exista el correo
+               $_SESSION['mensajeAvizo']= [ "danger","No te has registrado ."];
                header("Location:index.php?c=vistas&a=ingresar");
             }
         } else { #ingresarUSer

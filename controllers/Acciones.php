@@ -36,18 +36,18 @@ class ControllerAcciones{
     public function activar($nombre,$hash){
        $registrad = $this->modelo->existeCorreo($nombre,$hash);
        if(!empty($registrad)){
-        var_dump($registrad);
-           echo "vamos chidos";
-          # $this->modelo->activandoCorreo((string)$hash,(string)$nombre);
+         $this->modelo->activandoCorreo($registrad['hash'],$registrad['correo']);
            #redireccionar al formulario de ingreso he ingresar un mensaje
-          # header("Location:index.php?c=vistas&a=ingresar");
+           $_SESSION['mensajeActivado']=["success","Tu correo electronico ha sido activado ahora puedes ingresar a nuestra pagina "];
+           header("Location:index.php?c=vistas&a=ingresar");
        }else{
-           echo "Vamos mal ";
+           echo "hA ocurrido algo mal prueba de nuevo mas tarde";
        }
        
         #en caso de que sea verdadero el hash 
         
     }
+  
     public function cerrar(){
       session_unset();
       header("Location:index.php?c=vistas&a=index");

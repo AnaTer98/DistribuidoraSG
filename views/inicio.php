@@ -13,7 +13,7 @@ include_once('./views/components/carrusel.php');
     <div class="list-group list-group-flush">
       <a href="#" class="list-group-item list-group-item-action bg-light">Plataforma de Recargas</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Accesorios</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Telefonía</a>
+      <a href="PDF/1.pdf" class="list-group-item list-group-item-action bg-light">Telefonía</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Cómputo</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Servicios</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Novedades</a>

@@ -104,13 +104,13 @@ class modeloInicio
         $sqlHash = "SELECT * FROM usuarios WHERE nombre='$nombre' AND hash='$hash' ";
         $existe = $this->based->prepare($sqlHash);
         $existe->execute();
-        return $existe->fetch(PDO::FETCH_NUM);
+        return $existe->fetch();
     }
 
 
-    public function activandoCorreo($hash, $nombre)
+    public function activandoCorreo($hash, $correo)
     {
-        $sql = "UPDATE usuarios SET activo = 1 WHERE hash='$hash' AND nombre='$nombre'  ";
+        $sql = "UPDATE usuarios SET activo = 1 WHERE hash='$hash' AND correo='$correo'  ";
         $actualizado = $this->based->prepare($sql);
         $actualizado->execute();
         return $actualizado->columnCount();
