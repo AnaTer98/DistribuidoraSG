@@ -36,12 +36,14 @@ placeholder="Aqui sera un descripción, en lo que consiste la vacante y requisit
 -Nombre completo
 -Etc" name="descripcion" id="exampleFormControlTextarea1" rows="30"></textarea>
   </div>
-  <div class="col-md-4 mb-6">
-  <img src="images/logos-assets/logos.png" id="caja"style="width:100%;height:20rem;" class="rounded mt-5 d-block" alt="">
+  <div class="col-md-6 mb-6">
+  <div class="mt-2" > 
+  <label for="Nota">Nota u observacion respecto a la vacante</label>  
+  <textarea type="text" class="form-control mt-1" name="Nota" id="Nota"></textarea>
   </div>
-  <div class="col-md-3">
-   <h1>Pos va pos</h1>
+  <img src="images/logos-assets/logos.png" id="caja"style="width:70%;height:20rem;" class="rounded mt-1 d-block" alt="">
   </div>
+ 
   </div>
   
   <button class="btn btn-primary"  value="guardarV"name="guardarV" type="submit">Subir vacante</button>

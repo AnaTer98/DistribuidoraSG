@@ -26,7 +26,7 @@ include('views/components/navegador.php');
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-          <?php } $_SESSION["mensajeAvizo"] ;  ?>
+          <?php } $_SESSION["mensajeAvizo"]="" ;  ?>
       <div class="card-body text-dark">
         <form id="form-ingresar-user" method="post" action="index.php?c=formularios&a=ingresar" class="login-form validate-form">
 

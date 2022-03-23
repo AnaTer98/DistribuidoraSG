@@ -27,11 +27,6 @@ include_once('./views/components/carrusel.php');
     <?php include_once('views/components/navegador.php'); ?>
     <!--El botton para mostrar el menu lateral-->
     <!--<button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>-->
-
-
-   
-
-    <h1 class="mt-4">Publicaciones</h1>
     <div class="mx-auto">
 
       <div class="col-12">
@@ -39,12 +34,13 @@ include_once('./views/components/carrusel.php');
 
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img class="img-fluid" src="views/images/logos.jpg" alt="...">
+              <img class="img-fluid" src="images/1.jpg" style="height:20rem;" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Titulo de la Publicacion</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                
                 <hr>
                 <p class="card-text"><small class="text-muted">Tiempo transcurrido de la publicacion</small></p>
               </div>

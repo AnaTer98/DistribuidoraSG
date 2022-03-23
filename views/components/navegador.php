@@ -8,9 +8,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="views/promociones.php">Promociones</a> <span class="sr-only">(current)</span></a>
-      </li>
+    
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -18,9 +16,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Fabricantes</a>
-          <a class="dropdown-item" href="#">Importadores</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Ingresar Orden de Compra</a>
+          <a class="dropdown-item" href="#">Importadores</a>
+     
+  
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -29,9 +28,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Catalogo</a>
-          <a class="dropdown-item" href="#">Cotiza</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Atencion Personalizada </a>
+          <a class="dropdown-item" href="#">Cotiza</a>
+         
+      
         </div>
       </li>
 
@@ -41,9 +41,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="index.php?c=vistas&a=qsomos">¿Quienes somos?</a>
-          <a class="dropdown-item" href="index.php?c=vistas&a=vacantes">Vacantes</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Ingresa tu C.V. </a>
+          <a class="dropdown-item" href="index.php?c=vistas&a=vacantes">Vacantes</a>
         </div>
       </li>
     </ul>
