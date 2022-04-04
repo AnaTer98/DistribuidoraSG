@@ -45,8 +45,11 @@ public function adminPublicaciones(){ require_once"views/administrador/publicaci
              require_once 'views/logins/view-ingresar-user.php'; }
 
              public function administrador(){
-
-                require_once 'views/administrador/index.php';
+                if(!empty($_SESSION['usuario']) && $_SESSION['usuario'][1]=="admin"){
+                    require_once 'views/administrador/index.php';
+                }
+                
+                require_once 'views/static/errores.php';
             }
     }
   
