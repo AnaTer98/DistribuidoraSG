@@ -43,14 +43,14 @@ class modeloInicio
     }
     public function postVacantes($nameVacante, $descripcion, $ruta)
     {
-        $sql = "INSERT INTO vacantes(vacante,descripcion,rutaImg) VALUES('$nameVacante','$descripcion','$ruta');";
+        $sql = "INSERT INTO vacantess(vacante,descripcion,rutaImg) VALUES('$nameVacante','$descripcion','$ruta');";
         $resultado = $this->based->prepare($sql);
         $resultado->execute();
         return $resultado;
     }
     public function getVacantes()
     {
-        $sql = "SELECT * FROM vacantes;";
+        $sql = "SELECT * FROM vacantess;";
         $resultados = $this->based->prepare($sql);
         $resultados->execute();
         $res = $resultados->fetchAll();
@@ -59,7 +59,7 @@ class modeloInicio
     public function removeColaborador($id)
     {
         $ids = (int)$id;
-        $sql = "DELETE FROM vacantes WHERE id='$ids';";
+        $sql = "DELETE FROM vacantess WHERE id='$ids';";
         try {
             $re = $this->based->prepare($sql);
             $re->execute();

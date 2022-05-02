@@ -40,7 +40,7 @@
 
           <!-- Heading -->
           <li class="nav-item">
-            <a href="index.php?c=vistas&a=adminCarrusel" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminCarrusel" class="nav-link">
               <i class="bi bi-collection"></i>
               Carrusel
             </a>
@@ -50,7 +50,7 @@
           <!-- Empleados-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="index.php?c=vistas&a=adminColaboradores" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminColaboradores" class="nav-link">
               <i class="bi bi-person-badge"></i>
               Colaboradores
             </a>
@@ -59,7 +59,7 @@
           <!-- Publicaciones-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="index.php?c=vistas&a=adminPublicaciones" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminPublicaciones" class="nav-link">
               <i class="bi bi-arrow-up-square"></i>
               Publicaciones
             </a>

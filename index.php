@@ -10,10 +10,13 @@ if (isset($_GET['c'])) {
        if(isset($_GET['id'])){           
         if(isset($_GET['r'])){
             cargarMetodo($controlador, $_GET['a'],$_GET['id'],$_GET['r']);
+            exit;
         }
         cargarMetodo($controlador, $_GET['a'], $_GET['id']);
+        exit;
        }else{
-           cargarMetodo($controlador, $_GET['a']);  
+           cargarMetodo($controlador, $_GET['a']); 
+           exit; 
        }
     }
 }else {

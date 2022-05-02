@@ -18,15 +18,17 @@ function cargarMetodo($controller, $method, $id = null, $otro = null){
         if (!($id==null)) {
             if(!($otro==null)) {
                 $controller->$method($id,$otro);
-                die(); 
+                echo"Aqui deberia entrar";
             }
-          
+          echo"Aqui no deberias estar";
             $controller->$method($id);
-            die();
+         
         }
+        
         $controller->$method();
-        die();
+       
     }else {
         $controller->METODO_PRINCIPAL();
+        
     }
 }

@@ -58,7 +58,7 @@
 
       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
       <?php if("admin"== $_SESSION["usuario"][1]){?>
-      <a class="dropdown-item" href="index.php?c=vistas&a=administrador">
+      <a class="dropdown-item" href="index.php?c=vistasAd&a=administrador">
           <i class="bi bi-gear mr-2"></i>
           Administrador
         </a>

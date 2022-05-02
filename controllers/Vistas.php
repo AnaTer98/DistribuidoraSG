@@ -21,16 +21,7 @@
          #echo $data['imagenes'];
         require_once "views/inicio.php";
         }
-        public function adminCarrusel(){
-            $data["Imagenes"]=$this->model->getCarrusel();
-         
-            include_once"views/administrador/carrusel.php";
-        }
-        public function adminColaboradores(){
-        $data['imagenes']= $this->model->getVacantes();
-            include_once"views/administrador/colaboradores.php";
-        }
-public function adminPublicaciones(){ require_once"views/administrador/publicaciones.php";}
+        
         public function vacantes(){
             $data['vacantes']=$this->model->getVacantes();
             require_once"views/vacantes.php";
@@ -44,13 +35,7 @@ public function adminPublicaciones(){ require_once"views/administrador/publicaci
             //otro mensaje en caso de que el correo no este activado 
              require_once 'views/logins/view-ingresar-user.php'; }
 
-             public function administrador(){
-                if(!empty($_SESSION['usuario']) && $_SESSION['usuario'][1]=="admin"){
-                    require_once 'views/administrador/index.php';
-                }
-                
-                require_once 'views/static/errores.php';
-            }
+            
     }
   
 

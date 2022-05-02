@@ -15,9 +15,7 @@ var objetUrl = URL.createObjectURL(primerArchivo);
 cajaImg.attr('src',objetUrl);
 
 });
-var boton = $("#mostrar");
-boton.click(function(){
-    $("#formulario").toggleClass('d-none');
-}
 
-);
+
+
+

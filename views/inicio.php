@@ -27,41 +27,36 @@ include_once('./views/components/carrusel.php');
     <?php include_once('views/components/navegador.php'); ?>
     <!--El botton para mostrar el menu lateral-->
     <!--<button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>-->
-    <div class="mx-auto">
+    <div class="container">
 
-      <div class="row col-12">
-        <div class="card  mb-3" >
+      <div class="row " style="">
 
-          <div class="row no-gutters"style="height:22rem;">
-            <div class="col-md-4">
-              <img class="img-fluid" src="images/03-07-22-04-22-18.jpeg" style="height:22rem;" alt="...">
+<div class="col-6">
+        <div class="card">
+        <div class="card-header">
+          <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
+            <h5 class="card-title ml-1 pb-10 d-inline">Distribuidora SG</h5>
             </div>
-            <div class="col-md-8">
-              <div class="card-body ">
-                <h3 class="card-title">Titulo de la Publicacion</h3>
-                <p class="card-text h5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ea mollitia minima dolor minus? Fugiat et, tenetur laudantium quo sed eos explicabo possimus id! Aspernatur, deleniti? Dolor, vel perspiciatis doloribus ad, numquam consequatur provident earum dicta illum possimus deleniti architecto labore officia rem, voluptas temporibus debitis et! Tempore veritatis reiciendis perspiciatis doloremque distinctio blanditiis! Praesentium, minus pariatur distinctio expedita dolores delectus, laborum ab consequatur dolorem hic unde, eius voluptatum mollitia ratione. Eveniet voluptate qui rerum distinctio aspernatur, aut sed mollitia labore pariatur minima accusamus accusantium dolores, praesentium expedita molestias ullam laboriosam, nam assumenda similique. Totam ipsam est tempore velit perspiciatis? This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              
-               
-                  <hr >
-                <p class="card-text "><small class="text-muted">Tiempo transcurrido de la publicacion</small></p>
-                </div>
-                
-              </div>
-            
-            </div>
-            
+          <div class="card-body">            
+            <p class="card-text pb-0">Esta oferta es unico durante los proximos dias </p>
           </div>
+          <img src="images/04-17-22-21-44-09.jpeg" class="card-img-top rounded-0 " alt="...">
+          <div class="card-footer" style="">
+          <small class="text-muted"> Hace 10 minutos </small>
         </div>
-      </div>
+        </div>
+</div>
 
+      </div>
     </div>
-   
+
   </div>
 
-  <!-- /#page-content-wrapper -->
+</div>
+
+<!-- /#page-content-wrapper -->
 
 </div>
 <?php
 include_once('./views/components/footer.php');
 ?>
-

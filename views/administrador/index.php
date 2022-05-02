@@ -15,9 +15,11 @@ include 'views/administrador/components/header.php';
     </div>
   </div>
 
-  <div class="container">
+  <div class="container mx-auto">
 <div class="row">
-<div class="col-9 rounded bg-light:div"></div>
+<div class="col-9 rounded bg-light">
+  <h1>Aqui seran configuraciones</h1>
+</div>
 
 </div>
 

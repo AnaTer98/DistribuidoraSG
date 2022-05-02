@@ -14,8 +14,8 @@ class ControllerColaboradores{
         $borradoDb = $this->model->removeColaborador((int)$id);
         $borradoImg= $this->acciones->borrarImg((string)$ruta);
         if($borradoDb && $borradoImg){
-            header("Location:index.php?c=vistas&a=adminColaboradores");
-
+            header("Location:index.php?c=vistasAd&a=adminColaboradores");
+exit;
         }
 
     }
@@ -39,9 +39,9 @@ class ControllerColaboradores{
                    
                 if($guardado){
                      move_uploaded_file($rutaTemp,$ruta);
-                    echo "Vamos se ha subido ";
+                 $_SESSION['mensaje']=[];
                     #poner mensaje que se guardo correctamente 
-                    header("Location:index.php?c=vistas&a=adminColaboradores");
+                    header("Location:index.php?c=vistasAd&a=adminColaboradores");
                 }
             }catch(Exception $e){
                 echo"NO se guado el registro";

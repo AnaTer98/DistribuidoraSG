@@ -4,6 +4,7 @@ include 'components/header.php';
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+
   <!-- Page Heading -->
   <div class="card mb-4 py-1 border-bottom-warning">
     <div class="card-body">
@@ -12,85 +13,70 @@ include 'components/header.php';
       </div>
     </div>
   </div>
-<!--Formulario para crear vacante-->
-<form action="index.php?c=colaboradores&a=postVacantes"method="post"  enctype="multipart/form-data">
-  <div class="form-row">
-    <div class="col-md-6 mb-6">
-      <label for="validationDefault01">Vacante</label>
-      <input type="text" name="vacante" class="form-control" placeholder="Trabajo al que hay un vacante" required>
+  <?php if (isset($_SESSION['mensaje']) && !empty($_SESSION['mensaje'])) { ?>
+    <div class="alert bg-<?= $_SESSION['mensaje'][1] ?> alert-dismissible fade show " role="alert">
+      <p class="text-light h5"><?= $_SESSION['mensaje'][0] ?><strong>Eliminado</strong></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-   
-  <div class="form-group col-md-6 mb-6">
-    <label for="exampleFormControlFile1">Elige una imagen relacionada</label>
-    <input type="file" id="inputImg" name="img" class="form-control-file" >
-  </div>
 
-  </div>
-  <div class="form-row">
-  <div class="form-group mt-2 col-md-4">
-    <label for="exampleFormControlTextarea1">Descripción de la vacante </label>
-    <textarea type="text" class="form-control mt-1" style="height:20rem;" 
-placeholder="Aqui sera un descripción, en lo que consiste la vacante y requisitos:
--Ingresar C.V.
--Correo activo
--Nombre completo
--Etc" name="descripcion" id="exampleFormControlTextarea1" rows="30"></textarea>
-  </div>
-  <div class="col-md-6 mb-6">
-  <div class="mt-2" > 
-  <label for="Nota">Nota u observacion respecto a la vacante</label>  
-  <textarea type="text" class="form-control mt-1" name="Nota" id="Nota"></textarea>
-  </div>
-  <img src="images/logos-assets/logos.png" id="caja"style="width:70%;height:20rem;" class="rounded mt-1 d-block" alt="">
-  </div>
- 
-  </div>
-  
-  <button class="btn btn-primary"  value="guardarV"name="guardarV" type="submit">Subir vacante</button>
-</form>
-  <!--Contenido aqui-->
-  <br>
-  <hr>
+  <?php $_SESSION['mensaje'] = "";
+  } ?>
+  <!--Formulario para crear vacante-->
   <div class="row">
-    <!--La tabla de edicion de Empleados-->
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Puesto</th>
-          <th scope="col">Descripción y Requisitos</th>
-          <th scope="col">Imagen </th>
-          <th scope="col">Eliminar</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php  foreach($data['imagenes'] as $key){ ?>
-          <tr>
-            <td > <?= $key['id']?></td>
-            <td> <?= $key['vacante']?></td>
-            <td><?= $key['descripcion']?> </td>
-            <td><img class="img-thumbnail" style="width:15rem; height:8rem;" src="<?= $key['rutaImg']?>">   </td>
-            <td>
-              <a href="index.php?c=colaboradores&a=removeColaborador&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger btn-icon-split mt-5">
-                <span class="icon text-white-50">
-                  <i class="bi bi-trash"></i>
-                </span>
-                <span class="text"> Eliminar </span>
+    <div class="col-4">
+    <form action="index.php?c=colaboradores&a=postVacantes" method="POST" enctype="multipart/form-data">
+      <div class="card mt-2 " style="width: 21rem;">
 
-              </a>  
-            </td>
-          </tr>      
-      <?php } ?>
-    
-    
-      </tbody>
-    </table>
+        <img src="images/vac-00-02-54.jpeg" class="card-img-top "  id="caja" alt="...">
+        
+        <input type="file" class="form-control-file mt-1  " id="inputImg" name="img">
+   
+       <div class="card-body">
+          <label for="vaca" class="mb-0 h5">Vacante</label>
+          <input type="text" name="vacante" class="form-control mt-0" placeholder="Nuevo puesto" style="" id="">
+          <label for="descripcion">Descripción</label>
+   <p class="card-text"><textarea name="descripcion" id="" class="form-control mx-0 card-text " style="height:18rem;font-size: 80%;font-weight: 400;" arial-label="With textarea"></textarea></p>
+          <button type="submit" name="guardarV" value="guardarV" class="btn btn-warning mt-1"><i class="bi bi-briefcase mr-1"></i>Guardar</button>
+        </div>
+  
+      </div>
+      
+</form>
+    </div>
+    <div class="col-8">
+      <div class="row row-col-md-2 m-3 d-flex justify-content-start">
 
+      <?php if(isset($data['vacantes']) && !empty($data['vacantes'])){
+        foreach ($data['vacantes'] as $key ) { ?>
+          <div class="m-3 d-flex ">
+            <div class="card mt-2" style="width:21rem;">
+            <img src="<?= $key['rutaImg']?>" class="card-img-top" alt="<?= $key['rutaImg']?>">
+            <div class="card-body">
+              <h5 class="card-title"><?= $key['vacante']?></h5>
+              <p class="card-text"><?= $key['descripcion']?></p>
+              <a href="index.php?c=colaboradores&a=removeColaborador&id=<?=$key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger"><i class="bi bi-trash"></i>Borrar</a>
+            </div>          
+          </div>
+          </div>
 
+        
 
-</div>
-<!-- /.container-fluid -->
+      <?php } }else{
+echo "<h1>No hay resgistros añade uno</h1>";
+        
+      }
 
-<?php
-include 'components/footer.php';
-?>
+      ?>
+       
+
+      </div>
+    </div>
+  </div>
+  <!--Contenido aqui-->
+
+  <br><br><br><br><br>
+  <?php
+  include 'components/footer.php';
+  ?>
