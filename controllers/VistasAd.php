@@ -7,7 +7,7 @@ class ControllerVistasAd{
 public $model;
 function __construct(){
     $this->model = new ModeloInicio();
-    if(!(!empty($_SESSION['usuario']) && $_SESSION['usuario'][1]=="admin")){
+    if(!(!empty($_SESSION['usuario']) && $_SESSION['usuario'][1]=="admin" )){
         require_once 'views/static/errores.php'; 
         exit;
     }
@@ -28,7 +28,7 @@ $data['vacantes']= $this->model->getVacantes();
 }
 public function adminPublicaciones(){ require_once"views/administrador/publicaciones.php";}
 
-
+public function adminCatalogos(){require_once"views/administrador/catalogo.php";}
 
 
 }

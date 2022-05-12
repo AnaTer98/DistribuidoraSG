@@ -24,10 +24,11 @@ include 'components/header.php';
   <?php $_SESSION['mensaje'] = "";
   } ?>
   <!--Formulario para crear vacante-->
-  <div class="row">
-    <div class="col-4">
+  <div class="row ">
+    <div class=" col-xl-3 col-lg-6 col-md-8 col-sm-12 border-right border-warning " style="border-right: 0.25rem #f6c23e solid !important;">
+
     <form action="index.php?c=colaboradores&a=postVacantes" method="POST" enctype="multipart/form-data">
-      <div class="card mt-2 " style="width: 21rem;">
+      <div class="card mt-2 m-0 " style="">
 
         <img src="images/vac-00-02-54.jpeg" class="card-img-top "  id="caja" alt="...">
         
@@ -45,13 +46,14 @@ include 'components/header.php';
       
 </form>
     </div>
-    <div class="col-8">
-      <div class="row row-col-md-2 m-3 d-flex justify-content-start">
+
+    <div class=" col-xl-9 col-lg-12 col-md-12 col-sm-12 ">
+      <div class="card-columns">
 
       <?php if(isset($data['vacantes']) && !empty($data['vacantes'])){
         foreach ($data['vacantes'] as $key ) { ?>
-          <div class="m-3 d-flex ">
-            <div class="card mt-2" style="width:21rem;">
+        
+            <div class="card  mx-auto my-2" style="">
             <img src="<?= $key['rutaImg']?>" class="card-img-top" alt="<?= $key['rutaImg']?>">
             <div class="card-body">
               <h5 class="card-title"><?= $key['vacante']?></h5>
@@ -59,7 +61,8 @@ include 'components/header.php';
               <a href="index.php?c=colaboradores&a=removeColaborador&id=<?=$key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger"><i class="bi bi-trash"></i>Borrar</a>
             </div>          
           </div>
-          </div>
+        
+         
 
         
 
@@ -73,7 +76,9 @@ echo "<h1>No hay resgistros añade uno</h1>";
 
       </div>
     </div>
+    
   </div>
+</div>
   <!--Contenido aqui-->
 
   <br><br><br><br><br>

@@ -68,9 +68,9 @@
           <!-- Productos-->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="views/administrador/productos.php" class="nav-link">
-              <i class="bi bi-bag-plus"></i>
-              Productos
+            <a href="index.php?c=vistasAd&a=adminCatalogos" class="nav-link">
+            <i class="bi bi-bag-check"></i>
+              Catalogos
             </a>
 
           </li>
@@ -78,13 +78,36 @@
             <hr class="sidebar-divider my-0">
           <li class="nav-item">
             <a href="views/administrador/productos.php" class="nav-link">
-              <i class="bi bi-bag-plus"></i>
-              Usuarios
+            <i class="bi bi-calculator"></i>
+              Cotiza
+            </a>
+
+          </li>
+          <hr class="sidebar-divider  my-0">
+          <li class="nav-item">
+            <a href="views/administrador/productos.php" class="nav-link">
+            <i class="bi bi-truck"></i>
+              Fabricantes e Importadores
+            </a>
+
+          </li>
+          <hr class="sidebar-divider  my-0">
+          <li class="nav-item">
+            <a href="views/administrador/productos.php" class="nav-link">
+            <i class="bi bi-box-seam"></i>
+              Productos y Servicios
             </a>
 
           </li>
           <!-- Divider -->
-          <hr class="sidebar-divider d-none d-md-block">
+          <hr class="sidebar-divider my-0">
+          <li class="nav-item">
+            <a href="views/administrador/productos.php" class="nav-link">
+            <i class="bi bi-person-badge"></i>
+              Usuarios
+            </a>
+
+          </li>
         </ul>
         
         <!-- End of Sidebar -->
