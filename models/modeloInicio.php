@@ -124,4 +124,18 @@ class modeloInicio
         $us = $usuario->fetch();
         return $us;  
     }
+    public function setPdf($tipo,$ruta){
+        $sql = "INSERT INTO pdfs(tipo,rutaPdf) VALUES('$tipo','$ruta');";
+        $resul = $this->based->prepare($sql);
+        $resul->execute();
+        $resul->rowCount();
+        return $resul;
+    }
+    public function getPdfs(){
+           $sql = "SELECT * FROM pdfs";
+           $result = $this->based->prepare($sql);
+           $result->execute();
+         $res =   $result->fetchAll(PDO::FETCH_ASSOC);
+            return $res;
+    }
 }

@@ -1,9 +1,9 @@
 <?php
-include_once'models/modeloInicio.php';
+include_once 'models/modeloInicio.php';
 class ControllerAcciones{
     private $modelo;
     function __construct(){
-        $this->modelo = new ModeloInicio();
+        $this->modelo = new modeloInicio();
     }
     public function enviarCorreo($user, $email, $hash)
     {

@@ -29,7 +29,7 @@ public $conn;
   
     function datos(){
         #$ruta = dirname(__FILE__).'\config\configDb.json';
-        $ruta = 'config\configDb.json';
+        $ruta = 'config/configDb.json';
         $conf = file_get_contents($ruta);
 
         return json_decode($conf,true);

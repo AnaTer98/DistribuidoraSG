@@ -34,7 +34,7 @@ include 'components/header.php';
     <div class="form-row ">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Descripción</label>
-        <input type="text" class="form-control" name="descripcion"id="inputEmail4" placeholder="Pequeña descripcion sobre la imagen. ">
+        <input type="text" class="form-control" name="descripcion"id="inputEmail4" required placeholder="Pequeña descripcion sobre la imagen. ">
       </div>
 
       <div class="form-group col-md-4 ">

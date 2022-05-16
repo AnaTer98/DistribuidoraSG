@@ -62,18 +62,19 @@ class ControllerFormularios extends ControllerAcciones
             if (isset($imagen)) {
                 $extension = $_FILES["imagen"]["type"];
                 $temp = $_FILES["imagen"]["tmp_name"];
-                if (!(strpos($extension, 'jpg' || strpos($extension, 'png' || strpos($extension, 'gif'))))) { #$extension verificar FALTA CHECAR BIEN QUE ONDA
+                if (!(strpos($extension, 'jpg') || strpos($extension, 'png' ) )) { #$extension verificar FALTA CHECAR BIEN QUE ONDA
                     #en caso de que sea falso y no acepte este tipo de extension
+                    $_SESSION['mensaje'] = ["info","El archivo seleccionado, ","No es una imagen"];
                     header("Location:index.php?c=vistasAd&a=adminCarrusel");
+                    exit;
                 }
                 $nuevoName = date("m-d-y-H-i-s.") . explode("/", $extension)[1];
-
                 $ruta = "images/" . $nuevoName;
-
                 $guardadoDB = $this->model->setCarrusel($ruta, $descripcion);
                 if ($guardadoDB) {
                     try {
                         move_uploaded_file($temp, $ruta);
+
                         $_SESSION['mensaje']=["success","El registro ha sido,","Guardado"];
                         header("Location:index.php?c=vistasAd&a=adminCarrusel");
                         #hAY QUE PONER UN MENSAJE
@@ -129,6 +130,44 @@ class ControllerFormularios extends ControllerAcciones
         } else { #ingresarUSer
             echo "Algo salio mal intentalo mas tarde";
         }
+    }
+
+    public function postCatalogo(){
+        if(isset($_POST['guardar'])){
+            $tipoCatalogo = $_POST['tipo'];
+            echo($tipoCatalogo);
+            $pdf = $_FILES['catalogo']['name'];
+            if(!empty($pdf)){
+                $ifPdf = $_FILES['catalogo']['type'];
+               
+                $tmpPdf = $_FILES['catalogo']["tmp_name"];
+
+                if(!(strpos($ifPdf,'pdf'))){
+                    echo"no es un pdf"; 
+                    exit;
+                }
+                $nuevoName = date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
+                $ruta = "PDF/" . $nuevoName;
+
+                $guardadoDB = $this->model->setPdf($tipoCatalogo,$ruta);
+                if($guardadoDB){
+                    move_uploaded_file($tmpPdf,$ruta);
+                    echo'Felicidades';
+                    #header("Location:index.php?c=vistasAd&a=adminCatalogos");
+                }
+                
+
+            }
+
+        }else {
+            echo"no se registro nada ";
+            #$this->removePdf();#Vere mas que show por que no se que mas hacer :/
+        }
+       
+    }
+    public function removeCatalogo(){
+        
+            echo "Aun no vemo como le aremos ";
     }
 
 }

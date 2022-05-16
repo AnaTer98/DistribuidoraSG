@@ -14,8 +14,6 @@ function __construct(){
 }
 public function administrador(){
         require_once 'views/administrador/index.php';
-        
-   
 }
 public function adminCarrusel(){
     $data["Imagenes"]=$this->model->getCarrusel();
@@ -28,7 +26,9 @@ $data['vacantes']= $this->model->getVacantes();
 }
 public function adminPublicaciones(){ require_once"views/administrador/publicaciones.php";}
 
-public function adminCatalogos(){require_once"views/administrador/catalogo.php";}
+public function adminCatalogos(){
+    $data['catalogos'] = $this->model->getPdfs();
+    require_once"views/administrador/catalogo.php";}
 
 
 }
