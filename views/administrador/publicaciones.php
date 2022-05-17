@@ -31,7 +31,7 @@ include 'components/header.php';
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen" class="form-control-file" id="" required>
             </div>
-            <img src="images/vac-21-02-55.jpeg" class="w-100 my-1 "alt="">
+            <img src="images/vac-00-02-54.jpeg" class="w-100 my-1 "alt="">
 
 <button type="submit" class="btn btn-success "><i class="bi bi-box-arrow-in-up"></i> Agregar</button>
 

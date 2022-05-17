@@ -133,9 +133,8 @@ class ControllerFormularios extends ControllerAcciones
     }
 
     public function postCatalogo(){
-        if(isset($_POST['guardar'])){
+        if(isset($_POST['catalogoPdf'])){
             $tipoCatalogo = $_POST['tipo'];
-            echo($tipoCatalogo);
             $pdf = $_FILES['catalogo']['name'];
             if(!empty($pdf)){
                 $ifPdf = $_FILES['catalogo']['type'];
@@ -153,7 +152,7 @@ class ControllerFormularios extends ControllerAcciones
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
                     echo'Felicidades';
-                    #header("Location:index.php?c=vistasAd&a=adminCatalogos");
+                    header("Location:index.php?c=vistasAd&a=adminCatalogos");
                 }
                 
 
@@ -165,9 +164,19 @@ class ControllerFormularios extends ControllerAcciones
         }
        
     }
-    public function removeCatalogo(){
+    public function removeCatalogo($id,$ruta){
+        if(isset($_POST['catalogoPdf'])){
+            $dbEliminado = $this->model->removeCatalogo((int)$id);
+            $archEliminado = $this->acciones->borrarImg($ruta);
+            if($dbEliminado && $archEliminado){
+                $_SESSION['mensaje']= ['warning','Catalogo. ','Eliminado!!'];
+                header("Location:index.php?c=vistasAd&a=adminCatalogos");
+            }
+
+
+
+        }
         
-            echo "Aun no vemo como le aremos ";
     }
 
 }

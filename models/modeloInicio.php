@@ -138,4 +138,16 @@ class modeloInicio
          $res =   $result->fetchAll(PDO::FETCH_ASSOC);
             return $res;
     }
+    public function removeCatalogo($id){
+        $ids = $id;
+        $sql = "DELETE FROM pdfs WHERE id='$ids';";
+        try {
+            $re = $this->based->prepare($sql);
+            $re->execute();
+            return $re;
+        } catch (PDOException $th) {
+            echo "algo salio mal al eliminar el registro";
+            //throw $th;
+        }
+    }
 }

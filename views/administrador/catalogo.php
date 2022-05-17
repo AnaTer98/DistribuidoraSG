@@ -2,6 +2,7 @@
 include_once "views/administrador/components/header.php";
 
 ?>
+
 <?php 
 $datosNor = array();
 $datosMay = array();
@@ -9,13 +10,13 @@ $datosMay = array();
     if(isset($data['catalogos']) && !empty($data['catalogos'])){
         foreach ($data['catalogos'] as $key) {
             if($key['tipo']=="normal"){
-            array_push($datosNor,$key['id'],$key['tipo']);         
+            array_push($datosNor,$key['id'],$key['tipo'],$key['rutaPdf']);         
             }
             if($key['tipo']=="mayorista"){
-            array_push($datosMay,$key['id'],$key['tipo']);
+            array_push($datosMay,$key['id'],$key['tipo'],$key['rutaPdf']);
             }
         }
-        
+       
    
     }else{
 #no pasa nada
@@ -24,6 +25,7 @@ $datosMay = array();
 
 
 ?>
+
 <div class="container-fluid">
 
     <div class="card mb-4 py-1 " style="border-bottom: 0.30rem red solid !important;">
@@ -34,10 +36,19 @@ $datosMay = array();
         </div>
     </div>
 </div>
+<?php if(isset($_SESSION['mensaje'])&& !empty($_SESSION['mensaje'])){?>
+           <div class="alert bg-<?= $_SESSION['mensaje'][0]?> alert-dismissible fade show  m-2" role="alert">
+          <p class="text-light h5"><?= $_SESSION['mensaje'][1]?><strong><?= $_SESSION['mensaje'][2]?></strong></p>  
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      
+     <?php  $_SESSION['mensaje'] ="";}?>
 <div class="container">
     <div class="row  row-cols-2">
         <div class="col">
-        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")  ?>" enctype="multipart/form-data">
+        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=");?> <?= $datosNor[0]?><?php echo("&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
                 <div class="card border">
                     <div class="card-header">
                         <h3 class="card-title">Catalogo Mayorista</h3>
@@ -56,7 +67,7 @@ $datosMay = array();
                         <h4 class="pl-2"><?php echo(empty($datosNor) ? "Selecciona TU CATALOGO":"LISTO!!") ?> </h4>
                         <div class="btn-group">
                             
-                            <button type="submit" name="guardar" class="btn <?php echo(empty($datosNor) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosNor) ? "Guardar":"Eliminar")?></button> 
+                            <button type="submit" name="catalogoPdf" class="btn <?php echo(empty($datosNor) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosNor) ? "Guardar":"Eliminar")?></button> 
                         </div>
                     </div>
                 </div>
@@ -66,7 +77,7 @@ $datosMay = array();
 
         <div class="col">
             <!--Nueva tarjeta -->
-            <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosMay) ? "postCatalogo":"removeCatalogo")  ?>" enctype="multipart/form-data">
+            <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosMay) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosMay)){echo("&id=");?><?=$datosMay[0]?><?php echo("&r=".$datosMay[2]);}?>" enctype="multipart/form-data">
                 <div class="card border">
                     <div class="card-header">
                         <h3 class="card-title">Catalogo Mayorista</h3>
@@ -84,8 +95,8 @@ $datosMay = array();
                     <div class="card footer ">
                         <h4 class="pl-2"><?php echo(empty($datosMay) ? "Selecciona TU CATALOGO":"LISTO!!") ?> </h4>
                         <div class="btn-group">
-                            
-                            <button type="submit" name="guardar" class="btn <?php echo(empty($datosMay) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosMay) ? "Guardar":"Eliminar")?></button> 
+                         
+                            <button type="submit" name="catalogoPdf" class="btn <?php echo(empty($datosMay) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosMay) ? "Guardar":"Eliminar")?></button> 
                         </div>
                     </div>
                 </div>
