@@ -150,4 +150,11 @@ class modeloInicio
             //throw $th;
         }
     }
+    public function setPublicacion($comentario,$ruta,$fecha){
+        $sql = "INSERT INTO publicaciones(comentario,rutaImg,fecha) VALUES('$comentario','$ruta','$fecha');";
+        $resul = $this->based->prepare($sql);
+        $resul->execute();
+        $resul->rowCount();
+        return $resul;
+    }
 }

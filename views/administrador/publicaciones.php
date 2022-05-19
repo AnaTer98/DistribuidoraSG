@@ -20,7 +20,7 @@ include 'components/header.php';
 
       <div class="col-xl-4">
        
-        <form action="index.php">
+        <form action="index.php?c=formularios&a=postPublicacion" method="POST" enctype="multipart/form-data">
           <div class="card " style="border-right: 0.25rem solid #36b9cc !important;">
           <div class="card-body">
           <div class="form-group ">
@@ -32,9 +32,7 @@ include 'components/header.php';
             <input type="file" name="imagen" class="form-control-file" id="" required>
             </div>
             <img src="images/vac-00-02-54.jpeg" class="w-100 my-1 "alt="">
-
-<button type="submit" class="btn btn-success "><i class="bi bi-box-arrow-in-up"></i> Agregar</button>
-
+            <button type="submit" value="agregar"name="agregar"class="btn btn-success "><i class="bi bi-box-arrow-in-up"></i> Agregar</button>
           </div>
           
         

@@ -178,5 +178,36 @@ class ControllerFormularios extends ControllerAcciones
         }
         
     }
+    public function postPublicacion(){
+        if(isset($_POST['agregar'])){
+            $descripcion = $_POST['descripcion'];
+            $imagen = $_FILES['imagen']['name'];
+            if(!empty($imagen)){
+                $ifPdf = $_FILES['imagen']['type'];
+               
+                $tmpPdf = $_FILES['imagen']["tmp_name"];
+
+                if(!(strpos($ifPdf,'jpg')||strpos($ifPdf,'png')||strpos($ifPdf,'jpeg'))){
+                    echo"no es una imagen"; 
+                   
+                }
+                $fecha = date("m-D:H-i-s.");
+                $nuevoName = "pub".$fecha  . explode("/", $ifPdf)[1];
+
+                $ruta = "images/publicaciones" . $nuevoName;
+
+                $guardadoDB = $this->model->setPublicacion($descripcion,$ruta,$fecha);
+               
+                if($guardadoDB){
+                    move_uploaded_file($tmpPdf,$ruta);
+                    echo'Felicidades';
+                    header("Location:index.php?c=vistasAd&a=adminPublicaciones");
+                }
+                
+
+            }
+
+        }
+    }
 
 }

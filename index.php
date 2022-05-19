@@ -22,6 +22,6 @@ if (isset($_GET['c'])) {
 }else {
     $controlador = CargarControlador(CONTROLADOR_PRINCIPAL);
     $accion = METODO_PRINCIPAL;
-    $controlador->$accion();
+  #  $controlador->$accion();
 }
 ?>
