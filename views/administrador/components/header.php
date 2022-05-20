@@ -77,7 +77,7 @@
             <!-- Usuario-->
             <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="views/administrador/productos.php" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminCotiza" class="nav-link">
             <i class="bi bi-calculator"></i>
               Cotiza
             </a>
@@ -85,7 +85,7 @@
           </li>
           <hr class="sidebar-divider  my-0">
           <li class="nav-item">
-            <a href="views/administrador/productos.php" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminFabricante" class="nav-link">
             <i class="bi bi-truck"></i>
               Fabricantes e Importadores
             </a>
@@ -93,7 +93,7 @@
           </li>
           <hr class="sidebar-divider  my-0">
           <li class="nav-item">
-            <a href="views/administrador/productos.php" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminProductosServ" class="nav-link">
             <i class="bi bi-box-seam"></i>
               Productos y Servicios
             </a>
@@ -102,7 +102,7 @@
           <!-- Divider -->
           <hr class="sidebar-divider my-0">
           <li class="nav-item">
-            <a href="views/administrador/productos.php" class="nav-link">
+            <a href="index.php?c=vistasAd&a=adminUsuarios" class="nav-link">
             <i class="bi bi-person-badge"></i>
               Usuarios
             </a>
