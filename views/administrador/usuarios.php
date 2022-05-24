@@ -13,9 +13,35 @@ include 'components/header.php';
     </div>
   </div>
 
+<!--tablas de usuarios-->
+<div class="table-responsive-lg"></div>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Activo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($data['usuarios'] as $key ) {?>
+    <tr>
+      <th scope="row"><?= $key['id']?></th>
+      <td><?= $key['nombre']?></td>
+      <td><?= $key['correo']?></td>
+      <td><?= $key['telefono']?></td>
+      <td><?= $key['rol']?></td>
+      <td><?= $key['activo']?></td>
+    </tr>
+    <?php }?>
+  </tbody>
+</table>
 </div>
-<!-- /.container-fluid -->
-
+<!-- /.container-fluid->Contenedor principal -->
+</div>
 <?php
 include 'components/footer.php';
 ?>

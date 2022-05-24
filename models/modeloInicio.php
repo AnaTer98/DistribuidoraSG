@@ -150,6 +150,13 @@ class modeloInicio
             //throw $th;
         }
     }
+    public function getPublicaciones(){
+        $sql = "SELECT * FROM publicaciones";
+        $resul = $this->based->prepare($sql);
+        $resul->execute();
+        $res = $resul->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
     public function setPublicacion($comentario,$ruta,$fecha){
         $sql = "INSERT INTO publicaciones(comentario,rutaImg,fecha) VALUES('$comentario','$ruta','$fecha');";
         $resul = $this->based->prepare($sql);

@@ -5,7 +5,7 @@ function CargarControlador($controlador)
     $archivoControlador = "controllers/" . ucwords($controlador) . ".php";
 
     if (!is_file($archivoControlador)) {
-        $archivoControlador = CONTROLADOR_PRINCIPAL . ".php";
+        $archivoControlador = CONTROLADOR_PRINCIPAL.".php";
     }
     require_once $archivoControlador;
     $control = new $nombreClase();

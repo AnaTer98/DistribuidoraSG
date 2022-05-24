@@ -191,8 +191,9 @@ class ControllerFormularios extends ControllerAcciones
                     echo"no es una imagen"; 
                    
                 }
-                $fecha = date("d-m-t-H-i-s");
-                $nuevoName = "/pub".$fecha.".". explode("/", $ifPdf)[1];
+                $fecha = date("t-m-d");
+                $hora = date("H-i-s.");
+                $nuevoName = "/pub".$fecha.$hora. explode("/", $ifPdf)[1];
 
                 $ruta = "images/publicaciones" . $nuevoName;
 

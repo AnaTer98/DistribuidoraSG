@@ -24,7 +24,9 @@ public function adminColaboradores(){
 $data['vacantes']= $this->model->getVacantes();
     include_once"views/administrador/colaboradores.php";
 }
-public function adminPublicaciones(){ require_once"views/administrador/publicaciones.php";}
+public function adminPublicaciones(){ 
+    $data['publicaciones'] = $this->model->getPublicaciones();
+    require_once"views/administrador/publicaciones.php";}
 
 public function adminCatalogos(){
     $data['catalogos'] = $this->model->getPdfs();
