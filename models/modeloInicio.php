@@ -164,4 +164,11 @@ class modeloInicio
         $resul->rowCount();
         return $resul;
     }
+    public function getProductoServ(){
+        $sql = "SELECT * FROM servicios";
+        $result = $this->based->prepare($sql);
+        $result->execute();
+        $res = $result->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }

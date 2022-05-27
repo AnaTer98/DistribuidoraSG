@@ -37,9 +37,11 @@ public function adminCatalogos(){
         require_once"views/administrador/cotiza.php";
     }
     public function adminFabricante(){
+        
         require_once"views/administrador/fabricantes.php";
     }
     public function adminProductosServ(){
+        $data['servicios'] = $this->model->getProductoServ();
         require_once"views/administrador/productosServ.php";
     }
     public function adminUsuarios(){
