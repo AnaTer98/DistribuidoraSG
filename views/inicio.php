@@ -30,23 +30,28 @@ include_once('./views/components/carrusel.php');
     <div class="container">
 
       <div class="row " style="">
-
-<div class="col-6">
-        <div class="card">
+<?php 
+if(isset($data['publicaciones']) && !empty($data['publicaciones'])){
+  foreach ($data['publicaciones'] as $key) {
+    
+  
+?>
+<div class="col-8 mb-3 ">
+        <div class="card shadow-sm">
         <div class="card-header">
           <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
             <h5 class="card-title ml-1 pb-10 d-inline">Distribuidora SG</h5>
             </div>
           <div class="card-body">            
-            <p class="card-text pb-0">Esta oferta es unico durante los proximos dias </p>
+            <p class="card-text pb-0"><?= $key['comentario']?></p>
           </div>
-          <img src="images/04-17-22-21-44-09.jpeg" class="card-img-top rounded-0 " alt="...">
+          <img src="<?= $key['rutaImg']?>" class="card-img-top rounded-0 " alt="...">
           <div class="card-footer" style="">
-          <small class="text-muted"> Hace 10 minutos </small>
+          <small class="text-muted"><?= $key['fecha']?> </small>
         </div>
         </div>
 </div>
-
+<?php }}?>
       </div>
     </div>
 

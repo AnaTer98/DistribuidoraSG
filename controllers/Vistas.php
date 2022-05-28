@@ -16,6 +16,7 @@
 
         }
         public function index(){
+            $data['publicaciones'] = $this->model->getPublicaciones();
          $data['Imagenes']=$this->model->getCarrusel();
         require_once "views/inicio.php";
         }
