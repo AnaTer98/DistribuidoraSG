@@ -62,7 +62,7 @@ class ControllerFormularios extends ControllerAcciones
             if (isset($imagen)) {
                 $extension = $_FILES["imagen"]["type"];
                 $temp = $_FILES["imagen"]["tmp_name"];
-                if (!(strpos($extension, 'jpg') || strpos($extension, 'png' ) )) { #$extension verificar FALTA CHECAR BIEN QUE ONDA
+                if (!(strpos($extension, 'jpg') || strpos($extension, 'png' )||strpos($extension, 'jpeg' ) )) { #$extension verificar FALTA CHECAR BIEN QUE ONDA
                     #en caso de que sea falso y no acepte este tipo de extension
                     $_SESSION['mensaje'] = ["info","El archivo seleccionado, ","No es una imagen"];
                     header("Location:index.php?c=vistasAd&a=adminCarrusel");

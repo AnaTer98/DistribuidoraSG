@@ -1,11 +1,11 @@
 <link href="styles/style.css" rel="stylesheet" type="text/css">
-<div  class="container col-12 <?php echo $existe; ?>" id="carrusel">
+<div  class="container <?php echo(empty($data["Imagenes"])?"d-none ":"");?>col-12 " id="carrusel">
   <div class="row mx-auto" style="height: 30rem; width: 100%;"id="con-img">
     <div class="mx-auto">
 
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-     
+        
   <?php $con=0; foreach ($data["Imagenes"] as $key){  
     $actives='';
     if($con==0){ 

@@ -47,7 +47,7 @@ if(isset($data['publicaciones']) && !empty($data['publicaciones'])){
           </div>
           <img src="<?= $key['rutaImg']?>" class="card-img-top rounded-0 " alt="...">
           <div class="card-footer" style="">
-          <small class="text-muted"><?= $key['fecha']?> </small>
+          <small class="text-muted">Publicado <?= $key['fecha']?> </small>
         </div>
         </div>
 </div>
