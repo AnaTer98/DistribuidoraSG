@@ -12,9 +12,6 @@
             
            
         }
-        public function funcionario(){
-
-        }
         public function index(){
             $data['publicaciones'] = $this->model->getPublicaciones();
          $data['Imagenes']=$this->model->getCarrusel();
@@ -34,7 +31,10 @@
             //otro mensaje en caso de que el correo no este activado 
              require_once 'views/logins/view-ingresar-user.php'; }
 
-            
+         
+        public function catalogos(){
+            require_once "views/catalogos.php";
+        }   
     }
   
 

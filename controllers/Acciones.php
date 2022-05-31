@@ -5,8 +5,7 @@ class ControllerAcciones{
     function __construct(){
         $this->modelo = new modeloInicio();
     }
-    public function enviarCorreo($user, $email, $hash)
-    {
+    public function enviarCorreo($user, $email, $hash){
 
         $titulo = "Registro | Verificación";
         $mensaje = '

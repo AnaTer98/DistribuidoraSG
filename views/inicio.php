@@ -36,7 +36,7 @@ if(isset($data['publicaciones']) && !empty($data['publicaciones'])){
     
   
 ?>
-<div class="col-8 mb-3 ">
+<div class="col-8 mb-4">
         <div class="card shadow-sm">
         <div class="card-header">
           <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
