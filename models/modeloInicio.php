@@ -165,6 +165,17 @@ class modeloInicio
         $resul->rowCount();
         return $resul;
     }
+    public function removePublicacion($id)
+    {
+        $sql = "DELETE FROM publicaciones WHERE id = '$id';";
+        try {
+            $eliminacion = $this->based->prepare($sql);
+            $eliminacion->execute();
+            return $eliminacion;
+        } catch (PDOException $th) {
+            echo"Algo ha pasado no se ha eliminado ";
+        }
+    }
     public function getProductoServ(){
         $sql = "SELECT * FROM servicios";
         $result = $this->based->prepare($sql);

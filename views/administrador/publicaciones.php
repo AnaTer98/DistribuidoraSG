@@ -13,19 +13,25 @@ include 'components/header.php';
     </div>
   </div>
 
-
+  <?php if(isset($_SESSION['mensaje'])&& !empty($_SESSION['mensaje'])){?>
+           <div class="alert bg-<?= $_SESSION['mensaje'][0]?> alert-dismissible fade show " role="alert">
+          <p class="text-light h5"><?= $_SESSION['mensaje'][1]?><strong><?= $_SESSION['mensaje'][2]?></strong></p>  
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      
+     <?php  $_SESSION['mensaje'] ="";}?>
   <!--Contenido aqui-->
   <div class="row">
-   
-
       <div class="col-xl-4">
        
         <form action="index.php?c=formularios&a=postPublicacion" method="POST" enctype="multipart/form-data">
           <div class="card " style="border-right: 0.25rem solid #36b9cc !important;">
           <div class="card-body">
           <div class="form-group ">
-            <label for="descripcion">Descripción </label>
-            <input type="text" name="descripcion" class="form-control" id="">
+            <label for="descripcion">Comentario </label>
+            <textarea type="text" name="descripcion" class="form-control w-100 " style="height: 9rem;" id=""></textarea>
             </div>
             <div class="form-group mb-0">
             <label for="imagen">Imagen</label>
@@ -55,7 +61,7 @@ include 'components/header.php';
         <div class="card-header d-flex">
           <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
             <h5 class="card-title ml-1 pb-10 mr-auto">Distribuidora SG</h5>
-            <button href="#" class="btn btn-danger mb-0"><span class="icon"><i class="bi bi-trash"></i></span> </button>  
+            <a href="index.php?c=formularios&a=removePublicacion&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger mb-0 py-2"><span class="icon "><i class="bi bi-trash py-auto"></i></span> </a>  
           </div>
           <div class="card-body">            
             <p class="card-text pb-0"><?= $key['comentario']?></p>
