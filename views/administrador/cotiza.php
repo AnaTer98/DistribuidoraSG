@@ -9,6 +9,16 @@ include_once"views/administrador/components/header.php";
       </div>
     </div>
   </div>
+  <?php if (isset($_SESSION['mensaje']) && !empty($_SESSION['mensaje'])) { ?>
+    <div class="alert bg-<?= $_SESSION['mensaje'][0] ?> alert-dismissible fade show " role="alert">
+      <p class="text-light h5"><?= $_SESSION['mensaje'][1] ?><strong><?= $_SESSION['mensaje'][2] ?></strong></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+  <?php $_SESSION['mensaje'] = "";
+  } ?>
 <div class="row ">
 
   <div class="col-xl-5">
@@ -21,7 +31,7 @@ include_once"views/administrador/components/header.php";
         <input type="file" name="img" id="img">
       </div>
       <div class="form-group">
-        <img src="https://cdn.wallpapersafari.com/56/63/COuzNw.jpg"class="w-100" alt="">
+        <img src="images/logos-assets/logos.png"class="w-100 pt-1" alt="">
       </div>
       <button type="submit" class="btn btn-outline-success ">Guardar</button>
         </div>
@@ -33,11 +43,12 @@ include_once"views/administrador/components/header.php";
       <div class="row row-cols-lg-2 row-cols-1">
         <div class="col mt-2">
           <div class="card border-success">
-            <div class="card-header d-flex">
-              <h5 class="card-title mr-auto mb-0">
+            <div class="card-header d-flex py-1">
+              <h5 class="card-title mr-auto my-1">
                 Tarjeta de Presentación
               </h5>
-              <span class=""><i class="bi bi-person-badge "></i></span>
+              <button href="#" class="btn btn-danger mb-0 mx-auto"><span class="icon"><i class="bi bi-trash"></i></span> </button>
+              <span class="icon my-1"><i class="bi bi-person-badge "></i></span>
             </div>
           
             <img src="images/vac-00-02-54.jpeg" class="card-img-bottom" alt="" srcset="">

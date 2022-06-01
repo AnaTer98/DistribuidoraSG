@@ -14,8 +14,8 @@ include 'components/header.php';
     </div>
   </div>
   <?php if (isset($_SESSION['mensaje']) && !empty($_SESSION['mensaje'])) { ?>
-    <div class="alert bg-<?= $_SESSION['mensaje'][1] ?> alert-dismissible fade show " role="alert">
-      <p class="text-light h5"><?= $_SESSION['mensaje'][0] ?><strong>Eliminado</strong></p>
+    <div class="alert bg-<?= $_SESSION['mensaje'][0] ?> alert-dismissible fade show " role="alert">
+      <p class="text-light h5"><?= $_SESSION['mensaje'][1] ?><strong><?= $_SESSION['mensaje'][2] ?></strong></p>
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -30,7 +30,7 @@ include 'components/header.php';
     <form action="index.php?c=colaboradores&a=postVacantes" method="POST" enctype="multipart/form-data">
       <div class="card mt-2 m-0 " style="">
 
-        <img src="images/vac-00-02-54.jpeg" class="card-img-top "  id="caja" alt="...">
+        <img src="images/logos-assets/logos.png" class="card-img-top "  id="caja" alt="...">
         
         <input type="file" class="form-control-file mt-1  " id="inputImg" name="img">
    
@@ -52,8 +52,7 @@ include 'components/header.php';
 
       <?php if(isset($data['vacantes']) && !empty($data['vacantes'])){
         foreach ($data['vacantes'] as $key ) { ?>
-        
-            <div class="card  mx-auto my-2" style="">
+            <div class="card  mx-auto my-2" >
             <img src="<?= $key['rutaImg']?>" class="card-img-top" alt="<?= $key['rutaImg']?>">
             <div class="card-body">
               <h5 class="card-title"><?= $key['vacante']?></h5>
@@ -61,22 +60,19 @@ include 'components/header.php';
               <a href="index.php?c=colaboradores&a=removeColaborador&id=<?=$key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger"><i class="bi bi-trash"></i>Borrar</a>
             </div>          
           </div>
-        
-         
-
-        
-
-      <?php } }else{
-echo "<h1>No hay resgistros añade uno</h1>";
-        
-      }
-
-      ?>
-       
-
+      <?php } }else{?>
+ <div class="card border-0  mt-3 text-center">
+  <div class="card-header bg-white border-bottom-primary">
+  <h4 class="card-title">No hay registros</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text h5">Teines que llanar el formulario con los datos para mostrar la información  </p>
+    <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
+  </div>
+</div>
+      <?php }?>
       </div>
     </div>
-    
   </div>
 </div>
   <!--Contenido aqui-->

@@ -8,7 +8,7 @@ include 'components/header.php';
   <div class="card mb-4 py-1 border-bottom-warning">
     <div class="card-body">
       <div class="d-sm-flex align-items-center ">
-        <h1 class="h3 mb-0 text-gray-800">Productos y servicios!!!!!!!!!!11</h1>
+        <h1 class="h3 mb-0 text-gray-800">Productos y Servicios</h1>
       </div>
     </div>
   </div>
@@ -32,7 +32,7 @@ include 'components/header.php';
               <input type="file" name="img" class="form-control-file" id="">
             </div>
             
-          </div><img src="https://www.linuxadictos.com/wp-content/uploads/endeavouros.jpg" class="w-100 mt-0" alt="">
+          </div><img src="images/logos-assets/logos.png" class="w-100 mt-0 pt-1" alt="">
         </div>
       </form>
     </div>
@@ -42,7 +42,8 @@ include 'components/header.php';
         <div class="card">
           <div class="card-header d-flex"> 
             <h3 class="card-title mr-auto mb-0 ">Recargas</h3>  
-             <button href="#" class="btn btn-danger mb-0"><span class="icon"><i class="bi bi-trash"></i></span> </button></div>
+             <button href="#" class="btn btn-danger mb-0"><span class="icon"><i class="bi bi-trash"></i></span> </button>
+            </div>
           <div class="card-body bg-success">
             <img src="file-earmark-pdf.svg" class="img-fluid py-2 mr-auto" style=" width: 40%;" alt="...">
           

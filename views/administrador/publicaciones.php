@@ -29,9 +29,9 @@ include 'components/header.php';
             </div>
             <div class="form-group mb-0">
             <label for="imagen">Imagen</label>
-            <input type="file" name="imagen" class="form-control-file" id="" required>
+            <input type="file" name="imagen" class="form-control-file" id="inputImg" required>
             </div>
-            <img src="images/vac-00-02-54.jpeg" class="w-100 my-1 "alt="">
+            <img src="images/logos-assets/logos.png" id="caja" class="w-100 my-1 pt-1 "alt="images/logos-assets/logos.png">
             <button type="submit" value="agregar"name="agregar"class="btn btn-success "><i class="bi bi-box-arrow-in-up"></i> Agregar</button>
           </div>
           
@@ -52,10 +52,11 @@ include 'components/header.php';
 <?php foreach($data['publicaciones'] as $key){?>
   <div class="col mt-2 ">
         <div class="card shadow-sm">
-        <div class="card-header">
+        <div class="card-header d-flex">
           <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
-            <h5 class="card-title ml-1 pb-10 d-inline">Distribuidora SG</h5>
-            </div>
+            <h5 class="card-title ml-1 pb-10 mr-auto">Distribuidora SG</h5>
+            <button href="#" class="btn btn-danger mb-0"><span class="icon"><i class="bi bi-trash"></i></span> </button>  
+          </div>
           <div class="card-body">            
             <p class="card-text pb-0"><?= $key['comentario']?></p>
           </div>

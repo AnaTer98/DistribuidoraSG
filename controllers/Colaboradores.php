@@ -14,6 +14,7 @@ class ControllerColaboradores{
         $borradoDb = $this->model->removeColaborador((int)$id);
         $borradoImg= $this->acciones->borrarImg((string)$ruta);
         if($borradoDb && $borradoImg){
+            $_SESSION["mensaje"]=["info","Se ha eliminado la ","Vacante"];
             header("Location:index.php?c=vistasAd&a=adminColaboradores");
 exit;
         }
@@ -30,7 +31,8 @@ exit;
                 $rutaTemp = $_FILES['img']['tmp_name'];
 
                 if(!(strpos($tipo,'jpg')||strpos($tipo,'png')||strpos($tipo,'jpeg'))){                  
-                    echo "NO es de tipo imagen soportada por el servidor";
+                   $_SESSION["mensaje"]=["danger","El archivo selecionado no es, ","Imagen"];
+                   header("Location:index.php?c=vistasAd&a=adminColaboradores");
                 }
                 $nuevoName = "vac-".date("H-i-s.").explode("/",$tipo)[1];
                 $ruta = "images/".$nuevoName;
@@ -44,7 +46,7 @@ exit;
                     header("Location:index.php?c=vistasAd&a=adminColaboradores");
                 }
             }catch(Exception $e){
-                echo"NO se guado el registro";
+                header("Location:index.php?c=vistasAd&a=adminColaboradores");
             }
             }
 

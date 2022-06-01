@@ -142,8 +142,7 @@ class ControllerFormularios extends ControllerAcciones
                 $tmpPdf = $_FILES['catalogo']["tmp_name"];
 
                 if(!(strpos($ifPdf,'pdf'))){
-                    echo"no es un pdf"; 
-                    exit;
+                   $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
                 }
                 $nuevoName = date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;
