@@ -33,9 +33,9 @@ class ControllerFormularios extends ControllerAcciones
                 $hash = md5(rand(0,10000));
                 $guardado = $this->model->registrarUsuario($nombre, $correo, $pass, $numero,$hash);
                
-                if ($guardado ) {
+                if ($guardado ==1 ) {
                     $enviado = $this->acciones->enviarCorreo($nombre,$correo,$hash);
-                   if($enviado){
+                   if($enviado ){
                     $_SESSION['mensajeAvizo']= array();
                        #SEssion de que se ha enviado un correo para que verifique su correo 
                         $_SESSION['mensajeActivado']=["success"," Hemos enviado un correo de verificación ha tu cuenta de correo ingresa al link que te enviamos para activar tu cuenta :)"];
@@ -116,7 +116,7 @@ class ControllerFormularios extends ControllerAcciones
             if (!empty($usuario) ) {
                 if( $usuario["activo"]==1){
                 $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
-                header("Location:index.php");
+                header("Location:https://localhost/DistribuidoraSG/index.php");
                 }else{
 
                     $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
@@ -219,6 +219,52 @@ class ControllerFormularios extends ControllerAcciones
         }else{
         $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
         header("Location:index.php?c=vistasAd&a=adminPublicaciones");
+        }
+    }
+    public function postCotiza()
+    {
+        if(isset($_POST['cotizador'])){
+          
+            $imagen = $_FILES['img']['name'];
+            if(!empty($imagen)){
+                $ifPdf = $_FILES['img']['type'];
+               
+                $tmpPdf = $_FILES['img']["tmp_name"];
+
+                if(!(strpos($ifPdf,'jpg')||strpos($ifPdf,'png')||strpos($ifPdf,'jpeg'))){
+                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","Imagen"]; 
+                    header("Location:index.php?c=vistasAd&a=adminCotiza");
+                    exit;
+                }
+                $fecha = date("t-m-d");
+                $hora = date("H-i-s.");
+                $nuevoName = "/cot".$fecha.$hora. explode("/", $ifPdf)[1];
+
+                $ruta = "images/" . $nuevoName;
+
+                $guardadoDB = $this->model->setCotiza($ruta);
+               
+                if($guardadoDB){
+                    move_uploaded_file($tmpPdf,$ruta);
+                
+                    header("Location:index.php?c=vistasAd&a=adminCotiza");
+                }
+                
+
+            }
+
+        }
+    }
+    public function removeCotizador($id,$ruta){
+        $borrado = $this->acciones->borrarImg($ruta);
+        if($borrado ){
+        $this->model->removeCotizador($id);
+        $_SESSION['mensaje']=["info","La atrjeta de cotizador fue, ","Eliminada"];
+        header("Location:index.php?c=vistasAd&a=adminCotiza");
+    
+        }else{
+        $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
+        header("Location:index.php?c=vistasAd&a=adminCotiza");
         }
     }
 

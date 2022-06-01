@@ -183,4 +183,31 @@ class modeloInicio
         $res = $result->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+    public function setCotiza($ruta)
+    {
+        $sql = "INSERT INTO cotizacion(rutaImg) VALUES('$ruta')";
+        $resul = $this->based->prepare($sql);
+        $resul->execute();
+        $resul->rowCount();
+        return $resul;
+    }
+    public function getCotizador()
+    {
+        $sql = "SELECT * FROM cotizacion";
+        $resul = $this->based->prepare($sql);
+        $resul->execute();
+        $res = $resul->fetchAll(PDO::FETCH_ASSOC);
+        return $res;    
+    }
+    public function removeCotizador($id)
+    {
+        $sql = "DELETE FROM cotizacion WHERE id = '$id';" ;
+        try {
+            $eliminacion = $this->based->prepare($sql);
+            $eliminacion->execute();
+            return $eliminacion;
+        } catch (PDOException $th) {
+          return false;
+        }
+    }
 }

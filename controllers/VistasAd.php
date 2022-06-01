@@ -36,6 +36,7 @@ public function adminCatalogos(){
 
 
     public function adminCotiza(){
+        $data['cardCotiza']=$this->model->getCotizador();
         require_once"views/administrador/cotiza.php";
     }
     public function adminFabricante(){

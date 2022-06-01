@@ -33,32 +33,41 @@ include_once"views/administrador/components/header.php";
       <div class="form-group">
         <img src="images/logos-assets/logos.png"class="w-100 pt-1" alt="">
       </div>
-      <button type="submit" class="btn btn-outline-success ">Guardar</button>
+      <button type="submit"name="cotizador" value="cotizador" class="btn btn-outline-success ">Guardar</button>
         </div>
       </div>
     </form>
 
   </div>
   <div class="col-xl-7">
-      <div class="row row-cols-lg-2 row-cols-1">
-        <div class="col mt-2">
+      <div class="row ">
+        <?php if(!isset($data['cardCotiza']) || !empty($data['cardCotiza'])){  foreach($data['cardCotiza'] as $key){ ?>
+        <div class="col-lg-6 col-sm-12 mt-2">
           <div class="card border-success">
             <div class="card-header d-flex py-1">
               <h5 class="card-title mr-auto my-1">
                 Tarjeta de Presentación
               </h5>
-              <button href="#" class="btn btn-danger mb-0 mx-auto"><span class="icon"><i class="bi bi-trash"></i></span> </button>
+              <a href="index.php?c=formularios&a=removeCotizador&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger mb-0 mx-auto"><span class="icon"><i class="bi bi-trash"></i></span> </a>
               <span class="icon my-1"><i class="bi bi-person-badge "></i></span>
             </div>
-          
-            <img src="images/vac-00-02-54.jpeg" class="card-img-bottom" alt="" srcset="">
-          
+            <img src="<?= $key['rutaImg']?>" class="card-img-bottom" alt="" srcset="">
           </div>
         </div>
-       
-      
-     
+        <?php }?>
       </div>
+      <?php }else{?>
+        <div class="card shadow-sm border-0  mt-3 text-center">
+  <div class="card-header bg-white border-bottom-primary">
+  <h4 class="card-title">No hay registros</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-text h5">Teines que llanar el formulario con los datos para mostrar la información  </p>
+    <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
+  </div>
+</div>  
+      <?php }?>
+
   </div>
 </div>
 </div>

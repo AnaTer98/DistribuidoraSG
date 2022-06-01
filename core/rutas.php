@@ -26,9 +26,9 @@ function cargarMetodo($controller, $method, $id = null, $otro = null){
         }
         
         $controller->$method();
-       
+       exit;
     }else {
         $controller->METODO_PRINCIPAL();
-        
+        exit;
     }
 }
