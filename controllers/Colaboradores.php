@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "models/modeloInicio.php";
 include_once "controllers/Acciones.php";
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("./views/components/header.php");
 //<!--Carrusel-->
 include_once('./views/components/carrusel.php');

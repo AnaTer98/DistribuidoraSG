@@ -1,4 +1,5 @@
 <?php
+session_start();
  require_once('./models/modeloInicio.php');
 
     class ControllerVistas{
@@ -20,7 +21,7 @@
         
         public function vacantes(){
             $data['vacantes']=$this->model->getVacantes();
-            require_once"views/vacantes.php";
+            require_once "views/vacantes.php";
         }
 
         public function qsomos(){ require_once "views/static/body-acerca.php"; }

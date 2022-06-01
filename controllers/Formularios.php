@@ -1,6 +1,8 @@
 <?php
+session_start();
 include_once "models/modeloInicio.php";
 include_once "controllers/Acciones.php";
+include_once "controllers/VistasAd.php";
 class ControllerFormularios extends ControllerAcciones
 {
     private $model;
@@ -9,6 +11,7 @@ class ControllerFormularios extends ControllerAcciones
     public  $vistas;
     function __construct()
     {
+        $this->vistas = new ControllerVistasAd();
         $this->model = new ModeloInicio();
         $this->acciones = new ControllerAcciones();
     }
@@ -120,7 +123,8 @@ class ControllerFormularios extends ControllerAcciones
                 }else{
 
                     $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
-                    header("Location:index.php?c=vistas&a=ingresar");
+                    #header("Location:index.php?c=vistas&a=ingresar");
+                    echo"<script>window.location=''ftp.distribuidorasg.com.mx</script>";
                 }
 
             }else{#En caso que no exista el correo
@@ -150,8 +154,8 @@ class ControllerFormularios extends ControllerAcciones
                 $guardadoDB = $this->model->setPdf($tipoCatalogo,$ruta);
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
-                    echo'Felicidades';
                     header("Location:index.php?c=vistasAd&a=adminCatalogos");
+               
                 }
                 
 

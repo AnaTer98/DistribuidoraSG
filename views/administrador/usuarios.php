@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'components/header.php';
 ?>
 <!-- Begin Page Content -->

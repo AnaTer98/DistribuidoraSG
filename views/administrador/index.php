@@ -1,6 +1,6 @@
 <?php
+session_start();
 include 'views/administrador/components/header.php';
-
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid m-1 ">

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "views/components/header.php";
 include "views/components/navegador.php";
 ?>

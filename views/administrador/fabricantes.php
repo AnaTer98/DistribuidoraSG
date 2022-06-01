@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once"views/administrador/components/header.php";
 ?>
 <div class="container-fluid">

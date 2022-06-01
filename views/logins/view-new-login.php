@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('views/components/header.php');
 include_once('views/components/navegador.php');
 

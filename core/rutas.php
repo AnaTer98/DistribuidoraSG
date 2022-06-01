@@ -1,4 +1,5 @@
 <?php
+session_start();
 function CargarControlador($controlador)
 {
     $nombreClase = "Controller" . ucwords($controlador);
