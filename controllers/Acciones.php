@@ -6,7 +6,7 @@ class ControllerAcciones{
         $this->modelo = new modeloInicio();
     }
     public function enviarCorreo($user, $email, $hash){
-
+    $para = $email;
         $titulo = "Registro | Verificación";
         $mensaje = '
 
@@ -14,14 +14,14 @@ class ControllerAcciones{
     Tu cuenta ha sido creada, activala utilizando el enlace en la parte inferior.
     +----------------------------+
     Nombre:' . $user . '
-    Corrreo:' . $email . '
+    Corrreo:' . $para . '
     +----------------------------+
     Por favor has clic en este enlace para activar tu cuenta :
     http://distribuidora.com/index.php?c=acciones&a=activar&id='.$user.'&r='.$hash.' 
     
     ';
         $header = "From:administracion@distribuidorasg.com.mx" . "\r\n";
-      $enviado =  mail($email, $titulo, $mensaje, $header);
+      $enviado =  mail($para, $titulo, $mensaje, $header);
       return $enviado;
     }
     public function borrarImg($rutas) {

@@ -75,8 +75,8 @@ class modeloInicio
         $stringSql = "SELECT * FROM usuarios";
         $usuarios = $this->based->query($stringSql);
         $usuarios->execute();
-        $usuarios->fetchAll();
-        return $usuarios;
+        $us = $usuarios->fetchAll();
+        return $us;
     }
 
     public function verificarCorreo($correo)
@@ -92,8 +92,8 @@ class modeloInicio
     public function registrarUsuario($nombre, $correo, $contrasena, $telefono, $hash, $activo = 0, $rol = "menudeo")
     {
         // $idUser=date("d-t-Y---G-i-s");
-
-        $sql = "INSERT INTO usuarios(nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('$nombre','$correo','$contrasena','$telefono','$rol','$hash','$activo');";
+        $pass = md5($contrasena);
+        $sql = "INSERT INTO usuarios(nombre,correo,contrasena,telefono, rol, hash, activo) VALUES('$nombre','$correo','$pass','$telefono','$rol','$hash','$activo');";
         $resultados = $this->based->prepare($sql);
         $resultados->execute();
         $resultados->rowCount();
@@ -118,7 +118,8 @@ class modeloInicio
 
     public function getUsuario($correo, $contrasena)
     {#Por el momento solo necesito el nombre y le tipo de ususario 
-        $sql = "SELECT nombre,rol,activo FROM usuarios WHERE correo='$correo' AND contrasena='$contrasena';";
+        $pass = md5($contrasena);
+        $sql = "SELECT nombre,rol,activo FROM usuarios WHERE correo='$correo' AND contrasena='$pass';";
         $usuario = $this->based->prepare($sql);
          $usuario->execute();
         $us = $usuario->fetch();

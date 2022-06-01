@@ -33,7 +33,7 @@ class ControllerFormularios extends ControllerAcciones
                 $hash = md5(rand(0,10000));
                 $guardado = $this->model->registrarUsuario($nombre, $correo, $pass, $numero,$hash);
                
-                if ($guardado == 1) {
+                if ($guardado ) {
                     $enviado = $this->acciones->enviarCorreo($nombre,$correo,$hash);
                    if($enviado){
                     $_SESSION['mensajeAvizo']= array();

@@ -13,7 +13,9 @@ function __construct(){
     }
 }
 public function administrador(){
-        require_once 'views/administrador/index.php';
+    #Se cambiara por el momento es index.php
+    $data["Imagenes"]=$this->model->getCarrusel();#ajsajsj  
+        require_once 'views/administrador/carrusel.php';
 }
 public function adminCarrusel(){
     $data["Imagenes"]=$this->model->getCarrusel();
@@ -45,6 +47,7 @@ public function adminCatalogos(){
         require_once"views/administrador/productosServ.php";
     }
     public function adminUsuarios(){
+        $data['usuarios'] = $this->model->getUsuarios();
         require_once"views/administrador/usuarios.php";
     }
 }
