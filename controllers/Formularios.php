@@ -11,7 +11,6 @@ class ControllerFormularios extends ControllerAcciones
     public  $vistas;
     function __construct()
     {
-        $this->vistas = new ControllerVistasAd();
         $this->model = new ModeloInicio();
         $this->acciones = new ControllerAcciones();
     }
@@ -58,7 +57,6 @@ class ControllerFormularios extends ControllerAcciones
 
     public function postCarrusel()
     {
-
         if (isset($_POST["guardar"])) {
             $descripcion = $_POST["descripcion"];
             $imagen = $_FILES["imagen"]["name"];
@@ -86,9 +84,13 @@ class ControllerFormularios extends ControllerAcciones
                     }
                 }
             } else {
-                echo "No se ingreso imagen";
+                $_SESSION['mensaje']=["danger","A ocurrido algo mal ","Intentalo de nuevo"];
+                header("Location:index.php?c=vistasAd&a=adminCarrusel");
             }
         } else {
+            $_SESSION['mensaje']=["danger","Algo mal ha sucedido ","Intentalo de nuevo"];
+            header("Location:index.php?c=vistasAd&a=adminCarrusel");
+
             echo "Algo salio mal al enviar el registro intentelo de nuevo |";
         }
     }
@@ -102,8 +104,6 @@ class ControllerFormularios extends ControllerAcciones
             $_SESSION['mensaje'] = ["warning"," Un elemento del Carrusel ha sido,","Eliminado" ];
             header("Location:index.php?c=vistasAd&a=adminCarrusel");
         } else {
-            #lo mismo pero con mensaje de que algo salio mal 
-            # $mensaje="Algo salio mal";
             $_SESSION['mensaje'] = ["error","No se ha borrado intentelo de nuevo" ];
             header("Location:index.php?c=vistasAd&a=adminCarrusel");
         }
@@ -119,12 +119,12 @@ class ControllerFormularios extends ControllerAcciones
             if (!empty($usuario) ) {
                 if( $usuario["activo"]==1){
                 $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
-                header("Location:https://localhost/DistribuidoraSG/index.php");
+                header("Location:index.php");
                 }else{
 
                     $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
-                    #header("Location:index.php?c=vistas&a=ingresar");
-                    echo"<script>window.location=''ftp.distribuidorasg.com.mx</script>";
+                    header("Location:index.php?c=vistas&a=ingresar");
+     
                 }
 
             }else{#En caso que no exista el correo
@@ -269,6 +269,42 @@ class ControllerFormularios extends ControllerAcciones
         }else{
         $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
+        }
+    }
+    public function postServ()
+    {
+        if (isset($_POST['guardarServ'])) {
+            $servicio = $_POST['opcion'];
+             $pdf = $_FILES['pdf']['name'];
+            if(!empty($pdf)){
+                $ifPdf = $_FILES['pdf']['type'];
+               
+                $tmpPdf = $_FILES['pdf']["tmp_name"];
+
+                if(!(strpos($ifPdf,'pdf'))){
+                   $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
+                   echo"no es pdf";
+                   exit;
+                }
+                $nuevoName = "proSer".date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
+                $ruta = "PDF/" . $nuevoName;
+
+                $guardadoDB = $this->model->setProSer($servicio,$ruta);
+                var_dump($guardadoDB);
+                if($guardadoDB){
+                    echo "Aqui andamos";
+                    move_uploaded_file($tmpPdf,$ruta);
+                    #header("Location:index.php?c=vistasAd&a=adminProductosServ");
+               
+                }
+
+                
+
+            }
+            
+
+        }else{
+
         }
     }
 

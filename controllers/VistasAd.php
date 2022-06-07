@@ -44,7 +44,8 @@ public function adminCatalogos(){
         require_once"views/administrador/fabricantes.php";
     }
     public function adminProductosServ(){
-        $data['servicios'] = $this->model->getProductoServ();
+        $data['servicios'] = $this->model->seleccionProSer();
+        $data['serv'] = $this->model->getProSer();
         require_once"views/administrador/productosServ.php";
     }
     public function adminUsuarios(){

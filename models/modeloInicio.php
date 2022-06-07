@@ -100,9 +100,9 @@ class modeloInicio
         $resultados->rowCount();
         return $resultados;
     }
-    public function existeCorreo($nombre, $hash)
+    public function existeCorreo($correo, $hash)
     {
-        $sqlHash = "SELECT * FROM usuarios WHERE nombre='$nombre' AND hash='$hash' ";
+        $sqlHash = "SELECT * FROM usuarios WHERE correo='$correo' AND hash='$hash' ;";
         $existe = $this->based->prepare($sqlHash);
         $existe->execute();
         return $existe->fetch();
@@ -211,4 +211,27 @@ class modeloInicio
           return false;
         }
     }
+    public function seleccionProSer(){
+        $sql = "SELECT * FROM servicios WHERE rutaPdf=''";
+        $result = $this->based->prepare($sql);
+        $result->execute();
+        $res = $result->fetchAll(PDO::FETCH_ASSOC); 
+        return $res;
+    }
+    public function getProSer(){
+        $sql = "SELECT * FROM servicios";
+        $result = $this->based->prepare($sql);
+        $result->execute();
+        $res = $result->fetchAll(PDO::FETCH_ASSOC); 
+        return $res;
+    }
+    public function setProSer($servicio,$ruta)
+    {
+        $sql = "UPDATE servicios SET rutaPdf='$ruta' WHERE servicio='$servicio' ";
+        $resl = $this->based->prepare($sql);
+        $resl->execute();
+        $resl->rowCount();
+        return $resl;
+    }
+
 }
