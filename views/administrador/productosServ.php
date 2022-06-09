@@ -23,8 +23,8 @@ include 'components/header.php';
           </div>
           <div class="card-body">
             <div class="form-group mb-0">
-               <select class="form-control" name="opcion">
-                  <option class="text-muted">Selecciona Servicio o Producto</option>
+               <select class="form-control"required name="opcion">
+                  <option class="text-muted"  >Selecciona Servicio o Producto</option>
                  <?php foreach($data['servicios'] as $key){?>
                       <option value="<?= $key['servicio']?>"><?= $key['servicio']?></option>
                     <?php } ?>

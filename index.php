@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include_once "config/config.php";
 include_once "core/rutas.php";
