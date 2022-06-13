@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 session_start();
 require_once("database/database.php");
 class modeloInicio
@@ -232,6 +235,21 @@ class modeloInicio
         $resl->execute();
         $resl->rowCount();
         return $resl;
+    }
+    public function removeProServ($id){
+        $sql = "UPDATE servicios SET rutaPdf ='' WHERE `servicios`.`id` = '$id'; ";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $res->rowCount();
+        return $res;
+    }
+    public function getSerPro($id)
+    {
+        $sql = "SELECT servicio FROM servicios WHERE id='$id'";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $resul = $res->fetch();
+        return $resul;
     }
 
 }

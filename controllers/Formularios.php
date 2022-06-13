@@ -283,29 +283,50 @@ class ControllerFormularios extends ControllerAcciones
 
                 if(!(strpos($ifPdf,'pdf'))){
                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
-                   echo"no es pdf";
+                   header("Location:index.php?c=vistasAd&a=adminProductosServ");
                    exit;
                 }
                 $nuevoName = "proSer".date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;
 
                 $guardadoDB = $this->model->setProSer($servicio,$ruta);
-                var_dump($guardadoDB);
                 if($guardadoDB){
-                    echo "Aqui andamos";
+              
                     move_uploaded_file($tmpPdf,$ruta);
-                    #header("Location:index.php?c=vistasAd&a=adminProductosServ");
+                    header("Location:index.php?c=vistasAd&a=adminProductosServ");
                
                 }
 
                 
 
             }
+           
             
 
         }else{
+            $_SESSION['mensaje']=['danger','Se borrado, ',''];
+            header("Location:index.php?c=vistasAd&a=adminProductosServ");
 
         }
+    }
+    public function removeProServ($id,$ruta){
+        $borrado = $this->model->removeProServ($id);
+        $servicio = $this->model->getSerPro($id);
+        if($borrado){
+            $pdfBorrado = $this->acciones->borrarImg($ruta);
+            if($pdfBorrado){
+            $_SESSION['mensaje']=['info','Se borrado, ',"$servicio[0]"];
+            header("Location:index.php?c=vistasAd&a=adminProductosServ");
+        }else{
+            $_SESSION['mensaje']=['warning','Algo malo paso intentalo mas tarde!',"."];
+        header("Location:index.php?c=vistasAd&a=adminProductosServ");
+        }
+    }else{
+        $_SESSION['mensaje']=['warning','Algo malo paso intentalo mas tarde!',"."];
+        header("Location:index.php?c=vistasAd&a=adminProductosServ");
+    }
+
+
     }
 
 }
