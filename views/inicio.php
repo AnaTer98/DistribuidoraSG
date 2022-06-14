@@ -12,12 +12,10 @@ include_once('./views/components/carrusel.php');
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Nuestros productos y servicios</div>
     <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">Plataforma de Recargas</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Accesorios</a>
-      <a href="PDF/1.pdf" class="list-group-item list-group-item-action bg-light">Telefonía</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Cómputo</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Servicios</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Novedades</a>
+    <?php if (isset($data['serviciosProductos']) ) { for($i = 0;$i <6;$i++){?>
+      <a href="<?= $data['serviciosProductos'][$i]['rutaPdf'] == '' ? 'Aqui no hay nada ':  $data['serviciosProductos'][$i]['rutaPdf']?> " class="list-group-item list-group-item-action bg-light"> <?= $data['serviciosProductos'][$i]['servicio']?></a>
+    
+<?php }}?>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->

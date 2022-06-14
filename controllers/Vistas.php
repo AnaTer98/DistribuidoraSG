@@ -14,6 +14,7 @@ session_start();
            
         }
         public function index(){
+            $data['serviciosProductos'] = $this->model->getProSer();
             $data['publicaciones'] = $this->model->getPublicaciones();
          $data['Imagenes']=$this->model->getCarrusel();
         require_once "views/inicio.php";
