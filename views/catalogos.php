@@ -18,7 +18,7 @@ include "views/components/navegador.php";
         </a>
     </div>
     <div class="col ">
-<?php if(isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])){?>
+<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) &&  $_SESSION['usuario'][1] == "mayorista"){?>
     <div class="card shadow-sm">
             <div class="card-header ">
                 <p class="card-title">Catalogo Mayorista</p>
@@ -34,7 +34,7 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body content-center">
                 <p class="card-text ">No eres un cliente mayorista <br>Si te gustaría serlo, solicita tu cambio ahora</p>
-            <button href="" class="btn btn-success mr-auto">Solicitar Catalogo</button>  
+            <a href="index.php?c=acciones&a=" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar Catalogo</a>
             </div>
         </div>
             <?php }?>

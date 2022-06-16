@@ -12,7 +12,7 @@ include_once('./views/components/carrusel.php');
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Nuestros productos y servicios</div>
     <div class="list-group list-group-flush">
-    <?php if (isset($data['serviciosProductos']) ) { for($i = 0;$i <6;$i++){?>
+    <?php if (isset($data['serviciosProductos']) ) { for($i = 0;$i< count($data['serviciosProductos']);$i++){ ?>
       <a href="<?= $data['serviciosProductos'][$i]['rutaPdf'] == '' ? 'Aqui no hay nada ':  $data['serviciosProductos'][$i]['rutaPdf']?> " class="list-group-item list-group-item-action bg-light"> <?= $data['serviciosProductos'][$i]['servicio']?></a>
     
 <?php }}?>
