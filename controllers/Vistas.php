@@ -36,6 +36,11 @@ session_start();
          
         public function catalogos(){
             require_once "views/catalogos.php";
+        }
+        public function cotiza()
+        {
+            $data['cardCotiza']=$this->model->getCotizador();
+            require_once "views/cotizacion.php";
         }   
     }
   

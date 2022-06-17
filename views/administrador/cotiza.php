@@ -29,10 +29,10 @@ include_once"views/administrador/components/header.php";
         <div class="card-body">
         <div class="form-group">
         <label for="img">Targeta de Precentación</label><br>
-        <input type="file" name="img" id="img">
+        <input type="file" name="img" id="inputImg">
       </div>
       <div class="form-group">
-        <img src="images/logos-assets/logos.png"class="w-100 pt-1" alt="">
+        <img src="images/logos-assets/logos.png" id="caja"class="w-100 pt-1" style="height: 25rem;" alt="">
       </div>
       <button type="submit"name="cotizador" value="cotizador" class="btn btn-outline-success ">Guardar</button>
         </div>
@@ -63,7 +63,7 @@ include_once"views/administrador/components/header.php";
   <h4 class="card-title">No hay registros</h4>
   </div>
   <div class="card-body">
-    <p class="card-text h5">Teines que llanar el formulario con los datos para mostrar la información  </p>
+    <p class="card-text h5">Tienes que llanar el formulario con los datos para mostrar la información  </p>
     <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
   </div>
 </div>  

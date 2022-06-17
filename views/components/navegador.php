@@ -30,7 +30,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="index.php?c=vistas&a=catalogos">Catalogos</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Cotiza</a>
+          <a class="dropdown-item" href="index.php?c=vistas&a=cotiza">Cotiza</a>
          
       
         </div>

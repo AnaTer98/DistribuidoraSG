@@ -12,7 +12,7 @@ include "views/components/navegador.php";
                 <p class="card-title h5"> Catalogo Minorista</p>
             </div>
             <div class="card-body">
-            <img src="escritorio.svg" class="card-img-bottom" alt="">
+            <img src="catalogo.png" class="card-img-bottom w-50 mx-auto" alt="">
             </div>
         </div>
         </a>
@@ -24,7 +24,7 @@ include "views/components/navegador.php";
                 <p class="card-title">Catalogo Mayorista</p>
             </div>
             <div class="card-body">
-            <img src="escritorio.svg" class="card-img-bottom" alt="">
+            <img src="catalogo.png" class="card-img-bottom" alt="">
             </div>
         </div>
         <?php }else{?>
