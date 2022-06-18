@@ -5,6 +5,7 @@ include "views/components/navegador.php";
 ?>
 <div class="content bg-light mx-auto rounded col-8">
 <div class="row row-cols-2 py-3 ">
+    <?php echo($data['catalogos'][0]); ?>
     <div class="col">
         <a href="" class="text-muted ">
         <div class="card">
@@ -33,7 +34,7 @@ include "views/components/navegador.php";
                 <p class="card-title">¿No eres un cliente mayorista? </p>
             </div>
             <div class="card-body content-center">
-                <p class="card-text ">No eres un cliente mayorista <br>Si te gustaría serlo, solicita tu cambio ahora</p>
+                <p class="card-text ">No eres un cliente mayorista <br>Te gustaría serlo, solicita tu cambio ahora</p>
             <a href="index.php?c=acciones&a=" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar Catalogo</a>
             </div>
         </div>

@@ -147,6 +147,8 @@ class ControllerFormularios extends ControllerAcciones
 
                 if(!(strpos($ifPdf,'pdf'))){
                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
+                   header("Location:index.php?c=vistasAd&a=adminCatalogos");
+                   exit;
                 }
                 $nuevoName = date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;

@@ -35,6 +35,7 @@ session_start();
 
          
         public function catalogos(){
+            $data['catalogos'] = $this->model->getPdfs();
             require_once "views/catalogos.php";
         }
         public function cotiza()

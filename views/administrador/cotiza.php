@@ -29,7 +29,7 @@ include_once"views/administrador/components/header.php";
         <div class="card-body">
         <div class="form-group">
         <label for="img">Targeta de Precentación</label><br>
-        <input type="file" name="img" id="inputImg">
+        <input type="file" name="img" id="inputImg" required>
       </div>
       <div class="form-group">
         <img src="images/logos-assets/logos.png" id="caja"class="w-100 pt-1" style="height: 25rem;" alt="">
