@@ -52,7 +52,7 @@ $datosMay = array();
         <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=");?> <?= $datosNor[0]?><?php echo("&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
                 <div class="card border">
                     <div class="card-header">
-                        <h3 class="card-title">Catalogo Mayorista</h3>
+                        <h3 class="card-title">Catalogo Minorista</h3>
                     </div>
                     <div class="card-body p-0 m-0  <?php echo(empty($datosNor) ? "bg-danger":"bg-success")  ?>">
                         <div class="position-relative  m-0 p-0 w-100  ">

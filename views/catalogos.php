@@ -5,9 +5,10 @@ include "views/components/navegador.php";
 ?>
 <div class="content bg-light mx-auto rounded col-8">
 <div class="row row-cols-2 py-3 ">
-    <?php echo($data['catalogos'][0]); ?>
+  
     <div class="col">
-        <a href="" class="text-muted ">
+    <?php if(isset($data['catalogos']) && !empty($data['catalogos'])){ ?>
+    <a href="<?= $data['catalogos'][0]['rutaPdf']?>" class="text-muted ">
         <div class="card">
             <div class="card-header bg-light">
                 <p class="card-title h5"> Catalogo Minorista</p>
@@ -17,6 +18,21 @@ include "views/components/navegador.php";
             </div>
         </div>
         </a>
+    
+
+    <?php }else{?>
+       
+        <div class="card">
+            <div class="card-header  border-bottom-info">
+                <p class="card-title h5"> Catalogo Minorista</p>
+            </div>
+            <div class="card-body text-center">
+            <img src="advertencia.png" class="card-img-bottom w-50 mx-auto" alt="">
+            <p class="h5">Por el momento no hay catalogo disponible vuelba mas tarde!</p>
+            </div>
+        </div>
+        </a>
+        <?php }?>
     </div>
     <div class="col ">
 <?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) &&  $_SESSION['usuario'][1] == "mayorista"){?>
