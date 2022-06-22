@@ -7,8 +7,8 @@ include "views/components/navegador.php";
 <div class="row row-cols-2 py-3 ">
   
     <div class="col">
-    <?php if(isset($data['catalogos']) && !empty($data['catalogos'])){ ?>
-    <a href="<?= $data['catalogos'][0]['rutaPdf']?>" class="text-muted ">
+    <?php var_dump($data['catalogos']);if($data['catalogos']["menudeo"] !== NULL ){ ?>
+    <a href="<?= $data['catalogos']['menudeo']?>" class="text-muted ">
         <div class="card">
             <div class="card-header bg-light">
                 <p class="card-title h5"> Catalogo Minorista</p>
@@ -31,20 +31,31 @@ include "views/components/navegador.php";
             <p class="h5">Por el momento no hay catalogo disponible vuelba mas tarde!</p>
             </div>
         </div>
-        </a>
+      
         <?php }?>
     </div>
     <div class="col ">
-<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) &&  $_SESSION['usuario'][1] == "mayorista"){?>
+    
+<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogos']['mayoreo'] !== NULL){  ?>
     <div class="card shadow-sm">
             <div class="card-header ">
                 <p class="card-title">Catalogo Mayorista</p>
             </div>
             <div class="card-body">
-            <img src="catalogo.png" class="card-img-bottom" alt="">
+            <img src="catalogo.png" class="card-img-bottom w-50 mx-auto" alt="">
             </div>
         </div>
         <?php }else{?>
+            <div class="card">
+            <div class="card-header  border-bottom-info">
+                <p class="card-title h5"> Catalogo Mayorista</p>
+            </div>
+            <div class="card-body text-center">
+            <img src="advertencia.png" class="card-img-bottom w-50 mx-auto" alt="">
+            <p class="h5">Por el momento no hay catalogo disponible vuelba mas tarde!</p>
+            </div>
+        </div>
+        <?php }}else{ ?>
             <div class="card border-0 bg-transparent col-10">
             <div class="card-header bg-light border-bottom-primary">
                 <p class="card-title">¿No eres un cliente mayorista? </p>

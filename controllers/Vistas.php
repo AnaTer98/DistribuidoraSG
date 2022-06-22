@@ -35,7 +35,14 @@ session_start();
 
          
         public function catalogos(){
-            $data['catalogos'] = $this->model->getPdfs();
+            $catalogos = $this->model->getPdfs();
+            if($catalogos[0]['tipo']=='normal'){
+                $array = array("menudeo" => $catalogos[0]['rutaPdf'],"mayoreo"=>$catalogos[1]['rutaPdf']);
+            }else{
+                $array = array("menudeo" => $catalogos[1]['rutaPdf'],"mayoreo"=>$catalogos[0]['rutaPdf']);
+            }
+           
+            $data['catalogos'] = $array;
             require_once "views/catalogos.php";
         }
         public function cotiza()
