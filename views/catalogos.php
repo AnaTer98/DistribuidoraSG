@@ -7,9 +7,9 @@ include "views/components/navegador.php";
 <div class="row row-cols-2 py-3 ">
   
     <div class="col">
-    <?php var_dump($data['catalogos']);if($data['catalogos']["menudeo"] !== NULL ){ ?>
+    <?php if($data['catalogos']["menudeo"] !== NULL ){ ?>
     <a href="<?= $data['catalogos']['menudeo']?>" class="text-muted ">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-header bg-light">
                 <p class="card-title h5"> Catalogo Minorista</p>
             </div>
@@ -37,14 +37,16 @@ include "views/components/navegador.php";
     <div class="col ">
     
 <?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogos']['mayoreo'] !== NULL){  ?>
-    <div class="card shadow-sm">
+    <a href="" class="text-muted">
+        <div class="card shadow-sm">
             <div class="card-header ">
-                <p class="card-title">Catalogo Mayorista</p>
+                <p class="card-title h5">Catalogo Mayorista</p>
             </div>
             <div class="card-body">
             <img src="catalogo.png" class="card-img-bottom w-50 mx-auto" alt="">
             </div>
         </div>
+    </a>
         <?php }else{?>
             <div class="card">
             <div class="card-header  border-bottom-info">
