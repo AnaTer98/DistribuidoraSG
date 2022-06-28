@@ -1,40 +1,27 @@
 <?php
 session_start();
 include_once("./views/components/header.php");
-//<!--Carrusel-->
 include_once('./views/components/carrusel.php');
 ?>
-
-
 <div class="d-flex" id="wrapper">
-
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Nuestros productos y servicios</div>
     <div class="list-group list-group-flush">
-    <?php if (isset($data['serviciosProductos']) ) { for($i = 0;$i< count($data['serviciosProductos']);$i++){ ?>
+    <?php if (isset($data['serviciosProductos']) && !empty($data['serviciosProductos']) ) { for($i = 0;$i< count($data['serviciosProductos']);$i++){ ?>
       <a href="<?= $data['serviciosProductos'][$i]['rutaPdf'] == '' ? 'Aqui no hay nada ':  $data['serviciosProductos'][$i]['rutaPdf']?> " class="list-group-item list-group-item-action bg-light"> <?= $data['serviciosProductos'][$i]['servicio']?></a>
-    
-<?php }}?>
+    <?php }}?>
     </div>
   </div>
-  <!-- /#sidebar-wrapper -->
-
-  <!-- Page Content -->
   <div id="page-content-wrapper" class="bg-light">
     <!--Aqui importar el navegador -->
     <?php include_once('views/components/navegador.php'); ?>
-    <!--El botton para mostrar el menu lateral-->
     <!--<button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>-->
     <div class="container">
-
       <div class="row " style="">
-<?php 
+  <?php 
 if(isset($data['publicaciones']) && !empty($data['publicaciones'])){
-  foreach ($data['publicaciones'] as $key) {
-    
-  
-?>
+  foreach ($data['publicaciones'] as $key) { ?>
 <div class="col-8 mb-4">
         <div class="card shadow-sm">
         <div class="card-header">
@@ -53,11 +40,8 @@ if(isset($data['publicaciones']) && !empty($data['publicaciones'])){
 <?php }}?>
       </div>
     </div>
-
   </div>
-
 </div>
-
 <!-- /#page-content-wrapper -->
 
 </div>

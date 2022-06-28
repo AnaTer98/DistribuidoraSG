@@ -7,7 +7,6 @@ class ControllerFormularios extends ControllerAcciones
 {
     private $model;
     private $acciones;
-    private $extension;
     public  $vistas;
     function __construct()
     {
@@ -75,10 +74,8 @@ class ControllerFormularios extends ControllerAcciones
                 if ($guardadoDB) {
                     try {
                         move_uploaded_file($temp, $ruta);
-
                         $_SESSION['mensaje']=["success","El registro ha sido,","Guardado"];
                         header("Location:index.php?c=vistasAd&a=adminCarrusel");
-                        #hAY QUE PONER UN MENSAJE
                     } catch (Exception $e) {
                         echo "Algo va mal al mover ", $e;
                     }
@@ -91,7 +88,6 @@ class ControllerFormularios extends ControllerAcciones
             $_SESSION['mensaje']=["danger","Algo mal ha sucedido ","Intentalo de nuevo"];
             header("Location:index.php?c=vistasAd&a=adminCarrusel");
 
-            echo "Algo salio mal al enviar el registro intentelo de nuevo |";
         }
     }
     public  function removeCarrusel($id, $ruta)
@@ -118,15 +114,12 @@ class ControllerFormularios extends ControllerAcciones
             $_SESSION["usuario"]=array();
             if (!empty($usuario) ) {
                 if( $usuario["activo"]==1){
-                $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
-                header("Location:index.php");
+                    $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
+                    header("Location:index.php");
                 }else{
-
                     $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
                     header("Location:index.php?c=vistas&a=ingresar");
-     
                 }
-
             }else{#En caso que no exista el correo
                $_SESSION['mensajeAvizo']= [ "danger","No te has registrado ."];
                header("Location:index.php?c=vistas&a=ingresar");
@@ -135,16 +128,13 @@ class ControllerFormularios extends ControllerAcciones
             echo "Algo salio mal intentalo mas tarde";
         }
     }
-
     public function postCatalogo(){
         if(isset($_POST['catalogoPdf'])){
             $tipoCatalogo = $_POST['tipo'];
             $pdf = $_FILES['catalogo']['name'];
             if(!empty($pdf)){
                 $ifPdf = $_FILES['catalogo']['type'];
-               
                 $tmpPdf = $_FILES['catalogo']["tmp_name"];
-
                 if(!(strpos($ifPdf,'pdf'))){
                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
                    header("Location:index.php?c=vistasAd&a=adminCatalogos");
@@ -152,22 +142,18 @@ class ControllerFormularios extends ControllerAcciones
                 }
                 $nuevoName = date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;
-
                 $guardadoDB = $this->model->setPdf($tipoCatalogo,$ruta);
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
                     header("Location:index.php?c=vistasAd&a=adminCatalogos");
-               
                 }
-                
-
             }
-
         }else {
-            echo"no se registro nada ";
-            #$this->removePdf();#Vere mas que show por que no se que mas hacer :/
+            $_SESSION['mensaje']=["warning","El formulario no se, ha enviado correctamente, ","Intenlo de nuevo "];
+            header("Location:index.php?c=vistasAd&a=adminCatalogos");
+            exit;
+            
         }
-       
     }
     public function removeCatalogo($id,$ruta){
         if(isset($_POST['catalogoPdf'])){
@@ -177,42 +163,30 @@ class ControllerFormularios extends ControllerAcciones
                 $_SESSION['mensaje']= ['warning','Catalogo. ','Eliminado!!'];
                 header("Location:index.php?c=vistasAd&a=adminCatalogos");
             }
-
-
-
         }
-        
     }
     public function postPublicacion(){
         if(isset($_POST['agregar'])){
             $descripcion = $_POST['descripcion'];
             $imagen = $_FILES['imagen']['name'];
             if(!empty($imagen)){
-                $ifPdf = $_FILES['imagen']['type'];
-               
+                $ifPdf = $_FILES['imagen']['type'];  
                 $tmpPdf = $_FILES['imagen']["tmp_name"];
-
                 if(!(strpos($ifPdf,'jpg')||strpos($ifPdf,'png')||strpos($ifPdf,'jpeg'))){
-                    echo"no es una imagen"; 
-                   
+                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","Imagen"];
+                    header("Location:index.php?c=vistasAd&a=adminPublicaciones");
+                    exit;
                 }
-                $fecha = date("t-m-d");
+                $fecha = date("d-m-y");
                 $hora = date("H-i-s.");
                 $nuevoName = "/pub".$fecha.$hora. explode("/", $ifPdf)[1];
-
                 $ruta = "images/publicaciones" . $nuevoName;
-
                 $guardadoDB = $this->model->setPublicacion($descripcion,$ruta,$fecha);
-               
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
-                    echo'Felicidades';
                     header("Location:index.php?c=vistasAd&a=adminPublicaciones");
                 }
-                
-
             }
-
         }
     }
     public function removePublicacion($id, $rutaImg){
@@ -221,22 +195,17 @@ class ControllerFormularios extends ControllerAcciones
         $this->model->removePublicacion($id);
         $_SESSION['mensaje']=["info","La publicacion ha sido, ","Eliminada"];
         header("Location:index.php?c=vistasAd&a=adminPublicaciones");
-    
         }else{
         $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
         header("Location:index.php?c=vistasAd&a=adminPublicaciones");
         }
     }
-    public function postCotiza()
-    {
+    public function postCotiza(){
         if(isset($_POST['cotizador'])){
-          
             $imagen = $_FILES['img']['name'];
             if(!empty($imagen)){
                 $ifPdf = $_FILES['img']['type'];
-               
                 $tmpPdf = $_FILES['img']["tmp_name"];
-
                 if(!(strpos($ifPdf,'jpg')||strpos($ifPdf,'png')||strpos($ifPdf,'jpeg'))){
                     $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","Imagen"]; 
                     header("Location:index.php?c=vistasAd&a=adminCotiza");
@@ -245,20 +214,13 @@ class ControllerFormularios extends ControllerAcciones
                 $fecha = date("t-m-d");
                 $hora = date("H-i-s.");
                 $nuevoName = "/cot".$fecha.$hora. explode("/", $ifPdf)[1];
-
                 $ruta = "images/" . $nuevoName;
-
                 $guardadoDB = $this->model->setCotiza($ruta);
-               
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
-                
                     header("Location:index.php?c=vistasAd&a=adminCotiza");
                 }
-                
-
             }
-
         }
     }
     public function removeCotizador($id,$ruta){
@@ -267,22 +229,18 @@ class ControllerFormularios extends ControllerAcciones
         $this->model->removeCotizador($id);
         $_SESSION['mensaje']=["info","La atrjeta de cotizador fue, ","Eliminada"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
-    
         }else{
         $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
         }
     }
-    public function postServ()
-    {
+    public function postServ(){
         if (isset($_POST['guardarServ'])) {
             $servicio = $_POST['opcion'];
              $pdf = $_FILES['pdf']['name'];
             if(!empty($pdf)){
                 $ifPdf = $_FILES['pdf']['type'];
-               
                 $tmpPdf = $_FILES['pdf']["tmp_name"];
-
                 if(!(strpos($ifPdf,'pdf'))){
                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
                    header("Location:index.php?c=vistasAd&a=adminProductosServ");
@@ -290,25 +248,15 @@ class ControllerFormularios extends ControllerAcciones
                 }
                 $nuevoName = "proSer".date("m-d-y-H-i-s.") . explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;
-
                 $guardadoDB = $this->model->setProSer($servicio,$ruta);
                 if($guardadoDB){
-              
                     move_uploaded_file($tmpPdf,$ruta);
                     header("Location:index.php?c=vistasAd&a=adminProductosServ");
-               
                 }
-
-                
-
             }
-           
-            
-
         }else{
             $_SESSION['mensaje']=['danger','Se borrado, ',''];
             header("Location:index.php?c=vistasAd&a=adminProductosServ");
-
         }
     }
     public function removeProServ($id,$ruta){
@@ -319,16 +267,13 @@ class ControllerFormularios extends ControllerAcciones
             if($pdfBorrado){
             $_SESSION['mensaje']=['info','Se borrado, ',"$servicio[0]"];
             header("Location:index.php?c=vistasAd&a=adminProductosServ");
-        }else{
+            }else{
             $_SESSION['mensaje']=['warning','Algo malo paso intentalo mas tarde!',"."];
-        header("Location:index.php?c=vistasAd&a=adminProductosServ");
-        }
-    }else{
+            header("Location:index.php?c=vistasAd&a=adminProductosServ");
+            }
+        }else{
         $_SESSION['mensaje']=['warning','Algo malo paso intentalo mas tarde!',"."];
         header("Location:index.php?c=vistasAd&a=adminProductosServ");
+        }
     }
-
-
-    }
-
 }
