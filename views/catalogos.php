@@ -64,7 +64,7 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body content-center">
                 <p class="card-text ">No eres un cliente mayorista <br>Te gustaría serlo, solicita tu cambio ahora</p>
-            <a href="index.php?c=acciones&a=" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar Catalogo</a>
+            <a href="index.php?c=vistas&a=cotiza" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar Catalogo</a>
             </div>
         </div>
             <?php }?>

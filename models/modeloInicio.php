@@ -14,7 +14,15 @@ class modeloInicio
         $this->based = new Database();
         $this->based = $this->based->conn;
     }
+public function servicioConPdf()
+{
+    $sql ="SELECT * FROM servicios WHERE rutaPdf != '';";
+    $result = $this->based->prepare($sql);
+    $result->execute();
+    $res = $result->fetchAll(PDO::FETCH_ASSOC);
+    return $res;
 
+}
     public function getCarrusel()
     {
         $stringSql = "SELECT * FROM carrusel";

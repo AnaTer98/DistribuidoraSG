@@ -14,7 +14,7 @@ session_start();
            
         }
         public function index(){
-            $data['serviciosProductos'] = $this->model->getProSer();
+            $data['serviciosProductos'] = $this->model->servicioConPdf();
             $data['publicaciones'] = $this->model->getPublicaciones();
          $data['Imagenes']=$this->model->getCarrusel();
         require_once "views/inicio.php";
@@ -50,6 +50,10 @@ session_start();
             $data['cardCotiza']=$this->model->getCotizador();
             require_once "views/cotizacion.php";
         }   
+        public function fabricantes()
+        {
+            require_once "views/fabricantes.php";
+        }
     }
   
 

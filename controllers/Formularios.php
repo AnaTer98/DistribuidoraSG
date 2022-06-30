@@ -191,13 +191,13 @@ class ControllerFormularios extends ControllerAcciones
     }
     public function removePublicacion($id, $rutaImg){
        $borrado = $this->acciones->borrarImg($rutaImg);
-        if($borrado){
-        $this->model->removePublicacion($id);
-        $_SESSION['mensaje']=["info","La publicacion ha sido, ","Eliminada"];
-        header("Location:index.php?c=vistasAd&a=adminPublicaciones");
+       $borradoRe = $this->model->removePublicacion($id);
+        if($borrado || $borradoRe ){
+            $_SESSION['mensaje']=["info","La publicacion ha sido, ","Eliminada"];
+            header("Location:index.php?c=vistasAd&a=adminPublicaciones");
         }else{
-        $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
-        header("Location:index.php?c=vistasAd&a=adminPublicaciones");
+            $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
+            header("Location:index.php?c=vistasAd&a=adminPublicaciones");
         }
     }
     public function postCotiza(){
