@@ -40,7 +40,7 @@ public function adminCatalogos(){
         require_once"views/administrador/cotiza.php";
     }
     public function adminFabricante(){
-        
+        $data['fabricantes'] = $this->model->getFabricantes();
         require_once"views/administrador/fabricantes.php";
     }
     public function adminProductosServ(){
@@ -52,4 +52,5 @@ public function adminCatalogos(){
         $data['usuarios'] = $this->model->getUsuarios();
         require_once"views/administrador/usuarios.php";
     }
+
 }

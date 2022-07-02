@@ -259,5 +259,28 @@ public function servicioConPdf()
         $resul = $res->fetch();
         return $resul;
     }
+    public function removeFabricante($id)
+    {
+        $sql = "DELETE FROM fabricantes WHERE id='$id';";
+        $eliminado = $this->based->prepare($sql);
+        $eliminado->execute();
+        return $eliminado;
+    }
+    public function setFabricante($empresa,$rol,$nombre,$telefono,$correo,$ruta)
+    {
+        $sql = "INSERT INTO fabricantes(empresa,rol,nombre,telefono,correo,rutaPdf) VALUES('$empresa','$rol','$nombre','$telefono','$correo','$ruta')";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $res->rowCount();
+        return $res;
+    }
+    public function getFabricantes()
+    {
+        $sql = "SELECT * FROM fabricantes";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $r = $res->fetchAll(PDO::FETCH_ASSOC);
+        return $r;
+    }
 
 }

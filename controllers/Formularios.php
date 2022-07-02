@@ -227,12 +227,22 @@ class ControllerFormularios extends ControllerAcciones
         $borrado = $this->acciones->borrarImg($ruta);
         if($borrado ){
         $this->model->removeCotizador($id);
-        $_SESSION['mensaje']=["info","La atrjeta de cotizador fue, ","Eliminada"];
+        $_SESSION['mensaje']=["info","La tarjeta de cotizador fue, ","Eliminada"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
         }else{
         $_SESSION['mensaje']=["warning","No se ha logrado borrar, intentelo ","mas tarde"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
         }
+    }
+    public function removeFabricante($id,$r){
+        $borradoPdf = $this->acciones->borrarImg($r);
+        $borradoRegistro = $this->model->removeFabricante($id);
+        if($borradoPdf || $borradoRegistro){
+            $_SESSION['mensaje']=["danger","La propues ha sido, ","Eliminada"];
+            header("Location:index.php?c=vistasAd&a=adminFabricante");
+
+        }
+
     }
     public function postServ(){
         if (isset($_POST['guardarServ'])) {
@@ -274,6 +284,37 @@ class ControllerFormularios extends ControllerAcciones
         }else{
         $_SESSION['mensaje']=['warning','Algo malo paso intentalo mas tarde!',"."];
         header("Location:index.php?c=vistasAd&a=adminProductosServ");
+        }
+    }
+    public function postFabricantes()
+    {
+        if(isset($_POST['agregar'])){
+          $empresa = $_POST['empresa'];
+          $rol = $_POST['rol'];
+          $nombre = $_POST['nombre'];
+          $telefono = $_POST['numero'];
+          $correo = $_POST['correo'];
+
+            echo $empresa;
+            $pdf = $_FILES['pdf'];
+          $ifPdf = $_FILES['pdf']['type'];
+          $tmpPdf = $_FILES['pdf']['tmp_name'];
+            if(!empty($pdf)){
+                
+                if(!(strpos($ifPdf,'pdf'))){
+                    $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
+                    header("Location:index.php?c=vistasAd&a=adminFabricante");
+                    exit;
+                }
+                $hora = date("H-i-s.");
+                $nuevoName = "/fabr".$hora.explode("/", $ifPdf)[1];
+                $ruta = "PDF/" . $nuevoName;
+                $guardadoDB = $this->model->setFabricante($empresa,$rol,$nombre,$telefono,$correo,$ruta);
+                if($guardadoDB){
+                    move_uploaded_file($tmpPdf,$ruta);
+                    header("Location:index.php?c=vistasAd&a=adminFabricante");
+                }
+            }
         }
     }
 }
