@@ -282,5 +282,27 @@ public function servicioConPdf()
         $r = $res->fetchAll(PDO::FETCH_ASSOC);
         return $r;
     }
+    public function personasPostuladas(){
+        $sql = "SELECT * FROM candidatos";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $r = $res->fetchAll(PDO::FETCH_ASSOC);
+        return $r;
+    }
+    public function setPostular($puesto,$nombre,$correo,$telefono,$ruta){
+        $sql = "INSERT INTO candidatos(puesto,nombre,correo,telefono,rutaCv) VALUES('$puesto','$nombre','$correo','$telefono','$ruta')";
+        $res = $this->based->prepare($sql);
+        $res->execute();
+        $res->rowCount();
+        return $res;
+        
+    }
+    public function removePostulante($id)
+    {
+        $sql = "DELETE FROM candidatos WHERE id='$id';";
+        $eliminado = $this->based->prepare($sql);
+        $eliminado->execute();
+        return $eliminado;
+    }
 
 }

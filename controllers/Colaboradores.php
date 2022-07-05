@@ -13,7 +13,7 @@ class ControllerColaboradores{
     public function removeColaborador($id,$ruta){
         $borradoDb = $this->model->removeColaborador((int)$id);
         $borradoImg= $this->acciones->borrarImg((string)$ruta);
-        if($borradoDb && $borradoImg){
+        if($borradoDb ||  $borradoImg){
             $_SESSION["mensaje"]=["info","Se ha eliminado la ","Vacante"];
             header("Location:index.php?c=vistasAd&a=adminColaboradores");
 exit;
@@ -33,6 +33,7 @@ exit;
                 if(!(strpos($tipo,'jpg')||strpos($tipo,'png')||strpos($tipo,'jpeg'))){                  
                    $_SESSION["mensaje"]=["danger","El archivo selecionado no es, ","Imagen"];
                    header("Location:index.php?c=vistasAd&a=adminColaboradores");
+                   exit;
                 }
                 $nuevoName = "vac-".date("H-i-s.").explode("/",$tipo)[1];
                 $ruta = "images/".$nuevoName;

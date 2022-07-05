@@ -317,4 +317,33 @@ class ControllerFormularios extends ControllerAcciones
             }
         }
     }
+
+    public function postPostular()
+    {
+        if(isset($_POST['postular'])){
+          $puesto = $_POST['puesto'];
+          $nombre = $_POST['nombre'];
+          $telefono = $_POST['numero'];
+          $correo = $_POST['correo'];
+
+         
+            $pdf = $_FILES['cv'];
+          $ifPdf = $_FILES['cv']['type'];
+          $tmpPdf = $_FILES['cv']['tmp_name'];
+            if(!empty($pdf)){
+                $hora = date("H-i-s.");
+                $nuevoName = "colab".$hora.explode("/", $ifPdf)[1];
+                $ruta = "PDF/" . $nuevoName;
+                $guardadoDB = $this->model->setPostular($puesto,$nombre,$correo,$telefono,$ruta);
+                if($guardadoDB){
+                    move_uploaded_file($tmpPdf,$ruta);
+                    header("Location:index.php");
+                }
+            }
+        }else{
+            
+            header("Location:index.php?c=vistas&a=vacantes");                                
+        }
+
+    }
 }

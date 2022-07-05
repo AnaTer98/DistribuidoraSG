@@ -14,6 +14,15 @@ include 'components/header.php';
       </div>
     </div>
   </div>
+  
+  <div class="row row-cols-2">
+    <div class="col ">
+      <div class="container border-bottom-secondary mb-3"> <h5 class="text-center pb-2"> Puestos </h5></div>
+    </div>
+    <div class="col">
+      <a href="index.php?c=vistasAd&a=postuladosAd"><div class="container btn bg-dark text-white mb-3"><h5 class="text-center">Propuestas</h5></div></a>
+    </div>
+  </div>
   <?php if (isset($_SESSION['mensaje']) && !empty($_SESSION['mensaje'])) { ?>
     <div class="alert bg-<?= $_SESSION['mensaje'][0] ?> alert-dismissible fade show " role="alert">
       <p class="text-light h5"><?= $_SESSION['mensaje'][1] ?><strong><?= $_SESSION['mensaje'][2] ?></strong></p>
@@ -26,7 +35,7 @@ include 'components/header.php';
   } ?>
   <!--Formulario para crear vacante-->
   <div class="row ">
-    <div class=" col-xl-3 col-lg-6 col-md-8 col-sm-12 border-right border-warning " style="border-right: 0.25rem #f6c23e solid !important;">
+    <div class=" col-xl-3 col-lg-6 col-md-8 col-sm-12 ">
 
     <form action="index.php?c=colaboradores&a=postVacantes" method="POST" enctype="multipart/form-data">
       <div class="card mt-2 m-0 " style="">

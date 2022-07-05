@@ -22,6 +22,7 @@ session_start();
         
         public function vacantes(){
             $data['vacantes']=$this->model->getVacantes();
+            
             require_once "views/vacantes.php";
         }
 
