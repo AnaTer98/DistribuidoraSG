@@ -32,7 +32,7 @@ include_once"views/administrador/components/header.php";
         <input type="file" name="img" id="inputImg" required>
       </div>
       <div class="form-group">
-        <img src="images/logos-assets/logos.png" id="caja"class="w-100 pt-1" style="height: 25rem;" alt="">
+        <img src="images/logos-assets/logos.png" id="caja"class="w-100 pt-1" style="height: 20rem;" alt="">
       </div>
       <button type="submit"name="cotizador" value="cotizador" class="btn btn-outline-success ">Guardar</button>
         </div>
@@ -43,16 +43,16 @@ include_once"views/administrador/components/header.php";
   <div class="col-xl-7">
       <div class="row ">
         <?php if(!isset($data['cardCotiza']) || !empty($data['cardCotiza'])){  foreach($data['cardCotiza'] as $key){ ?>
-        <div class="col-lg-6 col-sm-12 mt-2">
-          <div class="card border-success">
-            <div class="card-header d-flex py-1">
-              <h5 class="card-title mr-auto my-1">
+        <div class="col-lg-6 col-sm-12 mt-2" >
+          <div class="card border-success ">
+            <div class="card-header d-flex">
+              <h5 class="card-title mr-auto ">
                 Tarjeta de Presentación
               </h5>
               <a href="index.php?c=formularios&a=removeCotizador&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger mb-0 mx-auto"><span class="icon"><i class="bi bi-trash"></i></span> </a>
               <span class="icon my-1"><i class="bi bi-person-badge "></i></span>
             </div>
-            <img src="<?= $key['rutaImg']?>" class="card-img-bottom" alt="" srcset="">
+            <img src="<?= $key['rutaImg']?>" class="card-img-bottom" width="360" height="300" alt="" srcset="">
           </div>
         </div>
         <?php }?>
@@ -64,7 +64,7 @@ include_once"views/administrador/components/header.php";
   </div>
   <div class="card-body">
     <p class="card-text h5">Tienes que llanar el formulario con los datos para mostrar la información  </p>
-    <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
+    <img src="escritorio.svg" class="img-profile  w-50"alt=""  srcset="">
   </div>
 </div>  
       <?php }?>
@@ -72,6 +72,7 @@ include_once"views/administrador/components/header.php";
   </div>
 </div>
 </div>
+<br><br><br><br><br><br><br>
 <?php 
 include_once"views/administrador/components/footer.php";
 ?>

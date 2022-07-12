@@ -17,10 +17,10 @@ include 'components/header.php';
   
   <div class="row row-cols-2">
     <div class="col ">
-      <div class="container border-bottom-secondary mb-3"> <h5 class="text-center pb-2"> Puestos </h5></div>
+      <div class="container border-bottom-secondary mb-3"> <h5 class="text-center pb-2"> Puestos propuestos</h5></div>
     </div>
     <div class="col">
-      <a href="index.php?c=vistasAd&a=postuladosAd"><div class="container btn bg-dark text-white mb-3"><h5 class="text-center">Propuestas</h5></div></a>
+      <a href="index.php?c=vistasAd&a=postuladosAd"><div class="container btn bg-dark text-white mb-3"><h5 class="text-center">Personas interesadas</h5></div></a>
     </div>
   </div>
   <?php if (isset($_SESSION['mensaje']) && !empty($_SESSION['mensaje'])) { ?>
@@ -62,8 +62,8 @@ include 'components/header.php';
 
       <?php if(isset($data['vacantes']) && !empty($data['vacantes'])){
         foreach ($data['vacantes'] as $key ) { ?>
-            <div class="card  mx-auto my-2" >
-            <img src="<?= $key['rutaImg']?>" class="card-img-top" alt="<?= $key['rutaImg']?>">
+            <div class="card  mx-auto my-2 " >
+            <img src="<?= $key['rutaImg']?>" class="card-img-top" style="height:18rem ;" alt="<?= $key['rutaImg']?>">
             <div class="card-body">
               <h5 class="card-title"><?= $key['vacante']?></h5>
               <p class="card-text"><?= $key['descripcion']?></p>
@@ -76,7 +76,7 @@ include 'components/header.php';
   <h4 class="card-title">No hay registros</h4>
   </div>
   <div class="card-body">
-    <p class="card-text h5">Teines que llanar el formulario con los datos para mostrar la información  </p>
+    <p class="card-text h5">Tienes que llanar el formulario con los datos para mostrar la información  </p>
     <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
   </div>
 </div>

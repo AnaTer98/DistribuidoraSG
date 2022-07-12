@@ -300,19 +300,19 @@ class ControllerFormularios extends ControllerAcciones
           $ifPdf = $_FILES['pdf']['type'];
           $tmpPdf = $_FILES['pdf']['tmp_name'];
             if(!empty($pdf)){
-                
+                  
                 if(!(strpos($ifPdf,'pdf'))){
                     $_SESSION['mensaje']=["danger","El archivo selecionado no es, ","PDF"];
-                    header("Location:index.php?c=vistasAd&a=adminFabricante");
+                    header("Location:index.php?c=vistas&a=fabricantes");
                     exit;
                 }
                 $hora = date("H-i-s.");
-                $nuevoName = "/fabr".$hora.explode("/", $ifPdf)[1];
+                $nuevoName = "fabr".$hora.explode("/", $ifPdf)[1];
                 $ruta = "PDF/" . $nuevoName;
                 $guardadoDB = $this->model->setFabricante($empresa,$rol,$nombre,$telefono,$correo,$ruta);
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);
-                    header("Location:index.php?c=vistasAd&a=adminFabricante");
+                    header("Location:index.php");
                 }
             }
         }
@@ -345,5 +345,17 @@ class ControllerFormularios extends ControllerAcciones
             header("Location:index.php?c=vistas&a=vacantes");                                
         }
 
+    }
+    public function removePostulado($id,$ruta){
+        $borrado = $this->model->removePostulante($id);
+        $pdfBorrado = $this->acciones->borrarImg($ruta);
+        if($borrado || $pdfBorrado){
+            $_SESSION['mensaje']=['info','Se borrado, ','Persona interesada'];
+            header("Location:index.php?c=vistasAd&a=postuladosAd");
+        }else{
+            $_SESSION['mensaje']=['warning','Algo malo paso intentalo más tarde!',"."];
+            header("Location:index.php?c=vistasAd&a=postuladosAd");
+            }
+        
     }
 }

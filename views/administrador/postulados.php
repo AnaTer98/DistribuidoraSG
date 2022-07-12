@@ -18,13 +18,13 @@ include 'components/header.php';
     <div class="col">
         <a href="index.php?c=vistasAd&a=adminColaboradores">
           <div class="container btn bg-dark text-white mb-3">
-            <h5 class="text-center">Puestos</h5>
+            <h5 class="text-center">Puestos propuestos</h5>
           </div>
         </a>
       </div>
       <div class="col ">
         <div class="container border-bottom-secondary mb-3">
-          <h5 class="text-center pb-2"> Propuestas </h5>
+          <h5 class="text-center pb-2"> Personas interesadas </h5>
         </div>
       </div>
       
@@ -63,7 +63,7 @@ include 'components/header.php';
                 <th><?= $key['nombre']?></th>
                 <th><?= $key['correo']?></th>
                 <th><?= $key['telefono']?></th>
-                <th><a href="<?= $key['rutaCv']?>" class="btn btn-outline-warning mr-2">PDF </a><a href="" class="btn btn-outline-danger ml-3">Borrar</a> </th>
+                <th><a href="<?= $key['rutaCv']?>" class="btn btn-outline-warning mr-2">PDF </a><a href="index.php?c=formularios&a=removePostulado&id=<?= $key["id"]?>&r=<?= $key['rutaCv']?>" class="btn btn-outline-danger ml-3">Borrar</a> </th>
               </tr>
             <?php }?>  
           </tbody>

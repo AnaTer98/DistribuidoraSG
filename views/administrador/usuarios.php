@@ -9,7 +9,7 @@ include 'components/header.php';
   <div class="card mb-4 py-1 border-bottom-primary">
     <div class="card-body">
       <div class="d-sm-flex align-items-center ">
-        <h1 class="h3 mb-0 text-gray-800">Usuarios!!!!!!!!!!!!!</h1>
+        <h1 class="h3 mb-0 text-gray-800">Usuarios</h1>
       </div>
     </div>
   </div>

@@ -10,14 +10,6 @@ include 'components/header.php';
     <div class="card-body">
       <div class="d-sm-flex align-items-center ">
         <h1 class="h3 mb-0 text-gray-800">Carrusel</h1>
-            <div class="container text-right">
-        <button class="btn btn-info btn-icon-split  " id="mostrar">
-          <span class="icon text-white-50">
-            <i class="bi bi-file-diff"></i>
-          </span>
-          <span class="text">Nuevo</span>
-</button>
-            </div>
       </div>
   
     </div>

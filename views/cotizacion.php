@@ -14,7 +14,7 @@ include "views/components/navegador.php";
               </h5>
               <span class="icon my-1"><i class="bi bi-person-badge "></i></span>
             </div>
-            <img src="<?= $key['rutaImg']?>" class="card-img-bottom" alt="" srcset="">
+            <img src="<?= $key['rutaImg']?>" class="card-img-bottom" style="max-height:20rem ;" >
           </div>
         <?php }echo("</div>");}else{ ?>
           <div class="container mx-aut w-50 pt-3 pb-3" >
@@ -24,7 +24,7 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body">
               <p class="card-text h5">Vuelve más tarde! </p>
-              <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
+              <img src="escritorio.svg" class="img-profile  w-50  "style="height:18rem ;">
             </div>
           </div>  
           </div> 

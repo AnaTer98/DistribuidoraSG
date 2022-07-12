@@ -35,7 +35,7 @@ include_once"views/administrador/components/header.php";
     </tr>
   </thead>
   <tbody>
-    <?php if(isset($data['fabricantes']) ){ foreach($data['fabricantes'] as $key){ echo("alv");?>
+    <?php if(isset($data['fabricantes']) ){ foreach($data['fabricantes'] as $key){ ?>
     <tr>
 
       <th scope="row"><?= $key['id']?></th>

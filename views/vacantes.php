@@ -3,20 +3,20 @@ session_start();
 include "views/components/header.php";
 include "views/components/navegador.php";
 ?>
-<div class="d-flex justify-content-around bg-white mx-auto rounded" style="width: 90%;">  
-    <?php if (isset($data['vacantes']) && !empty($data['vacantes'])) {
+<div class="content bg-light mx-auto rounded col-11" >  
+    <?php if (isset($data['vacantes']) && !empty($data['vacantes'])) {echo("<div class='card-columns pt-3'>");
       foreach ($data['vacantes'] as $key) { ?>
-<div class="" style="width: 32rem;">
-        <div class="card mb-1 mt-3 my-2 shadow-sm"  style="">
-          <img src="<?= $key['rutaImg'] ?>" alt="Esperame" class="card-img-top ">
+
+        <div class="card  shadow-sm" >
+          <img src="<?= $key['rutaImg'] ?>" alt="Esperame" class="card-img-top" style="max-height:24rem;">
           <div class="card-body">
             <h5 class="card-title"><?= $key['vacante']?></h5>
             <p class="card-text"><?= $key['descripcion'] ?></p>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalform"><i class="bi bi-briefcase mr-1"></i> Postular</button>
           </div>
         </div>
-</div>
-<?php }  } else { ?>
+
+<?php }echo("</div>");  } else { ?>
   <div class="card border-0  mt-3 text-center">
   <div class="card-header bg-white border-bottom-primary">
   <h4 class="card-title">Sin puestos disponibles</h4>
@@ -31,7 +31,7 @@ include "views/components/navegador.php";
 </div>
 <?php } ?>
 
-
+</div>
 
 
 <!--Formulario flotante para enviar solicitud-->
@@ -45,7 +45,7 @@ include "views/components/navegador.php";
         </button>
       </div>
       <div class="modal-body d-print-inline-block">
-        <form action="index.php?index.php&c=formularios&a=postPostular" onsubmit="return validarOpcion(event);" enctype="multipart/form-data" method="post">
+        <form id="formulario"action="index.php?index.php&c=formularios&a=postPostular" onsubmit="return validarOpcion(event);" enctype="multipart/form-data" method="post">
           <div class="form-group">
             <label for="puesto">Puesto deseado</label>
             <select name="puesto" id="opcionPuesto" class="form-control">
@@ -83,7 +83,6 @@ include "views/components/navegador.php";
 
 
 
-</div>
 <?php
 include "views/components/footer.php";
 ?>
@@ -92,17 +91,19 @@ include "views/components/footer.php";
 
 
 var validarOpcion = function(e){ 
-
   let opcion = $("#opcionPuesto").val();
     let valido = true;
     let pdf = $('#cv').val();
   pdf = pdf.split('.').pop();
-console.log(pdf);
+
 if(opcion == "" || opcion == "Escoge una opción"){
   toastr["warning"]("No has seleccionado un puesto","Avizo");
 }
 if(pdf == "pdf" || pdf == "PDF" ){
-  valido = true;
+
+    valido = true;
+ 
+  
 }else{
   toastr["error"]("Tu archivo no es un pdf","Advertencia");
   valido = false;
@@ -130,6 +131,7 @@ toastr.options = {
  return valido;
 
 }
+
 
   
  
