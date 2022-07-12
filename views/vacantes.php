@@ -19,11 +19,11 @@ include "views/components/navegador.php";
 <?php }echo("</div>");  } else { ?>
   <div class="card border-0  mt-3 text-center">
   <div class="card-header bg-white border-bottom-primary">
-  <h4 class="card-title">Sin puestos disponibles</h4>
+  <h4 class="card-title"></h4>
   </div>
   <div class="card-body">
     
-    <p class="card-text h5">Por el momento nuestra compañia no tiene pues ha ofrecer, intentelo mas tarde </p>
+    <p class="card-text h5">Por el momento nuestra compañía no tiene vacantes disponibles, inténtalo más tarde. </p>
     <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
     
   </div>

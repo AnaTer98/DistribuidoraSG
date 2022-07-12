@@ -13,7 +13,7 @@
 
       <li class="nav-item ">
         <a class="nav-link active" href="index.php?c=vistas&a=fabricantes" id="navbarDropdown" role="button" >
-          Fabricantes é Importadores
+          Fabricantes e Importadores
         </a>
       </li>
       <li class="nav-item dropdown">
@@ -31,10 +31,10 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Empleados
+          Colaboradores
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="index.php?c=vistas&a=qsomos">¿Quienes somos?</a>
+          <a class="dropdown-item" href="index.php?c=vistas&a=qsomos">¿Quienes Somos?</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="index.php?c=vistas&a=vacantes">Vacantes</a>
         </div>

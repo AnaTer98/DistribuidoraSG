@@ -164,7 +164,7 @@ public function servicioConPdf()
         }
     }
     public function getPublicaciones(){
-        $sql = "SELECT * FROM publicaciones";
+        $sql = "SELECT * FROM publicaciones ORDER BY id DESC";
         $resul = $this->based->prepare($sql);
         $resul->execute();
         $res = $resul->fetchAll(PDO::FETCH_ASSOC);
