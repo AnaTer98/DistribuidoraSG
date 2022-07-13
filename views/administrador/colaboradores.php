@@ -76,7 +76,7 @@ include 'components/header.php';
   <h4 class="card-title">No hay registros</h4>
   </div>
   <div class="card-body">
-    <p class="card-text h5">Tienes que llanar el formulario con los datos para mostrar la información  </p>
+    <p class="card-text h5">Tienes que llenar el formulario con los datos para mostrar información  </p>
     <img src="escritorio.svg" class="img-profile  w-50  "alt="" srcset="">
   </div>
 </div>

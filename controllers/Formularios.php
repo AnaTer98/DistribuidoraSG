@@ -238,7 +238,7 @@ class ControllerFormularios extends ControllerAcciones
         $borradoPdf = $this->acciones->borrarImg($r);
         $borradoRegistro = $this->model->removeFabricante($id);
         if($borradoPdf || $borradoRegistro){
-            $_SESSION['mensaje']=["danger","La propues ha sido, ","Eliminada"];
+            $_SESSION['mensaje']=["danger","El registro ha sido, ","Eliminado"];
             header("Location:index.php?c=vistasAd&a=adminFabricante");
 
         }
