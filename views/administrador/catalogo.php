@@ -10,7 +10,7 @@ $datosMay = array();
 
     if(isset($data['catalogos']) && !empty($data['catalogos'])){
         foreach ($data['catalogos'] as $key) {
-            if($key['tipo']=="normal"){
+            if($key['tipo']=="minorista"){
             array_push($datosNor,$key['id'],$key['tipo'],$key['rutaPdf']);         
             }
             if($key['tipo']=="mayorista"){
@@ -57,7 +57,7 @@ $datosMay = array();
                     <div class="card-body p-0 m-0  <?php echo(empty($datosNor) ? "bg-danger":"bg-success")  ?>">
                         <div class="position-relative  m-0 p-0 w-100  ">
 
-                            <input type="text" name="tipo" class="d-none" value="normal" id="">
+                            <input type="text" name="tipo" class="d-none" value="minorista" id="">
                             <div class="text-white text-center">
                                 <img src="file-earmark-pdf.svg" class="img-fluid py-2 " style=" color:white;width: 30%;" alt="...">
                             </div>
@@ -68,7 +68,7 @@ $datosMay = array();
                         <h4 class="pl-2"><?php echo(empty($datosNor) ? "Selecciona TU CATALOGO":"LISTO!!") ?> </h4>
                         <div class="btn-group">
                             
-                            <button type="submit" name="catalogoPdf" class="btn <?php echo(empty($datosNor) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosNor) ? "Guardar":"Eliminar")?></button> 
+                            <button value="catalogoPdf" type="submit" name="catalogoPdf" class="btn <?php echo(empty($datosNor) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosNor) ? "Guardar":"Eliminar")?></button> 
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ $datosMay = array();
                         <h4 class="pl-2"><?php echo(empty($datosMay) ? "Selecciona TU CATALOGO":"LISTO!!") ?> </h4>
                         <div class="btn-group">
                          
-                            <button type="submit" name="catalogoPdf" class="btn <?php echo(empty($datosMay) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosMay) ? "Guardar":"Eliminar")?></button> 
+                            <button type="submit" value="catalogoPdf" name="catalogoPdf" class="btn <?php echo(empty($datosMay) ? "btn-info":"btn-secondary")?> mx-2 my-1"><?php echo(empty($datosMay) ? "Guardar":"Eliminar")?></button> 
                         </div>
                     </div>
                 </div>

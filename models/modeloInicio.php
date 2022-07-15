@@ -1,8 +1,4 @@
 <?php
-
-use LDAP\Result;
-
-session_start();
 require_once("database/database.php");
 class modeloInicio
 {

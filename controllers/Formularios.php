@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "models/modeloInicio.php";
 include_once "controllers/Acciones.php";
 include_once "controllers/VistasAd.php";
@@ -180,7 +179,7 @@ class ControllerFormularios extends ControllerAcciones
                 $fecha = date("d-m-y");
                 $hora = date("H-i-s.");
                 $nuevoName = "/pub".$fecha.$hora. explode("/", $ifPdf)[1];
-                $ruta = "images/publicaciones" . $nuevoName;
+                $ruta = "images" . $nuevoName;
                 $guardadoDB = $this->model->setPublicacion($descripcion,$ruta,$fecha);
                 if($guardadoDB){
                     move_uploaded_file($tmpPdf,$ruta);

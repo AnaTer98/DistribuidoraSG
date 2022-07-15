@@ -91,25 +91,16 @@ include "views/components/navegador.php";
         </div>
         <form  onsubmit="return valida();" class="" id="formulario"enctype="multipart/form-data" method="post">
           <div class="form-group">
-            <label for="puesto">Puesto deseado</label>
-            <select name="puesto" id="opcionPuesto" class="form-control">
-              <option value="">Escoge una opción</option>
-                <?php foreach($data['vacantes'] as $key) {?>
-                  <option value="<?= $key['vacante']?>"><?= $key['vacante']?></option>
-                  <?php }?>
-            </select>
+            <label for="giro">Nombre de tu empresa</label>
+            <input type="text" name="giro" placeholder="Giro" class="form-control" id="giro">
           </div>
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text"  name="nombre" class="form-control"  value="<?php echo($_SESSION['usuario'][1]);?>" disabled id="">
           </div>
           <div class="form-group">
-            <label for="correo">Correo</label>
-            <input type="email" name="correo" id="" class="form-control" placeholder="Ingresa tu correo electronico valido " >
-          </div>
-          <div class="form-group">
-            <label for="numero">Telefono<span class="text-danger"> (valido de 10 digitos)</span></label>
-            <input type="number" name="numero" class="form-control" placeholder="Ingresa tu numero telefononico valido " id="" >
+            <label for="direccion">Dirección</label>
+            <input type="text"  name="direccion" class="form-control"  value=""  id="direccion">
           </div>
           <div class="form-group">
             <label for="cv" class="">C.V. <span class="text-danger">(pdf)</span></label>
@@ -126,18 +117,53 @@ include "views/components/navegador.php";
 </div>
 </div>
 <script>
+  
      const formulario = document.getElementById("formulario");
      const mensaje = document.getElementById("mensaje");
-   function valida (){
-   
-    formulario.classList.add('d-none');
+     const direccion = document.getElementById("direccion");
+     const giro = document.getElementById("giro");
+     //formulario.classList.add('d-none');
+    //mensaje.classList.remove('d-none');
+  
+    function valida (callback){
+      var correcto = true;
+      if(direccion.value ==""){
+        toastr["error"]("Debes ingresar la dirección de tu empresa ","Error");
+      correcto = false
+      }
+      if(giro.value == ""){
+        toastr["error"]("Debes ingresar la dirección de tu empresa ","Error");
+        correcto = false;
+      }
+   if(correcto = true){
+  formulario.classList.add('d-none');
     mensaje.classList.remove('d-none');
-setTimeout(() => {
-    return true;
-}, 5000);
-  
-  
+    setTimeout(()=>{
+     correcto = true ;
+    },9000);
+
    }
+ 
+   
+      toastr.options = {
+  "closeButton": true,
+  "debug": true,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "3000",
+  "hideDuration": "8000",
+  "timeOut": "16000",
+  "extendedTimeOut": "8000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+   }
+
 
 </script>
 <?php
