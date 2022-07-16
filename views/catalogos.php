@@ -4,9 +4,19 @@ include "views/components/header.php";
 include "views/components/navegador.php";
 ?>
 <div class="content bg-light mx-auto rounded col-8">
-<div class="row row-cols-2 py-3 ">
   
-    <div class="col">
+<?php if(isset($_SESSION['mensajeActivado']) && !empty($_SESSION['mensajeActivado'])){ ?>
+<div class="col-11 bg-<?= $_SESSION['mensajeActivado'][0] ?>  mb-3 rounded container">
+  <p class="font-weight-normal p-4 text-white h3">
+ <?= $_SESSION['mensajeActivado'][1] ?>
+</p>
+</div>
+<?php $_SESSION["mensajeActivado"] ="";}?>
+
+<div class="row  py-3 ">
+  <!--Una caja mas grande para hacer que se registre -->
+  <?php if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){?>
+    <div class="col-6">
     <?php if($data['catalogos']["menudeo"] !== NULL ){ ?>
     <a href="<?= $data['catalogos']['menudeo']?>" class="text-muted ">
         <div class="card shadow-sm">
@@ -34,7 +44,7 @@ include "views/components/navegador.php";
       
         <?php }?>
     </div>
-    <div class="col ">
+    <div class="col-6">
     
 <?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogos']['mayoreo'] !== NULL){  ?>
     <a href="" class="text-muted">
@@ -54,7 +64,7 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body text-center">
             <img src="advertencia.png" class="card-img-bottom w-50 mx-auto" alt="">
-            <p class="h5">Por el momento no hay catalogo disponible vuelba mas tarde!</p>
+            <p class="h5">Por el momento no hay catalogo disponible vuelva mas tarde!</p>
             </div>
         </div>
         <?php }}else{ ?>
@@ -71,7 +81,21 @@ include "views/components/navegador.php";
         </div>
             <?php }?>
     </div>
-
+    <?php }else{?>
+        <div class="col-8 mx-auto ">
+          <div class="card border border-secondary" >
+            <div class="card-header border-bottom-primary">
+              <p class="card-title mx-auto ">No has te has registrado</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Para tener acceso a nuestros catalogos necesitas registrarte :)</p>
+             <div class="container container-center px-4"><img src="logeando.svg" class="card-img-top  mt-1 mx-auto" height="180"></div>
+              <a href="index.php?c=vistas&a=registrar" class="btn btn-outline-success"><i class="bi bi-box-arrow-up mr-1"></i>Resgistrarte</a>
+            </div>
+          </div>
+        </div>
+      <?php }?>
+<!--Contenedor row -->
 </div>
 <div class="modal fade" tabindex="-1" id="modalForm">
   <div class="modal-dialog">
@@ -89,7 +113,7 @@ include "views/components/navegador.php";
             <h4>¡Felicidades!</h4>
             <p> Verifica tu correo electronico para hacer el cambio.</p>
         </div>
-        <form  onsubmit="return valida();" class="" id="formulario"enctype="multipart/form-data" method="post">
+        <form  onsubmit="return valida();" action="index.php?c=acciones&a=activarMayorista&id=<?php echo($_SESSION['usuario'][2])?>&r=<?php echo($_SESSION['usuario'][3])?>" id="formulario"enctype="multipart/form-data" method="post">
           <div class="form-group">
             <label for="giro">Nombre de tu empresa</label>
             <input type="text" name="giro" placeholder="Giro" class="form-control" id="giro">
@@ -101,13 +125,8 @@ include "views/components/navegador.php";
           <div class="form-group">
             <label for="direccion">Dirección</label>
             <input type="text"  name="direccion" class="form-control"  value=""  id="direccion">
-          </div>
-          <div class="form-group">
-            <label for="cv" class="">C.V. <span class="text-danger">(pdf)</span></label>
-            <input type="file" name="cv" class="form-control-file" class="form-control" id="cv" >
-          </div>
-          
-          <button class="btn btn-success" name="postular" type="submit" id="postular"> <i class="bi bi-file-earmark-font"></i>Enviar</button>
+          </div>          
+          <button class="btn btn-success" name="cambioMayorista" type="submit" id="postular"> <i class="bi bi-file-earmark-font"></i>Enviar</button>
         </form>
       </div>
      
@@ -117,32 +136,23 @@ include "views/components/navegador.php";
 </div>
 </div>
 <script>
-  
-     const formulario = document.getElementById("formulario");
-     const mensaje = document.getElementById("mensaje");
      const direccion = document.getElementById("direccion");
-     const giro = document.getElementById("giro");
-     //formulario.classList.add('d-none');
-    //mensaje.classList.remove('d-none');
-  
-    function valida (callback){
-      var correcto = true;
+     const giro = document.getElementById("giro");  
+    function valida (){
+      var correcto = false;
       if(direccion.value ==""){
         toastr["error"]("Debes ingresar la dirección de tu empresa ","Error");
-      correcto = false
+        return correcto;
       }
       if(giro.value == ""){
-        toastr["error"]("Debes ingresar la dirección de tu empresa ","Error");
-        correcto = false;
+        toastr["error"]("Debes ingresar el nombre de tu empresa ","Error");
+        return correcto;
       }
-   if(correcto = true){
-  formulario.classList.add('d-none');
-    mensaje.classList.remove('d-none');
-    setTimeout(()=>{
-     correcto = true ;
-    },9000);
 
-   }
+   if(direccion.values != "" && giro.value != ""){
+    correcto = true;  
+    return  correcto;
+  }
  
    
       toastr.options = {
@@ -162,6 +172,7 @@ include "views/components/navegador.php";
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 }
+
    }
 
 

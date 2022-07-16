@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="35.68335"
+   height="23.5637"
+   viewBox="0 0 35.68335 23.5637"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="SG.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-7.7825456,-12.984877)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:36.2579px;font-family:Calibri;-inkscape-font-specification:Calibri;fill:#102694;fill-opacity:1;stroke-width:1.13306"
+       x="6.5195847"
+       y="36.240273"
+       id="text1"
+       transform="scale(1.0007681,0.99923246)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="6.5195847"
+         y="36.240273"
+         style="fill:#102694;fill-opacity:1;stroke-width:1.13306">SG</tspan></text>
+  </g>
+</svg>

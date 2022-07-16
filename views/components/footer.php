@@ -1,10 +1,35 @@
 <br><br><br><br>
-<footer class="sticky-footer bg-gradient-light  fixed-bottom mt-3">
-  <div class="container mx-auto">
-    <div class="copyright text-center my-auto">
-      <span>DISTRIBUIDORA SG</span>
+<footer class="bg-light  text-dark">
+ <div class="container">
+  <nav class="row">
+    <!--Logo-->
+    <div class="col-4 text-center pt-4">
+    <a class="text-reset mx-auto" href="index.php">
+      <img src="SG.svg" alt=""><br>
+    </a>
     </div>
-  </div>
+     <!--Redes sociales-->
+     <ul class="col-6 list-unstyled mt-3 ml-1">
+      <li class="font-weight-bold text-uppercase">Redes Solciales</li>
+      <li class="d-flex justify-content-between">
+        <!--Facebook-->
+        <a href="http://" class="text-reset "style="font-size:2em;">  
+        <span ><i class="bi bi-facebook "  style="width: 5rem;"></i></span>
+        </a>
+        
+        <a href="http://" class="text-reset"style="font-size:2em;">  
+        <i class="bi bi-whatsapp"  style="width: 5rem;"></i>
+        </a>
+        
+        <a href="http://" class="text-reset"style="font-size:2em;">  
+        <i class="bi bi-instagram "  style="width: 5rem;"></i>
+        </a>
+        
+      </li>
+</ul>
+
+  </nav>
+ </div>
 </footer>
 
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->

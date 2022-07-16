@@ -113,7 +113,7 @@ class ControllerFormularios extends ControllerAcciones
             $_SESSION["usuario"]=array();
             if (!empty($usuario) ) {
                 if( $usuario["activo"]==1){
-                    $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"]];
+                    $_SESSION["usuario"]=[$usuario["nombre"],$usuario["rol"],$usuario['correo'],$usuario['hash'],$usuario['activo']];
                     header("Location:index.php");
                 }else{
                     $_SESSION['mensajeAvizo'] = ["warning","Aun no has activado tu correo electronico, reviza la bandeja de tu correo"];
@@ -124,7 +124,8 @@ class ControllerFormularios extends ControllerAcciones
                header("Location:index.php?c=vistas&a=ingresar");
             }
         } else { #ingresarUSer
-            echo "Algo salio mal intentalo mas tarde";
+            $_SESSION['mensajeAvizo']= [ "danger","Algo salio mal intentalo más tarde."];
+            header("Location:index.php?c=vistas&a=ingresar");
         }
     }
     public function postCatalogo(){

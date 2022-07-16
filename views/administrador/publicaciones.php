@@ -53,26 +53,28 @@ include 'components/header.php';
    
     <div class="col-xl-8">
       <!--La segunda columna principal -->
-      <div class="row row-cols-2">
+      <div class="card-columns">
         <!--Nuevo contenedor para las tarjetas-->
      
 <?php foreach($data['publicaciones'] as $key){?>
-  <div class="col mt-2 ">
-        <div class="card shadow-sm">
-        <div class="card-header d-flex">
+  
+        <div class="card shadow-sm w-40">
+        <div class="card-header ">
+          <div class="row">
           <img src="images/logos.jpg" style="width:3rem;height:3rem;"class="rounded-circle d-inline"alt="">
             <h5 class="card-title ml-1 pb-10 mr-auto">Distribuidora SG</h5>
-            <a href="index.php?c=formularios&a=removePublicacion&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger mb-0 py-2"><span class="icon "><i class="bi bi-trash py-auto"></i></span> </a>  
+            <a href="index.php?c=formularios&a=removePublicacion&id=<?= $key['id']?>&r=<?= $key['rutaImg']?>" class="btn btn-danger py-auto"style="height:2rem;"> <span class="icon"><i class="bi bi-trash"></i></span> </a>  
+          </div>
           </div>
           <div class="card-body">            
             <p class="card-text pb-0"><?= $key['comentario']?></p>
           </div>
-          <img src="<?= $key["rutaImg"]?>" class="card-img-top rounded-0 " alt="...">
+          <img src="<?= $key["rutaImg"]?>" class="card-img-top rounded-0 " style="height: 18rem;" alt="...">
           <div class="card-footer">
           <small class="text-muted"> Publicado <?= $key['fecha']?></small>
         </div>
         </div>
-      </div>
+      
 <?php }?>
     
     </div>

@@ -127,12 +127,25 @@ public function servicioConPdf()
     public function getUsuario($correo, $contrasena)
     {#Por el momento solo necesito el nombre y le tipo de ususario 
         $pass = md5($contrasena);
-        $sql = "SELECT nombre,rol,activo FROM usuarios WHERE correo='$correo' AND contrasena='$pass';";
+        $sql = "SELECT nombre,rol,activo,correo,hash,activo FROM usuarios WHERE correo='$correo' AND contrasena='$pass';";
         $usuario = $this->based->prepare($sql);
          $usuario->execute();
         $us = $usuario->fetch();
         return $us;  
     }
+    public function getUser($id)
+    {
+        $sql = "SELECT * FROM usuarios WHERE id='$id';";
+        $user = $this->based->prepare($sql);
+        $user->execute();
+    }
+  public function cambioMayorista($hash,$giro,$direccion)     
+  {
+    $sql = "UPDATE usuarios SET giro = '$giro', direccion = '$direccion' activo = 0 WHERE hash = '$hash';";
+    $actualizado = $this->based->prepare($sql);
+    $actualizado->execute();
+    return $actualizado->columnCount();
+  }
     public function setPdf($tipo,$ruta){
         $sql = "INSERT INTO pdfs(tipo,rutaPdf) VALUES('$tipo','$ruta');";
         $resul = $this->based->prepare($sql);
@@ -299,6 +312,12 @@ public function servicioConPdf()
         $eliminado = $this->based->prepare($sql);
         $eliminado->execute();
         return $eliminado;
+    }
+    public function activandoMayor($correo,$hash){
+        $sql = "UPDATE usuarios SET activo = 1 WHERE correo = '$correo' AND hash='$hash' ;";
+        $actualizado = $this->based->prepare($sql);
+        $actualizado->execute();
+        return $actualizado->columnCount();
     }
 
 }
