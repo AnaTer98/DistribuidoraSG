@@ -21,7 +21,7 @@ include "views/components/navegador.php";
     <a href="<?= $data['catalogos']['menudeo']?>" class="text-muted ">
         <div class="card shadow-sm">
             <div class="card-header bg-light">
-                <p class="card-title h5"> Catalogo Minorista</p>
+                <p class="card-title h5"> Catálogo Minorista</p>
             </div>
             <div class="card-body">
             <img src="catalogo.png" class="card-img-bottom w-50 mx-auto" alt="">
@@ -50,7 +50,7 @@ include "views/components/navegador.php";
     <a href="" class="text-muted">
         <div class="card shadow-sm">
             <div class="card-header ">
-                <p class="card-title h5">Catalogo Mayorista</p>
+                <p class="card-title h5">Catálogo Mayorista</p>
             </div>
             <div class="card-body">
             <img src="catalogo.png" class="card-img-bottom w-50 mx-auto" alt="">
@@ -60,11 +60,11 @@ include "views/components/navegador.php";
         <?php }else{?>
             <div class="card">
             <div class="card-header  border-bottom-info">
-                <p class="card-title h5"> Catalogo Mayorista</p>
+                <p class="card-title h5"> Catálogo Mayorista</p>
             </div>
             <div class="card-body text-center">
             <img src="advertencia.png" class="card-img-bottom w-50 mx-auto" alt="">
-            <p class="h5">Por el momento no hay catalogo disponible vuelva mas tarde!</p>
+            <p class="h5">Por el momento no hay catálogo disponible vuelva mas tarde!</p>
             </div>
         </div>
         <?php }}else{ ?>
@@ -74,9 +74,8 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body content-center">
                 <!--Aqui sera el modal la activacion-->
-                <p class="card-text ">No eres un cliente mayorista <br>Te gustaría serlo, solicita tu cambio ahora</p>
-            
-                <button data-toggle="modal" data-target="#modalForm" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar Catalogo</a>
+                <p class="card-text ">¿Te gustaría serlo?<br>Solicita tu cambio ahora</p>
+                <button data-toggle="modal" data-target="#modalForm" class="btn btn-outline-success w-60 "><i class="bi bi-journal-arrow-up mr-1"></i>Solicitar </a>
             </div>
         </div>
             <?php }?>
@@ -88,7 +87,7 @@ include "views/components/navegador.php";
               <p class="card-title mx-auto ">No has te has registrado</p>
             </div>
             <div class="card-body">
-              <p class="card-text">Para tener acceso a nuestros catalogos necesitas registrarte :)</p>
+              <p class="card-text">Para tener acceso a nuestros catálogos nece  sitas registrarte</p>
              <div class="container container-center px-4"><img src="logeando.svg" class="card-img-top  mt-1 mx-auto" height="180"></div>
               <a href="index.php?c=vistas&a=registrar" class="btn btn-outline-success"><i class="bi bi-box-arrow-up mr-1"></i>Resgistrarte</a>
             </div>
