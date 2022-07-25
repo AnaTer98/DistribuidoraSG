@@ -135,6 +135,7 @@ include "views/components/navegador.php";
 
 </div>
 </div>
+
 <script>
      const direccion = document.getElementById("direccion");
      const giro = document.getElementById("giro");  
@@ -177,6 +178,7 @@ include "views/components/navegador.php";
 
 
 </script>
+<br><br><br><br><br><br><br><br><br><br>
 <?php
 include "views/components/footer.php";
 ?>

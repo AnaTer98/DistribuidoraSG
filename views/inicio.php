@@ -3,7 +3,7 @@ session_start();
 include_once("./views/components/header.php");
 include_once('./views/components/carrusel.php');
 ?>
-<div class="container mx-auto col-12" id="wrapper">
+<div class="mx-auto d-flex bg-light rounded-top" style="width:95%"id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Nuestros productos y servicios</div>
@@ -13,7 +13,7 @@ include_once('./views/components/carrusel.php');
     <?php }}?>
     </div>
   </div>
-  <div class="bg-light  ">
+  <div class="container bg-light w-100 ">
     <!--Aqui importar el navegador -->
     <?php include_once('views/components/navegador.php'); ?>
     <!--<button class="btn btn-warning my-2 my-sm-0" id="menu-toggle" type="submit"><i class="bi bi-bar-chart-steps"></i></button>-->

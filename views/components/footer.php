@@ -11,21 +11,24 @@
      <!--Redes sociales-->
      <ul class="col-6 list-unstyled mt-3 ml-1">
       <li class="font-weight-bold text-uppercase">Redes Solciales</li>
-      <li class="d-flex justify-content-between">
+      <li class="d-flex ">
         <!--Facebook-->
-        <a href="http://" class="text-reset "style="font-size:2em;">  
-        <span ><i class="bi bi-facebook "  style="width: 5rem;"></i></span>
+        <a href="http://" class="text-reset font-weight-bold "style="font-size:1.3em;">  
+        <span ><i class="bi bi-facebook "  style="width: 5rem;"></i> Facebook</span>
         </a>
-        
-        <a href="http://" class="text-reset"style="font-size:2em;">  
-        <i class="bi bi-whatsapp"  style="width: 5rem;"></i>
+      </li>   
+      <li class="d-flex justify-content-between">
+
+      <a href="http://" class="text-reset font-weight-bold"style="font-size:1.5em;">  
+        <i class="bi bi-instagram"  style="width: 5rem;">Instagram</i>
         </a>
-        
-        <a href="http://" class="text-reset"style="font-size:2em;">  
-        <i class="bi bi-instagram "  style="width: 5rem;"></i>
-        </a>
-        
       </li>
+      <li class="d-flex">
+      <a href="http://" class="text-reset font-weight-bold"style="font-size:1.5em;">  
+        <i class="bi bi-whatsapp"  style="width:5rem;">Whatsapp</i>
+        </a>
+        </li>
+  
 </ul>
 
   </nav>
