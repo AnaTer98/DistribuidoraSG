@@ -8,8 +8,8 @@ include "views/components/navegador.php";
     <div class="row">
     <div class="col-8  mt-4 ml-3 ">
       <h5 class="font-weight-bold text-dark">Propuesta</h5>
-      <p>Somos una empresa responsable, que ofrece distribuir tus productos de accesorios en telefonía entre otros prodcutos como laptops y celulares etc.
-        Nosotros buscamos personas responsables y dispuestas ha trabajar, negociar con nosotros, para expandir nuestros negocios y lograr hacerlos más rentables. 
+      <p>
+      Somos una empresa responsable, que ofrece distribuir tus productos de accesorios en telefonía entre otros productos como laptops y celulares etc. Nosotros buscamos personas responsables y dispuestas a trabajar, negociar con nosotros, para expandir nuestros negocios y lograr hacerlos más rentables.
       </p>
     </div>
     <div class="col">

@@ -13,18 +13,18 @@
       <li class="font-weight-bold text-uppercase">Redes Solciales</li>
       <li class="d-flex ">
         <!--Facebook-->
-        <a href="http://" class="text-reset font-weight-bold "style="font-size:1.3em;">  
+        <a href="https://www.facebook.com/distribuidorasg.com.mx" class="text-reset font-weight-bold "style="font-size:1.3em;">  
         <span ><i class="bi bi-facebook "  style="width: 5rem;"></i> Facebook</span>
         </a>
       </li>   
       <li class="d-flex justify-content-between">
 
-      <a href="http://" class="text-reset font-weight-bold"style="font-size:1.5em;">  
+      <a href="https://www.instagram.com/Dist.sg/" class="text-reset font-weight-bold"style="font-size:1.5em;">  
         <i class="bi bi-instagram"  style="width: 5rem;">Instagram</i>
         </a>
       </li>
       <li class="d-flex">
-      <a href="http://" class="text-reset font-weight-bold"style="font-size:1.5em;">  
+      <a href="https://wa.me/message/2O6YQDAU74BWB1" class="text-reset font-weight-bold"style="font-size:1.5em;">  
         <i class="bi bi-whatsapp"  style="width:5rem;">Whatsapp</i>
         </a>
         </li>
