@@ -52,6 +52,10 @@ public function adminCatalogos(){
         $data['usuarios'] = $this->model->getUsuarios();
         require_once"views/administrador/usuarios.php";
     }
+    public function adminUsuariosMayoristas(){
+        $data['usuarios'] = $this->model->getUsuariosM();
+        require_once"views/administrador/usuariosM.php";
+    }
     public function postuladosAd(){
         $data['postulados']= $this->model->personasPostuladas();
         require_once"views/administrador/postulados.php";

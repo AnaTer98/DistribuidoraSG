@@ -80,13 +80,20 @@ public function servicioConPdf()
     //Usuarios
     public function getUsuarios()
     {
-        $stringSql = "SELECT * FROM usuarios";
+        $stringSql = "SELECT * FROM usuarios WHERE rol='menudeo'";
         $usuarios = $this->based->query($stringSql);
         $usuarios->execute();
         $us = $usuarios->fetchAll();
         return $us;
     }
-
+    public function getUsuariosM()
+    {
+        $stringSql = "SELECT * FROM usuarios WHERE rol='mayoreo'";
+        $usuarios = $this->based->query($stringSql);
+        $usuarios->execute();
+        $us = $usuarios->fetchAll();
+        return $us;
+    }
     public function verificarCorreo($correo)
     {
         $strinsql = "SELECT correo FROM usuarios WHERE correo='$correo';";

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'components/header.php';
 ?>
 <!-- Begin Page Content -->
@@ -15,21 +14,21 @@ include 'components/header.php';
   </div>
   <div class="row row-cols-2">
     <div class="col ">
-      <div class="container border-bottom-secondary mb-3"> <h5 class="text-center pb-2"> Usuarios Minoristas</h5></div>
+    <a href="index.php?c=vistasAd&a=adminUsuarios"><div class="container btn bg-dark text-white mb-3"><h5 class="text-center">Usuarios Minoristas</h5></div></a>  
     </div>
     <div class="col">
-      <a href="index.php?c=vistasAd&a=adminUsuariosMayoristas"><div class="container btn bg-dark text-white mb-3"><h5 class="text-center">Usuarios Mayoristas</h5></div></a>
+    <div class="container border-bottom-secondary mb-3"> <h5 class="text-center pb-2"> Usuarios Mayoristas</h5></div>
     </div>
   </div>
 <div class="d-flex justify-content-center mb-3">
   <div class="row justify-content-around">
 <div class="col-4 row no-gutters">
-  <div class="col bg-primary rounded" style="width:4rem;height:3rem; border:.25rem #e4e8f3 solid ;"></div>
-  <div class="col "><p class="ml-2 card-text">Usuario Activado</p></div>
-</div>
-<div class="col-4 row no-gutters">
   <div class="col bg-danger rounded" style="width:4rem;height:3rem; border:.25rem #e4e8f3 solid ;"></div>
   <div class="col "><p class="ml-2 card-text">Usuario Desactivado</p></div>
+</div>
+<div class="col-4 row no-gutters">
+  <div class="col bg-success rounded" style="width:4rem;height:3rem; border:.25rem #e4e8f3 solid ;"></div>
+  <div class="col "><p class="ml-2 card-text">Usuario Activado</p></div>
 </div>
 </div>
 
@@ -51,11 +50,11 @@ include 'components/header.php';
     <?php foreach ($data['usuarios'] as $key ) {
       $txt=" text-white";
       switch ($key['rol']) {      
-      case 'menudeo':
+      case 'mayoreo':
         if($key['activo']==0){
           $bg = "bg-danger";
         }else{
-          $bg = "bg-primary";
+          $bg = "bg-success";
         }
         break;
       default:
