@@ -15,10 +15,11 @@ include "views/components/navegador.php";
 
 <div class="row  py-3 ">
   <!--Una caja mas grande para hacer que se registre -->
-  <?php if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){?>
+  <?php if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){ var_dump($data['catalogoMino'] );?>
     <div class="col-6">
-    <?php if($data['catalogos']["menudeo"] !== NULL ){ ?>
-    <a href="<?= $data['catalogos']['menudeo']?>" class="text-muted ">
+      
+    <?php if($data['catalogoMino']["tipo"] !== NULL ){ ?>
+    <a href="<?= $data['catalogoMino']['rutaPdf']?>" class="text-muted ">
         <div class="card shadow-sm">
             <div class="card-header bg-light">
                 <p class="card-title h5"> Catálogo Minorista</p>
@@ -38,7 +39,7 @@ include "views/components/navegador.php";
             </div>
             <div class="card-body text-center">
             <img src="advertencia.png" class="card-img-bottom w-50 mx-auto" alt="">
-            <p class="h5">Por el momento no hay catalogo disponible vuelba mas tarde!</p>
+            <p class="h5">Por el momento no hay catálogo disponible vuelva mas tarde!</p>
             </div>
         </div>
       
@@ -46,8 +47,8 @@ include "views/components/navegador.php";
     </div>
     <div class="col-6">
     
-<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogos']['mayoreo'] !== NULL){  ?>
-    <a href="" class="text-muted">
+<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogoMay']['tipo'] !== NULL){  ?>
+    <a href="<?= $data['catalogoMay']['mayoreo']?>" class="text-muted">
         <div class="card shadow-sm">
             <div class="card-header ">
                 <p class="card-title h5">Catálogo Mayorista</p>

@@ -35,14 +35,11 @@
 
          
         public function catalogos(){
-            $catalogos = $this->model->getPdfs();
-            if($catalogos[0]['tipo']=='normal'){
-                $array = array("menudeo" => $catalogos[0]['rutaPdf']!== NULL ? "":"" ,"mayoreo"=>$catalogos[1]['rutaPdf'] );
-            }else{
-                $array = array("menudeo" => $catalogos[1]['rutaPdf'],"mayoreo"=>$catalogos[0]['rutaPdf']);
-            }
-           
-            $data['catalogos'] = $array;
+            $data['catalogoMino'] = $this->model->getPdfMino();
+            $data['catalogoMay'] = $this->model->getPdfMay();
+
+        
+       
             require_once "views/catalogos.php";
         }
         public function cotiza()

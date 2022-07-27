@@ -7,20 +7,26 @@ include_once "views/administrador/components/header.php";
 <?php 
 $datosNor = array();
 $datosMay = array();
-
-    if(isset($data['catalogos']) && !empty($data['catalogos'])){
-        foreach ($data['catalogos'] as $key) {
+    if(isset($data['catalogoMino']) && !empty($data['catalogoMino'])){
+        foreach ($data['catalogoMino'] as $key) {
             if($key['tipo']=="minorista"){
-            array_push($datosNor,$key['id'],$key['tipo'],$key['rutaPdf']);         
+            array_push($datosNor,$key['id'],$key['tipo'],$key['rutaPdf']); 
+            echo($key['id'].$key['tipo'].$key['rutaPdf']);
+            
             }
+          
+        }
+       exit;
+       
+    }
+    if(isset($data['catalogoMayo']) && !empty($data['catalogoMayo'])){
+        foreach($data['catalogoMayo'] as $key){
             if($key['tipo']=="mayorista"){
-            array_push($datosMay,$key['id'],$key['tipo'],$key['rutaPdf']);
+                array_push($datosMay,$key['id'],$key['tipo'],$key['rutaPdf']);
+                echo("Mayorista==>".$key['id'].$key['tipo'].$key['rutaPdf']);
             }
         }
-       
-   
-    }else{
-#no pasa nada
+        exit;
     }
 
 
@@ -28,7 +34,6 @@ $datosMay = array();
 ?>
 
 <div class="container-fluid">
-
     <div class="card mb-4 py-1 " style="border-bottom: 0.30rem red solid !important;">
         <div class="card-body">
             <div class="d-sm-flex align-items-center">
@@ -57,11 +62,11 @@ $datosMay = array();
                     <div class="card-body p-0 m-0  <?php echo(empty($datosNor) ? "bg-danger":"bg-success")  ?>">
                         <div class="position-relative  m-0 p-0 w-100  ">
 
-                            <input type="text" name="tipo" class="d-none" value="minorista" id="">
+                            <input type="text" name="tipo" class="d-none" value="minorista" />
                             <div class="text-white text-center">
                                 <img src="file-earmark-pdf.svg" class="img-fluid py-2 " style=" color:white;width: 30%;" alt="...">
                             </div>
-                            <input type="file" <?php echo(empty($datosNor)? "":"disabled");?>  name="catalogo" class="<?php echo(empty($datosNor) ? "":"d-none")?>" required style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%;opacity:0;" id="">
+                            <input type="file" <?php echo(empty($datosNor)? "required":"disabled");?>  placeholder="" name="catalogos" class="<?php echo(!empty($datosNor) ? "":"d-none")?>"  style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%;opacity:0;" >
                         </div>
                     </div>
                     <div class="card footer ">

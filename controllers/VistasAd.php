@@ -31,7 +31,8 @@ public function adminPublicaciones(){
     require_once"views/administrador/publicaciones.php";}
 
 public function adminCatalogos(){
-    $data['catalogos'] = $this->model->getPdfs();
+    $data['catalogoMino'] =  $this->model->getPdfMino();
+    $data['catalogoMayo'] = $this->model->getPdfMay();
     require_once"views/administrador/catalogo.php";}
 
 

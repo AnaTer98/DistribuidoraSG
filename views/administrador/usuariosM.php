@@ -42,6 +42,8 @@ include 'components/header.php';
       <th scope="col">Nombre</th>
       <th scope="col">Correo</th>
       <th scope="col">Telefono</th>
+      <th class="col">Giro</th>
+      <th class="col">Dirección</th>
       <th scope="col">Rol</th>
       <th scope="col">Activo</th>
     </tr>
@@ -67,6 +69,8 @@ include 'components/header.php';
       <td><?= $key['nombre']?></td>
       <td><?= $key['correo']?></td>
       <td><?= $key['telefono']?></td>
+      <td><?= $key['giro']?></td>
+      <td><p><?= $key['direccion']?></p></td>
       <td><?= $key['rol']?></td>
       <td><?= $key['activo']?></td>
     </tr>

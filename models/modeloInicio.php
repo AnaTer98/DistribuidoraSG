@@ -160,13 +160,21 @@ public function servicioConPdf()
         $resul->rowCount();
         return $resul;
     }
-    public function getPdfs(){
-           $sql = "SELECT * FROM pdfs";
+
+    public function getPdfMino(){
+           $sql = "SELECT * FROM pdfs WHERE tipo='minorista'";
            $result = $this->based->prepare($sql);
            $result->execute();
          $res =   $result->fetchAll(PDO::FETCH_ASSOC);
             return $res;
     }
+    public function getPdfMay(){
+        $sql = "SELECT * FROM pdfs WHERE tipo='mayorista'";
+        $result = $this->based->prepare($sql);
+        $result->execute();
+      $res =   $result->fetchAll(PDO::FETCH_ASSOC);
+         return $res;
+ }
     public function removeCatalogo($id){
         $ids = $id;
         $sql = "DELETE FROM pdfs WHERE id='$ids';";

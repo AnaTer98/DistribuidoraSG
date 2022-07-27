@@ -92,7 +92,13 @@ if($activado){
         $this->cambioMayorista($email,$hash);
         $_SESSION['mensajeActivado'] = ["succes", "Hemos enviado un correo de activación, has click en el enlace enviado"];
         header("Location:index.php?c=vistas&a=catalogos");
+      }else{
+        $_SESSION['mensajeActivado'] = ["error", "Algo malo paso intentalo más tarde!"];
+        header("Location:index.php?c=vistas&a=catalogos");
       }
+    }else{
+      $_SESSION['mensajeActivado'] = ["error", "Algo malo paso intentalo más tarde!"];
+      header("Location:index.php?c=vistas&a=catalogos");
     }
   }
   public function cerrar()
