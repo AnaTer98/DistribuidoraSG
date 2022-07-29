@@ -33,6 +33,7 @@ include "views/components/navegador.php";
   
     
 </div>
+<br><br><br><br><br><br>
 
 <?php
 include "views/components/footer.php";
