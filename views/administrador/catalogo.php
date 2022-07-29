@@ -8,25 +8,10 @@ include_once "views/administrador/components/header.php";
 $datosNor = array();
 $datosMay = array();
     if(isset($data['catalogoMino']) && !empty($data['catalogoMino'])){
-        foreach ($data['catalogoMino'] as $key) {
-            if($key['tipo']=="minorista"){
-            array_push($datosNor,$key['id'],$key['tipo'],$key['rutaPdf']); 
-            echo($key['id'].$key['tipo'].$key['rutaPdf']);
-            
-            }
-          
-        }
-       exit;
-       
+     array_push($datosNor,$data['catalogoMino'][0]['id'],$data['catalogoMino'][0]['tipo'],$data['catalogoMino'][0]['rutaPdf']);
     }
     if(isset($data['catalogoMayo']) && !empty($data['catalogoMayo'])){
-        foreach($data['catalogoMayo'] as $key){
-            if($key['tipo']=="mayorista"){
-                array_push($datosMay,$key['id'],$key['tipo'],$key['rutaPdf']);
-                echo("Mayorista==>".$key['id'].$key['tipo'].$key['rutaPdf']);
-            }
-        }
-        exit;
+        array_push($datosMay,$data['catalogoMayo'][0]['id'],$data['catalogoMayo'][0]['tipo'],$data['catalogoMayo'][0]['rutaPdf']);
     }
 
 
@@ -52,9 +37,9 @@ $datosMay = array();
       
      <?php  $_SESSION['mensaje'] ="";}?>
 <div class="container">
-    <div class="row  row-cols-2">
+    <div class="row row-cols-2">
         <div class="col">
-        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=");?> <?= $datosNor[0]?><?php echo("&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
+        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=");?><?= $datosNor[0]?><?php echo("&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
                 <div class="card border">
                     <div class="card-header">
                         <h3 class="card-title">Catalogo Minorista</h3>
@@ -66,7 +51,7 @@ $datosMay = array();
                             <div class="text-white text-center">
                                 <img src="file-earmark-pdf.svg" class="img-fluid py-2 " style=" color:white;width: 30%;" alt="...">
                             </div>
-                            <input type="file" <?php echo(empty($datosNor)? "required":"disabled");?>  placeholder="" name="catalogos" class="<?php echo(!empty($datosNor) ? "":"d-none")?>"  style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%;opacity:0;" >
+                            <input type="file" <?php echo(empty($datosNor)? "required":"disabled");?> name="catalogo" class="<?php echo(!empty($datosNor) ? "d-none":"")?>"  style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;width:100%;height:100%;opacity:0;" >
                         </div>
                     </div>
                     <div class="card footer ">

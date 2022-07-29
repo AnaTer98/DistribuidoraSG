@@ -160,7 +160,7 @@ class ControllerFormularios extends ControllerAcciones
             $dbEliminado = $this->model->removeCatalogo((int)$id);
             $archEliminado = $this->acciones->borrarImg($ruta);
             if($dbEliminado && $archEliminado){
-                $_SESSION['mensaje']= ['warning','Catalogo. ','Eliminado!!'];
+                $_SESSION['mensaje']= ['warning','Catálogo. ','Eliminado!!'];
                 header("Location:index.php?c=vistasAd&a=adminCatalogos");
             }
         }

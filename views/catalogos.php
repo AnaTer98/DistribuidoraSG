@@ -3,8 +3,7 @@ session_start();
 include "views/components/header.php";
 include "views/components/navegador.php";
 ?>
-<div class="content bg-light mx-auto rounded col-8">
-  
+<div class="content bg-light mx-auto rounded col-8 pt-1">
 <?php if(isset($_SESSION['mensajeActivado']) && !empty($_SESSION['mensajeActivado'])){ ?>
 <div class="col-11 bg-<?= $_SESSION['mensajeActivado'][0] ?>  mb-3 rounded container">
   <p class="font-weight-normal p-4 text-white h3">
@@ -13,13 +12,12 @@ include "views/components/navegador.php";
 </div>
 <?php $_SESSION["mensajeActivado"] ="";}?>
 
-<div class="row  py-3 ">
+<div class="row py-3">
   <!--Una caja mas grande para hacer que se registre -->
-  <?php if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){ var_dump($data['catalogoMino'] );?>
+  <?php if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])){?>
     <div class="col-6">
-      
-    <?php if($data['catalogoMino']["tipo"] !== NULL ){ ?>
-    <a href="<?= $data['catalogoMino']['rutaPdf']?>" class="text-muted ">
+    <?php if($data['catalogoMino'][0]["tipo"] !== NULL ){ ?>
+    <a href="<?= $data['catalogoMino'][0]['rutaPdf']?>" class="text-muted ">
         <div class="card shadow-sm">
             <div class="card-header bg-light">
                 <p class="card-title h5"> Catálogo Minorista</p>
@@ -47,8 +45,8 @@ include "views/components/navegador.php";
     </div>
     <div class="col-6">
     
-<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogoMay']['tipo'] !== NULL){  ?>
-    <a href="<?= $data['catalogoMay']['mayoreo']?>" class="text-muted">
+<?php if( (isset($_SESSION['usuario'])||!empty($_SESSION['usuario'])) && ($_SESSION['usuario'][1] == "mayoreo")){ if ($data['catalogoMay'][0]['tipo'] !== NULL){  ?>
+    <a href="<?= $data['catalogoMay'][0]['rutaPdf']?>" class="text-muted">
         <div class="card shadow-sm">
             <div class="card-header ">
                 <p class="card-title h5">Catálogo Mayorista</p>
@@ -88,7 +86,7 @@ include "views/components/navegador.php";
               <p class="card-title mx-auto ">No has te has registrado</p>
             </div>
             <div class="card-body">
-              <p class="card-text">Para tener acceso a nuestros catálogos nece  sitas registrarte</p>
+              <p class="card-text">Para tener acceso a nuestros catálogos necesitas registrarte</p>
              <div class="container container-center px-4"><img src="logeando.svg" class="card-img-top  mt-1 mx-auto" height="180"></div>
               <a href="index.php?c=vistas&a=registrar" class="btn btn-outline-success"><i class="bi bi-box-arrow-up mr-1"></i>Resgistrarte</a>
             </div>

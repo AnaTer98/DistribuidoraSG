@@ -148,7 +148,8 @@ public function servicioConPdf()
     }
   public function cambioMayorista($hash,$giro,$direccion)     
   {
-    $sql = "UPDATE usuarios SET giro = '$giro', direccion = '$direccion' activo = 0 WHERE hash = '$hash';";
+    $sql = "UPDATE usuarios SET giro = '$giro', direccion = '$direccion', activo = 0 WHERE hash = '$hash'";
+    echo($sql);
     $actualizado = $this->based->prepare($sql);
     $actualizado->execute();
     return $actualizado->columnCount();

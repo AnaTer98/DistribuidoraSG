@@ -90,14 +90,14 @@ if($activado){
       $cambio = $this->modelo->cambioMayorista($hash, $giro, $direccion);//Hacer el cambio de activo ha inactivo 
       if ($cambio) {
         $this->cambioMayorista($email,$hash);
-        $_SESSION['mensajeActivado'] = ["succes", "Hemos enviado un correo de activación, has click en el enlace enviado"];
+        $_SESSION['mensajeActivado'] = ["success", "Hemos enviado un correo de activación, has click en el enlace enviado"];
         header("Location:index.php?c=vistas&a=catalogos");
       }else{
-        $_SESSION['mensajeActivado'] = ["error", "Algo malo paso intentalo más tarde!"];
+        $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
         header("Location:index.php?c=vistas&a=catalogos");
       }
     }else{
-      $_SESSION['mensajeActivado'] = ["error", "Algo malo paso intentalo más tarde!"];
+      $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
       header("Location:index.php?c=vistas&a=catalogos");
     }
   }
