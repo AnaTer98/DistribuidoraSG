@@ -225,8 +225,8 @@ class ControllerFormularios extends ControllerAcciones
     }
     public function removeCotizador($id,$ruta){
         $borrado = $this->acciones->borrarImg($ruta);
-        if($borrado ){
-        $this->model->removeCotizador($id);
+        $registroBorrado = $this->model->removeCotizador($id);
+        if($borrado || $registroBorrado){
         $_SESSION['mensaje']=["info","La tarjeta de cotizador fue, ","Eliminada"];
         header("Location:index.php?c=vistasAd&a=adminCotiza");
         }else{
