@@ -11,23 +11,23 @@
      <!--Redes sociales-->
      <ul class="col-6 list-unstyled mt-3 ml-1">
       <li class="font-weight-bold text-uppercase">Redes Solciales</li>
-      <li class="d-flex ">
+    
+      <li class="d-flex justify-content-between mt-2">
         <!--Facebook-->
-        <a href="https://www.facebook.com/distribuidorasg.com.mx" class="text-reset font-weight-bold "style="font-size:1.3em;">  
-        <span ><i class="bi bi-facebook "  style="width: 5rem;"></i> Facebook</span>
+        <a href="https://www.facebook.com/distribuidorasg.com.mx" class="text-reset  "style="font-size:1.8em; ">  
+      <span ><i class="bi bi-facebook "></i> </span>
+        </a>
+        <!--Intagram-->
+        <a href="https://www.instagram.com/Dist.sg/" class="text-reset font-weight-bold " style="font-size:1.8em;">  
+     <span><i class="bi bi-instagram"  ></i></span>
+        </a>
+        <!--Whatsapp-->
+        <a href="https://wa.me/message/2O6YQDAU74BWB1" class="text-reset font-weight-bold"style="font-size:1.8em;">  
+     <span><i class="bi bi-whatsapp" ></i></span>
         </a>
       </li>   
-      <li class="d-flex justify-content-between">
-
-      <a href="https://www.instagram.com/Dist.sg/" class="text-reset font-weight-bold"style="font-size:1.5em;">  
-        <i class="bi bi-instagram"  style="width: 5rem;">Instagram</i>
-        </a>
-      </li>
-      <li class="d-flex">
-      <a href="https://wa.me/message/2O6YQDAU74BWB1" class="text-reset font-weight-bold"style="font-size:1.5em;">  
-        <i class="bi bi-whatsapp"  style="width:5rem;">Whatsapp</i>
-        </a>
-        </li>
+   
+ 
   
 </ul>
 
