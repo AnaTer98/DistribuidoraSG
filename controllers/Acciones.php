@@ -3,7 +3,8 @@ session_start();
 include_once 'models/modeloInicio.php';
 class ControllerAcciones
 {
-  private $modelo;
+  public $modelo;
+
   function __construct()
   {
     $this->modelo = new modeloInicio();
@@ -30,22 +31,25 @@ class ControllerAcciones
 
   public function cambioMayorista($email,$hash)
   {
+    echo($email.$hash);
     $para = $email;
     $titulo = "Activación | Verificación";
     $mensaje = '
-  Gracias por confiar en nosotros
+  Gracias por confiar en nosotros.
   Tu cuenta ha sido creada, actualizada utilizando el enlace en la parte inferior.
   +----------------------------+
   Corrreo:' . $para . '
   +----------------------------+
   Por favor has clic en este enlace para actualizar tu cuenta a mayorista :
-  http://distribuidorasg.com.mx/index.php?c=acciones&a=activarMayor&id='.$para .'&r'.$hash.' 
+  http://distribuidorasg.com.mx/index.php?c=acciones&a=activarMayor&id=' . $para .'&r='.$hash.' 
   
   ';
     $header = "From:administracion@distribuidorasg.com.mx" . "\r\n";
     $enviado =  mail($para, $titulo, $mensaje, $header);
     return $enviado;
   }
+
+
   public function borrarImg($rutas)
   {
     $ruta = (string)$rutas;
@@ -71,36 +75,19 @@ class ControllerAcciones
     #en caso de que sea verdadero el hash 
 
   }
-  public function activarMayor($correo,$hash)
-  {
+  public function activarMayor($correo,$hash){
     $activado = $this->modelo->activandoMayor($correo,$hash);
-if($activado){
+    echo($correo."==>".$hash);
+if($activado>0){
     $_SESSION['mensajeActivado']=["success","Felicidades ahora tendras acceso a nuestro catalogo mayorista, disfruta de los venficios"];
-    header("Location:https://localhost/DistribuidoraSg/index.php?c=vistas&a=catalogos");
+    header("Location:index.php?c=vistas&a=catalogos");
 }else{
+  echo($activado);
   $_SESSION['mensajeActivado']=["danger","Algo salio mal al hacer el cambio intentalo más tarde"];
-  header("Location:https://localhost/DistribuidoraSg/index.php?c=vistas&a=catalogos");
+ # header("Location:index.php?c=vistas&a=catalogos");
 }
   }
-  public function activarMayorista($email,$hash)
-  {
-    if (isset($_POST['cambioMayorista'])) {
-      $giro = $_POST["giro"];
-      $direccion = $_POST["direccion"];
-      $cambio = $this->modelo->cambioMayorista($hash, $giro, $direccion);//Hacer el cambio de activo ha inactivo 
-      if ($cambio) {
-        $this->cambioMayorista($email,$hash);
-        $_SESSION['mensajeActivado'] = ["success", "Hemos enviado un correo de activación, has click en el enlace enviado"];
-        header("Location:index.php?c=vistas&a=catalogos");
-      }else{
-        $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
-        header("Location:index.php?c=vistas&a=catalogos");
-      }
-    }else{
-      $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
-      header("Location:index.php?c=vistas&a=catalogos");
-    }
-  }
+
   public function cerrar()
   {
     session_unset();

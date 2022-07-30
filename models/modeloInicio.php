@@ -330,7 +330,7 @@ public function servicioConPdf()
         return $eliminado;
     }
     public function activandoMayor($correo,$hash){
-        $sql = "UPDATE usuarios SET activo = 1 WHERE correo = '$correo' AND hash='$hash' ;";
+        $sql = "UPDATE usuarios SET activo = 1,rol='mayoreo' WHERE  hash='$hash' AND correo = '$correo'";
         $actualizado = $this->based->prepare($sql);
         $actualizado->execute();
         return $actualizado->columnCount();

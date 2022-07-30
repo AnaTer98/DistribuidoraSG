@@ -358,4 +358,23 @@ class ControllerFormularios extends ControllerAcciones
             }
         
     }
+    public function activarMayorista($email,$hash)
+    {
+      if (isset($_POST['cambioMayorista'])) {
+        $giro = $_POST["giro"];
+        $direccion = $_POST["direccion"];
+        $cambio = $this->model->cambioMayorista($hash, $giro, $direccion);//Hacer el cambio de activo ha inactivo 
+        $camb =  $this->acciones->cambioMayorista($email,$hash);
+        if ($cambio) {
+          $_SESSION['mensajeActivado'] = ["success", "Hemos enviado un correo de activación, has click en el enlace enviado"];
+          header("Location:index.php?c=vistas&a=catalogos");   
+        }else{
+          $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
+          header("Location:index.php?c=vistas&a=catalogos");
+        }
+      }else{
+        $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
+        header("Location:index.php?c=vistas&a=catalogos");
+      }
+    }
 }

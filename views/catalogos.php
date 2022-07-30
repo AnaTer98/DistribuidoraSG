@@ -111,14 +111,14 @@ include "views/components/navegador.php";
             <h4>¡Felicidades!</h4>
             <p> Verifica tu correo electronico para hacer el cambio.</p>
         </div>
-        <form  onsubmit="return valida();" action="index.php?c=acciones&a=activarMayorista&id=<?php echo($_SESSION['usuario'][2])?>&r=<?php echo($_SESSION['usuario'][3])?>" id="formulario"enctype="multipart/form-data" method="post">
+        <form  onsubmit="return valida();" action="index.php?c=formularios&a=activarMayorista&id=<?php echo($_SESSION['usuario'][2])?>&r=<?php echo($_SESSION['usuario'][3])?>" id="formulario"enctype="multipart/form-data" method="post">
           <div class="form-group">
             <label for="giro">Nombre de tu empresa</label>
             <input type="text" name="giro" placeholder="Giro" class="form-control" id="giro">
           </div>
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text"  name="nombre" class="form-control"  value="<?php echo($_SESSION['usuario'][1]);?>" disabled id="">
+            <input type="text"  name="nombre" class="form-control"  value="<?php echo($_SESSION['usuario'][0]);?>" disabled id="">
           </div>
           <div class="form-group">
             <label for="direccion">Dirección</label>
