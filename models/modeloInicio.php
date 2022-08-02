@@ -149,7 +149,6 @@ public function servicioConPdf()
   public function cambioMayorista($hash,$giro,$direccion)     
   {
     $sql = "UPDATE usuarios SET giro = '$giro', direccion = '$direccion', activo = 0 WHERE hash = '$hash'";
-    echo($sql);
     $actualizado = $this->based->prepare($sql);
     $actualizado->execute();
     return $actualizado->columnCount();
@@ -331,9 +330,16 @@ public function servicioConPdf()
     }
     public function activandoMayor($correo,$hash){
         $sql = "UPDATE usuarios SET activo = 1,rol='mayoreo' WHERE  hash='$hash' AND correo = '$correo'";
+      echo($sql);
+        try{
         $actualizado = $this->based->prepare($sql);
         $actualizado->execute();
-        return $actualizado->columnCount();
+        $a = $actualizado->columnCount();
+       }catch(Exception $e){
+        echo($e);
+       }
+    
+        return $a;
     }
 
 }

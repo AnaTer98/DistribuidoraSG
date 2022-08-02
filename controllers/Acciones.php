@@ -31,7 +31,6 @@ class ControllerAcciones
 
   public function cambioMayorista($email,$hash)
   {
-    echo($email.$hash);
     $para = $email;
     $titulo = "Activación | Verificación";
     $mensaje = '
@@ -41,7 +40,7 @@ class ControllerAcciones
   Corrreo:' . $para . '
   +----------------------------+
   Por favor has clic en este enlace para actualizar tu cuenta a mayorista :
-  http://distribuidorasg.com.mx/index.php?c=acciones&a=activarMayor&id=' . $para .'&r='.$hash.' 
+  http://distribuidorasg.com.mx/index.php?c=acciones&a=activarMayor&id='. $hash.'&r='.$para.' 
   
   ';
     $header = "From:administracion@distribuidorasg.com.mx" . "\r\n";
@@ -75,17 +74,23 @@ class ControllerAcciones
     #en caso de que sea verdadero el hash 
 
   }
-  public function activarMayor($correo,$hash){
-    $activado = $this->modelo->activandoMayor($correo,$hash);
-    echo($correo."==>".$hash);
-if($activado>0){
-    $_SESSION['mensajeActivado']=["success","Felicidades ahora tendras acceso a nuestro catalogo mayorista, disfruta de los venficios"];
-    header("Location:index.php?c=vistas&a=catalogos");
-}else{
-  echo($activado);
-  $_SESSION['mensajeActivado']=["danger","Algo salio mal al hacer el cambio intentalo más tarde"];
- # header("Location:index.php?c=vistas&a=catalogos");
-}
+  public function activarMayor($hash, $correo)
+  {
+    try{
+   # echo ("UPDATE usuarios SET activo = 1,rol='mayoreo' WHERE  hash='$hash' AND correo = '$correo'");
+     $modificado = $this->modelo->activandoMayor($correo, $hash);
+
+    }catch(PDOException $e){
+      echo($e);
+    }
+    echo("este es el resultado==>".$modificado);
+    if ($modificado != 0) {
+      $_SESSION['mensajeActivado'] = ["success", "Felicidades ahora tendras acceso a nuestro catalogo mayorista, disfruta de los venficios"];
+      #header("Location:index.php?c=vistas&a=catalogos");
+    } else {
+      $_SESSION['mensajeActivado'] = ["danger", "Algo salio mal al hacer el cambio intentalo más tarde"];
+      # header("Location:index.php?c=vistas&a=catalogos");
+    }
   }
 
   public function cerrar()
