@@ -317,17 +317,13 @@ class ControllerFormularios extends ControllerAcciones
             }
         }
     }
-
-    public function postPostular()
-    {
+    public function postPostular(){
         if(isset($_POST['postular'])){
           $puesto = $_POST['puesto'];
           $nombre = $_POST['nombre'];
           $telefono = $_POST['numero'];
           $correo = $_POST['correo'];
-
-         
-            $pdf = $_FILES['cv'];
+          $pdf = $_FILES['cv'];
           $ifPdf = $_FILES['cv']['type'];
           $tmpPdf = $_FILES['cv']['tmp_name'];
             if(!empty($pdf)){
@@ -344,7 +340,6 @@ class ControllerFormularios extends ControllerAcciones
             
             header("Location:index.php?c=vistas&a=vacantes");                                
         }
-
     }
     public function removePostulado($id,$ruta){
         $borrado = $this->model->removePostulante($id);
@@ -355,24 +350,22 @@ class ControllerFormularios extends ControllerAcciones
         }else{
             $_SESSION['mensaje']=['warning','Algo malo paso intentalo más tarde!',"."];
             header("Location:index.php?c=vistasAd&a=postuladosAd");
-            }
-        
+        }
     }
-    public function activarMayorista($email,$hash)
-    {
+    public function activarMayorista($email,$hash){
       if (isset($_POST['cambioMayorista'])) {
         $giro = $_POST["giro"];
         $direccion = $_POST["direccion"];
         $cambio = $this->model->cambioMayorista($hash, $giro, $direccion);//Hacer el cambio de activo ha inactivo 
         $camb =  $this->acciones->cambioMayorista($email,$hash);
         if ($cambio||$camb) {
-          $_SESSION['mensajeActivado'] = ["success", "Hemos enviado un correo de activación, has click en el enlace enviado"];
-          header("Location:index.php?c=vistas&a=catalogos");   
-        }else{
-          $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
-          header("Location:index.php?c=vistas&a=catalogos");
-        }
-      }else{
+                $_SESSION['mensajeActivado'] = ["success", "Hemos enviado un correo de activación, has click en el enlace enviado"];
+                header("Location:index.php?c=vistas&a=catalogos");   
+            }else{
+                $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
+                header("Location:index.php?c=vistas&a=catalogos");
+            }
+          }else{
         $_SESSION['mensajeActivado'] = ["danger", "Algo malo paso intentalo más tarde!"];
         header("Location:index.php?c=vistas&a=catalogos");
       }

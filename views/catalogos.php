@@ -130,7 +130,6 @@ include "views/components/navegador.php";
      
     </div>
   </div>
-
 </div>
 </div>
 

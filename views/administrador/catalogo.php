@@ -13,9 +13,6 @@ $datosMay = array();
     if(isset($data['catalogoMayo']) && !empty($data['catalogoMayo'])){
         array_push($datosMay,$data['catalogoMayo'][0]['id'],$data['catalogoMayo'][0]['tipo'],$data['catalogoMayo'][0]['rutaPdf']);
     }
-
-
-
 ?>
 
 <div class="container-fluid">
@@ -39,7 +36,7 @@ $datosMay = array();
 <div class="container">
     <div class="row row-cols-2">
         <div class="col">
-        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=");?><?= $datosNor[0]?><?php echo("&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
+        <form method="POST" action="index.php?c=formularios&a=<?php echo(empty($datosNor) ? "postCatalogo":"removeCatalogo")?><?php if(!empty($datosNor)){echo("&id=".$datosNor[0]."&r=".$datosNor[2]); } ?>" enctype="multipart/form-data">
                 <div class="card border">
                     <div class="card-header">
                         <h3 class="card-title">Catalogo Minorista</h3>

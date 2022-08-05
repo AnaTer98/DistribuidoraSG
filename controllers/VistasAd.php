@@ -30,7 +30,7 @@ public function adminPublicaciones(){
     $data['publicaciones'] = $this->model->getPublicaciones();
     require_once"views/administrador/publicaciones.php";}
 
-public function adminCatalogos(){
+public function adminCatalogos(){ 
     $data['catalogoMino'] =  $this->model->getPdfMino();
     $data['catalogoMayo'] = $this->model->getPdfMay();
     require_once"views/administrador/catalogo.php";}

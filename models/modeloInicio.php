@@ -231,7 +231,7 @@ public function servicioConPdf()
     {
         $sql = "SELECT * FROM cotizacion";
         $resul = $this->based->prepare($sql);
-        $resul->execute();
+        $resul->execute(); 
         $res = $resul->fetchAll(PDO::FETCH_ASSOC);
         return $res;    
     }
@@ -330,16 +330,15 @@ public function servicioConPdf()
     }
     public function activandoMayor($correo,$hash){
         $sql = "UPDATE usuarios SET activo = 1,rol='mayoreo' WHERE  hash='$hash' AND correo = '$correo'";
-      echo($sql);
-        try{
+
         $actualizado = $this->based->prepare($sql);
-        $actualizado->execute();
-        $a = $actualizado->columnCount();
-       }catch(Exception $e){
-        echo($e);
-       }
-    
-        return $a;
+        if($actualizado->execute()){
+            return true;
+        }else{
+            return false;
+        }
+      
+        
     }
 
 }

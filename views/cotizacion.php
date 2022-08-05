@@ -6,7 +6,6 @@ include "views/components/navegador.php";
 <div class="content bg-light mx-auto rounded col-11">
 
 <?php if(isset($data['cardCotiza']) && !empty($data['cardCotiza'])){echo('<div class="card-columns pt-3">'); foreach($data['cardCotiza'] as $key){?>
-
           <div class="card border-success">
             <div class="card-header d-flex py-1">
               <h5 class="card-title mr-auto my-1">

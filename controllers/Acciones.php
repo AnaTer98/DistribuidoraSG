@@ -1,16 +1,12 @@
 <?php
 session_start();
 include_once 'models/modeloInicio.php';
-class ControllerAcciones
-{
+class ControllerAcciones{
   public $modelo;
-
-  function __construct()
-  {
+  function __construct(){
     $this->modelo = new modeloInicio();
   }
-  public function enviarCorreo($user, $email, $hash)
-  {
+  public function enviarCorreo($user, $email, $hash){
     $para = $email;
     $titulo = "Registro | Verificación";
     $mensaje = '
@@ -28,9 +24,7 @@ class ControllerAcciones
     $enviado =  mail($para, $titulo, $mensaje, $header);
     return $enviado;
   }
-
-  public function cambioMayorista($email,$hash)
-  {
+  public function cambioMayorista($email,$hash){
     $para = $email;
     $titulo = "Activación | Verificación";
     $mensaje = '
@@ -47,19 +41,12 @@ class ControllerAcciones
     $enviado =  mail($para, $titulo, $mensaje, $header);
     return $enviado;
   }
-
-
-  public function borrarImg($rutas)
-  {
+  public function borrarImg($rutas){
     $ruta = (string)$rutas;
     $borrado = unlink($ruta);
     return $borrado;
   }
-
-
-
-  public function activar($correo, $hash)
-  {
+  public function activar($correo, $hash){
     $registrad = $this->modelo->existeCorreo($correo, $hash);
     if (!empty($registrad)) {
       $this->modelo->activandoCorreo($registrad['hash'], $registrad['correo']);
@@ -70,31 +57,18 @@ class ControllerAcciones
       $_SESSION['mensajeActivado'] = ["danger", "Tu correo electronico no se a logrado activar, intentalo mas tarde"];
       header("Location:index.php?c=vistas&a=ingresar");
     }
-
-    #en caso de que sea verdadero el hash 
-
   }
-  public function activarMayor($hash, $correo)
-  {
-    try{
-   # echo ("UPDATE usuarios SET activo = 1,rol='mayoreo' WHERE  hash='$hash' AND correo = '$correo'");
+  public function activarMayor($hash, $correo){
      $modificado = $this->modelo->activandoMayor($correo, $hash);
-
-    }catch(PDOException $e){
-      echo($e);
-    }
-    echo("este es el resultado==>".$modificado);
-    if ($modificado != 0) {
+    if ($modificado) {
       $_SESSION['mensajeActivado'] = ["success", "Felicidades ahora tendras acceso a nuestro catalogo mayorista, disfruta de los venficios"];
-      #header("Location:index.php?c=vistas&a=catalogos");
+      header("Location:index.php?c=vistas&a=catalogos");
     } else {
       $_SESSION['mensajeActivado'] = ["danger", "Algo salio mal al hacer el cambio intentalo más tarde"];
-      # header("Location:index.php?c=vistas&a=catalogos");
+      header("Location:index.php?c=vistas&a=catalogos");
     }
   }
-
-  public function cerrar()
-  {
+  public function cerrar(){
     session_unset();
     header("Location:index.php?c=vistas&a=index");
   }
